@@ -8,4 +8,15 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	font-size: 14px;
+	color: #ffffff;
+	min-width: 275px;
+}
+
+@layer base {
+	.layout {
+		width: 100%;
+		max-width: 64rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
