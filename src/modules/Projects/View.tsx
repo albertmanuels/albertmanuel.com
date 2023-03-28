@@ -1,8 +1,6 @@
-import TemplateLayout from "@/templates/Layout";
-
 const Projects = () => {
 	return (
-		<section className="layout">
+		<section className="layout min-h-mobile sm:min-h-desktop">
 			<div>Projects</div>
 		</section>
 	);

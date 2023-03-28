@@ -7,7 +7,7 @@ import profilePict from "../../assets/albert.jpg";
 const Home = () => {
 	return (
 		<section>
-			<article className="layout min-h-main flex flex-col-reverse items-start justify-center sm:flex-row  sm:items-center sm:justify-start">
+			<article className="layout min-h-mobile sm:min-h-desktop flex flex-col-reverse items-start justify-center sm:flex-row  sm:items-center sm:justify-start">
 				<div className="w-full sm:w-3/5 sm:mr-6">
 					<div className="mb-6">
 						<h1 className="text-cyan-500 text-2xl sm:text-4xl font-extrabold">
@@ -35,7 +35,7 @@ const Home = () => {
 					</div>
 				</div>
 
-				<div className="w-full mb-8 sm:w-2/5">
+				<div className="w-full mb-8 mt-1 sm:mt-0 sm:w-2/5">
 					<Image
 						className="rounded-full mx-auto"
 						src={profilePict}
