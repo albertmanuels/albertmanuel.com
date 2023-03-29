@@ -10,7 +10,7 @@ module.exports = {
 	],
 	theme: {
 		minHeight: {
-			desktop: "calc(100vh - 140px)",
+			desktop: "calc(100vh - 170px)",
 			mobile: "calc(100vh - 170px)",
 		},
 

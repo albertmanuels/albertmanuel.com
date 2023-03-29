@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
+import Head from "next/head";
 import { Fragment } from "react";
 
 const poppins = Poppins({
@@ -11,8 +12,14 @@ const poppins = Poppins({
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<div className={poppins.className}>
-			<Component {...pageProps} />
-		</div>
+		<>
+			<Head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			</Head>
+
+			<div className={poppins.className}>
+				<Component {...pageProps} />
+			</div>
+		</>
 	);
 }
