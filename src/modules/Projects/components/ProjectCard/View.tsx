@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectCardProps } from "./View.types";
-import { STACK_LABEL } from "./View.constants";
-import { cx } from "@emotion/css";
 
 const ProjectCard = ({
 	thumbnail,
@@ -12,20 +10,14 @@ const ProjectCard = ({
 	link,
 }: ProjectCardProps) => {
 	return (
-		<li className="project-card rounded-lg border border-gray-400 flex flex-col w-full overflow-hidden p-4">
-			{/* <div className="tag-stack w-full">
-				{stacks.map((stack, idx) => (
-					<span key={idx} className={cx("rounded-sm text-sm mr-1")}>
-						{stack}
-					</span>
-				))}
-			</div> */}
+		<li className="project-card rounded-lg border border-gray-400 flex flex-col w-full overflow-hidden">
+			<div className="tag-stack w-full"></div>
 			<div className="w-full mb-5">
-				<Image src={thumbnail} alt="thumbnail" className="rounded-lg" />
+				<Image src={thumbnail} alt="thumbnail" />
 			</div>
-			<div>
+			<div className="px-4 pb-4">
 				<section className="mb-4">
-					<h3 className="text-xl text-gray-50 font-medium">{title}</h3>
+					<h3 className="text-xl text-gray-50 font-medium mb-4">{title}</h3>
 					<p>{desc}</p>
 				</section>
 
