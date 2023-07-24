@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from "next/link";
-import profilePict from "../../assets/albert.jpg";
+import profilePict from "@/src/assets/albert.jpg";
 
 const Home = () => {
 	return (

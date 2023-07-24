@@ -1,5 +1,5 @@
-import Projects from "@/modules/Projects";
-import TemplateLayout from "@/templates/Layout";
+import Projects from "@/src/modules/Projects";
+import TemplateLayout from "@/src/templates/Layout";
 
 function ProjectPage() {
 	return (

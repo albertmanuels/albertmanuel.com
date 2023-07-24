@@ -1,9 +1,8 @@
-import "@/styles/globals.css";
+import "@/src/styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
 import Head from "next/head";
-import { Fragment } from "react";
 
 const poppins = Poppins({
 	weight: ["400", "500", "800"],

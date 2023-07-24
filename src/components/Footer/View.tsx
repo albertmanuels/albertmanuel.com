@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-import { GITHUB_URL, LINKED_URL } from "@/constants";
+import { GITHUB_URL, LINKED_URL } from "@/src/constants";
 
 const Footer = () => {
 	return (
