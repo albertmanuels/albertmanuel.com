@@ -1,8 +1,7 @@
 import TemplateLayout from "../templates/Layout";
 import { PostMeta } from "./api/types";
-import Link from "next/link";
 import { getAllBlogPosts } from "./api/api";
-import BlogCard from "../components/BlogCard/View";
+import BlogCard from "../components/BlogCard";
 
 export default function BlogPage({ posts }: { posts: PostMeta[] }) {
 	return (

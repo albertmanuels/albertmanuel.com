@@ -1,5 +1,4 @@
 import TemplateLayout from "@/src/templates/Layout";
-
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
