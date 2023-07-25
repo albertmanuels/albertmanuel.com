@@ -1,0 +1,179 @@
+---
+title: "Unit Testing with Jest and RTL"
+tags:
+  - react
+  - javascript
+  - jest
+date: 2023-07-25
+description: Learn how to test your component and more confident
+---
+
+render: bekerja seolah me-render component react seperti yang dilakukan di
+browser
+
+fireEvent dan userEvent: memiliki tujuan yang sama yaitu untuk mensimulasikan action yang dilakukan oleh user seperti typing, onClick, dan sebagainya
+
+screen: digunakan untuk membaca element yang telah di-render di UI
+
+waitFor: digunakan untuk memproses kondisi async, seperti komunikasi dengan API
+
+beforeEach: function beforeEach dipanggil sebelum setiap test di dalam test suites. Biasanya digunakan untuk melakukan menyiapkan data, state, atau menginisialisasi suatu value di awal sebelum setiap test dijalankan.
+
+```jsx
+const ComponentOne = () => {
+	return <p>Halo Albert!</p>;
+};
+
+export default ComponentOne;
+```
+
+```jsx
+import { render } from "@testing-library/react";
+import ComponentOne "./ComponentOne"
+
+describe("ComponentOne Test", () => {
+	it("should be rendered properly", () => {
+		render(<ComponentOne/>)
+	})
+})
+```
+
+### Search Variant and Search Type
+
+Ada 3 search variant pada RTL yaitu `getBy`, `queryBy`, dan `findBy`
+`getBy` digunakan untuk melakukan selecting element dan akan me-return error jika tidak ada element yang match atau terdapat lebih dari 1 element yang match. (Dapat menggunakan `GetAllBy` jika terdapat lebih dari 1 element yang match).
+
+`queryBy` digunakan untuk melakukan selecting element dan akan me-return nilai null jika tidak ada element yang match, sementara akan me-return error jika terdapat lebih dari 1 element yang match. (Dapat menggunakan `queryAllBy` jika terdapat lebih dari 1 element yang match).
+
+`findBy` digunakan untuk melakukan selecting element yang akan me-return `Promise` jika terdapat element yang match. `Promise`akan di-reject ketika tidak ada element yang match atau terdapat lebih dari 1 element yang match. (Dapat menggunakan `findAllBy` jika terdapat lebih dari 1 element yang match).
+
+**Search Type:**
+
+```jsx
+ByText : <p>Selamat Pagi Albert</p> => getByText("Selamat Pagi Albert")
+ByLabelText : <label for="email"/> => getByLabelText("email")
+ByPlaceholderText : <input placeholder="masukkan nama anda" /> => getByPlaceholderText("masukkan nama anda")
+ByAltText : <img alt="image-profile"/> => getAltText("image-profile")
+ByDisplayValue: <input value="albertmanuels10@gmail.com"/> => getByDisplayValue("albertmanuels10@gmail.com")
+ByRole : <button>Submit</button> => getByRole("button")
+ByTestId: <div data-testid="profile-wrapper">item profile</div> => getTestById("profile-wrapper")
+```
+
+```jsx
+import React, { useState, useEffect } from 'react'
+const ComponentSayHello = () => {
+	const [user, SetUser] = useState(null)
+
+	useEffect(() => {
+		setTimeout(() => {
+			setUser('Albert')
+		},[1000)
+	}, [])
+
+	return (
+		<>
+		<p>Selamat Pagi<p>
+		{user ? <p>Selamat Datang {user}</p> : null}
+		</>
+	)
+}
+
+export default ComponentSayHello
+```
+
+```jsx
+import { render, screen } from "@testing-library/react"
+import "@testing-library/jest-dom" // harus selalu diimport di setiap file test untuk mencegah error toBeInTheDocument() is not function. Issues [here.
+import ComponentSayHello from "./ComponentSayHello"](https://github.com/testing-library/jest-dom/issues/354)
+
+describe("contoh penggunaan getBy untuk ComponentSayHello", () => {
+	it('getByText akan passed', () => {
+		render(<ComponentSayHello>)
+		const text = screen.getByText('Selamat Pagi')
+		expect(text).toBeInTheDocument() // Passed, karena teks 'Selamat Pagi' langsung di-render dan terdapat di document.
+	})
+
+	it('getByText akan failed', () => {
+		render(<ComponentSayHello/>)
+		const text = screen.getByText(/Selamat Datang/) // Failed, karena teks 'Selamat Datang Albert' tidak langsung di-render di document dan proses pengecekan langsung berhenti di line ini (line di mana error ditemukan).
+		expect(text).toBeInTheDocument()
+	})
+})
+
+describe("contoh penggunaan queryBy untuk ComponentSayHello", () => {
+	it('queryByText akan passed', () => {
+		render(<ComponentSayHello/>)
+		const text = screen.queryByText(/Selamat Datang/) // Baris ini me-return null karena teks 'Selamat Datang' tidak langsung terdapat di document ketika component di-render, dikarena harus menunggu timeout 1 detik dari setTimeout(). Pengecekan akan tetap dilanjutkan ke baris berikutnya walaupun pada baris ini sudah ditemukan error (tidak ada element).
+		expect(text).not.toBeInTheDocument() // Passed, karena text bernilai null dan diekspetasikan tidak terdapat di document.
+		expect(text).toBeNull()	// sama aja seperti di atas, hanya lebih singkat
+	})
+
+	it('queryByText dan getByText akan failed', () => {
+		render(<ComponentSayHello/>)
+		const text = screen.queryByText(/Selamat Datang/)
+		expect(text).toBeNull()
+
+		const text2 = screen.getByText(/Selamat Datang/)
+		expect(text2).toBeInTheDocument() // Failed, karena setTimeout yang me-render teks 'Selamat Datang' merupakan proses async, maka teks tersebut sebenarnya belum terdapat di document. Sehingga penggunaan getByText untuk kasus ini akan error.
+	})
+})
+
+describe("contoh penggunaan findBy untuk ComponentSayHello", () => {
+	it('findByText dan queryByText akan failed', () => {
+		render(<ComponentSayHello/>)
+		const text = screen.queryByText(/Selamat Datang/)
+		expect(text).toBeNull()
+
+		const text2 = screen.findByText(/Selamat Datang/)
+		expect(text2).toBeInTheDocument() // Failed, karena findByText me-return Promise maka nilai dari findByText harus ditunggu dahulu menggunakan await.
+	})
+
+	it('findByText dan queryByText passed', async () => {
+		render(<ComponentSayHello/>)
+		const text = screen.queryByText(/Selamat Datang/)
+		expect(text).toBeNull()
+
+		const text2 = await screen.findByText(/Selamat Datang/)
+		expect(text2).toBeInTheDocument() // Success, karena findByText me-return Promise dan nilainya sudah ditunggu menggunakan async/await.
+	})
+})
+```
+
+### Cara membaca coverage report jest in HTML
+
+<Image src="/images/instabul-ut.png" width={1024} height={740} alt="coverage" />
+
+### Konfigurasi untuk show test coverage
+
+Buat file config dengan nama jest.config.json
+
+```jsx
+{
+	"setupFiles": ["<rootDir>/src/setupTests.js"],
+	"testRegex": "/*.test.js$",
+	"collectCoverage": true,
+	"coverageReporters": ["lcov"],
+	"coverageDirectory": "test-coverage",
+	"coverageThreshold": { //minimal coverage yang harus dicapai
+		"global": {
+			"branches": 0,
+			"functions": 0,
+			"lines": 0,
+			"statements": 0
+		}
+	},
+	"moduleDirectories": ["node_modules", "src"]
+}
+```
+
+command untuk run test:
+
+```jsx
+npm run test -- --coverage --watchAll=false
+```
+
+command untuk run test di spesifik file:
+
+```jsx
+npm run test --testPathPattern="src/hooks/__tests__/namaFileTest.test.js" -- --coverage
+```

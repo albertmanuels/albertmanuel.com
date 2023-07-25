@@ -6,15 +6,15 @@ const Navbar = () => {
 
 	const pageLink = [
 		{
-			name: "Projects",
-			path: "/projects",
+			name: "Blog",
+			path: "/blog",
 		},
 	];
 
 	return (
 		<header className="w-full fixed top-0 overflow-hidden px-4 lg:px-0 bg-zinc-900">
 			<nav>
-				<div className="w-full max-w-5xl flex flex-row justify-between items-center mx-auto h-20">
+				<div className="w-full layout flex flex-row justify-between items-center mx-auto h-20">
 					<div>
 						<Link href="/" className="text-cyan-500 font-bold">
 							Albert Manuel
@@ -25,7 +25,9 @@ const Navbar = () => {
 							<li
 								key={idx}
 								className={`
-                ${asPath === page.path ? "text-cyan-500" : "text-gray-50"} 
+                ${
+									asPath.includes(page.path) ? "text-cyan-500" : "text-gray-50"
+								} 
                 ${idx !== pageLink.length - 1 ? "mr-5" : "mr-0"}
                 font-medium
                 `}

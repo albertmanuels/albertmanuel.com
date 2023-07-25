@@ -15,7 +15,7 @@ body {
 @layer base {
 	.layout {
 		width: 100%;
-		max-width: 64rem;
+		max-width: 72rem;
 		margin-left: auto;
 		margin-right: auto;
 	}
