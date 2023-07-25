@@ -2,13 +2,17 @@ import TemplateLayout from "@/src/templates/Layout";
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { getPostFromSlug, getSlugs } from "../api/api";
 import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight/lib";
-import type { MDXPostProps } from "./blog.types";
 import Image from "next/image";
 import "highlight.js/styles/atom-one-dark.css";
+import type { PostMeta } from "../api/types";
 
+export interface MDXPostProps {
+	source: MDXRemoteSerializeResult<string, unknown>;
+	meta: PostMeta;
+}
 export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 	return (
 		<TemplateLayout pageTitle={post.meta.title}>
