@@ -35,7 +35,7 @@ export const getPostFromSlug = (slug: string): Post => {
 	};
 };
 
-export const getAllBlogPosts = () => {
+export default function getAllBlogPosts() {
 	const posts = getSlugs()
 		.map((slug) => getPostFromSlug(slug))
 		.sort((a, b) => {
@@ -47,4 +47,4 @@ export const getAllBlogPosts = () => {
 		.reverse();
 
 	return posts;
-};
+}
