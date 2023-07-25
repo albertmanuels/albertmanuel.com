@@ -1,5 +1,5 @@
 import React from "react";
-import { BlogCardProps } from "./types";
+import type { BlogCardProps } from "./View.types";
 import Link from "next/link";
 
 const BlogCard = ({ post }: BlogCardProps) => {

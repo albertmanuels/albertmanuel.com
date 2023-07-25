@@ -4,9 +4,8 @@ import { getPostFromSlug, getSlugs } from "../api/api";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 import rehypeHighlight from "rehype-highlight/lib";
-import { MDXPostProps } from "./types";
+import type { MDXPostProps } from "./blog.types";
 import Image from "next/image";
 import "highlight.js/styles/atom-one-dark.css";
 
