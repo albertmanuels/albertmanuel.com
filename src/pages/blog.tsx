@@ -1,29 +1,39 @@
 import TemplateLayout from "../templates/Layout";
 import { PostMeta } from "./api/types";
 import getAllBlogPosts from "./api/api";
-import BlogCard from "../components/BlogCard";
+
+import dynamic from "next/dynamic";
+
+const BlogCard = dynamic(() => import("@/src/components/BlogCard"), {
+	ssr: false,
+});
+
+const sortData = (data: PostMeta[]) => {
+	return data.sort(
+		(a: { date: string }, b: { date: string }) =>
+			Number(new Date(b.date)) - Number(new Date(a.date))
+	);
+};
 
 export default function BlogPage({ posts }: { posts: PostMeta[] }) {
 	return (
 		<TemplateLayout pageTitle="Blog">
-			<section className="layout min-h-mobile sm:min-h-desktop">
-				<h1 className="mb-4">There i share stuff that i learn</h1>
-				<ul className="flex flex-row flex-wrap gap-6">
-					{posts.map((post) => (
-						<li key={post.slug}>
-							<BlogCard post={post} />
-						</li>
+			<section className="layout min-h-mobile sm:min-h-desktop pt-5">
+				<h1 className="mb-4 font-light text-gray-300">
+					Thoughts, tutorials, about front-end development.
+				</h1>
+				<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+					{sortData(posts).map((post) => (
+						<BlogCard key={post.slug} post={post} />
 					))}
-				</ul>
+				</div>
 			</section>
 		</TemplateLayout>
 	);
 }
 
 export async function getStaticProps() {
-	const posts = getAllBlogPosts()
-		.slice(0, 9)
-		.map((post) => post.meta);
+	const posts = getAllBlogPosts().map((post) => post.meta);
 
 	return {
 		props: {

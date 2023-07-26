@@ -1,11 +1,11 @@
 import "@/src/styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { AppProps } from "next/app";
-import { Poppins } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
 import Head from "next/head";
 
 const poppins = Poppins({
-	weight: ["400", "500", "800"],
+	weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 	subsets: ["latin"],
 });
 
