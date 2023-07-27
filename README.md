@@ -2,5 +2,6 @@
 
 Tech Stack:
 - NextJS
-- Tailwind
-- Emotion Css
+- Typescript
+- Tailwind CSS
+- MDX
