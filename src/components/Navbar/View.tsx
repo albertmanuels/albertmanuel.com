@@ -1,18 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { useView } from "./View.hooks";
+import { PAGE_LIST } from "./View.constants";
 
 const Navbar = () => {
-	const { isScroll } = useView();
 	const { asPath } = useRouter();
-
-	const pageLink = [
-		{
-			name: "Blog",
-			path: "/blog",
-		},
-	];
+	const { isScroll } = useView();
 
 	return (
 		<header
@@ -27,22 +20,23 @@ const Navbar = () => {
 					}`}
 				>
 					<div>
-						<Link href="/" className="text-accent font-semibold">
+						<Link href="/" className="text-lg text-accent font-semibold">
 							AMS
 						</Link>
 					</div>
 					<ul className="flex flex-row list-style-none m-0 p-0">
-						{pageLink.map((page, idx) => (
+						{PAGE_LIST.map((page, idx) => (
 							<li
 								key={idx}
 								className={`
                 ${
 									asPath.includes(page.path)
 										? "border border-x-0 border-t-0 border-b-2 border-b-accent pb-[2px]"
-										: "text-gray-50"
+										: "border border-x-0 border-t-0 border-b-2 border-b-transparent pb-[2px] text-gray-50 hover:border hover:border-x-0 hover:border-t-0 hover:border-b-2 hover:border-b-accent hover:pb-[2px] hover:delay-150"
 								} 
-                ${idx !== pageLink.length - 1 ? "mr-5" : "mr-0"}
+                ${idx !== PAGE_LIST.length - 1 ? "mr-5" : "mr-0"}
                 font-medium
+                
                 `}
 							>
 								<Link href={page.path}>{page.name}</Link>

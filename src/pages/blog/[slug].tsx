@@ -6,34 +6,29 @@ import { MDXRemote } from "next-mdx-remote";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight/lib";
 import Image from "next/image";
-import "highlight.js/styles/github-dark.css";
-
+import "highlight.js/styles/atom-one-dark.css";
 import { formatDate } from "@/src/helpers";
-
 import type { MDXPostProps } from "@/src/types";
-import Breadcrumb from "@/src/components/Breadcrumb/View";
 
 export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 	return (
 		<TemplateLayout pageTitle={post.meta.title}>
 			<section className="layout-post-content min-h-mobile sm:min-h-desktop pt-5">
-				<Breadcrumb post={post} />
-
 				<Image
 					className="h-[300px] mb-4"
 					src={post.meta.banner}
 					width={1200}
 					height={780}
 					style={{ objectFit: "cover" }}
-					alt="thumbnail"
+					alt="banner"
 				/>
 
 				<article className="prose prose-headings:text-txt-300 prose-blockquote:text-txt-300 prose-p:text-txt-200 prose-headings:mt-0 prose-h2:mb-[16px] prose-h3:mb-2">
-					<h1 className="not-prose text-[30px] font-semibold text-slate-100 mb-1">
+					<h1 className="not-prose text-[30px] font-semibold text-txt-300 mb-1">
 						{post.meta.title}
 					</h1>
-					<p className="font-light text-slate-300 m-0 mb-3">
-						{formatDate(post.meta.date)}, by Albert Manuel
+					<p className="font-light text-txt-200 m-0 mb-3">
+						{formatDate(post.meta.date)} by Albert Manuel
 					</p>
 					<span className="block w-full h-[1px] bg-txt-100 mb-5" />
 					<MDXRemote {...post.source} components={{ Image }} />

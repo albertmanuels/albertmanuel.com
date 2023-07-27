@@ -18,17 +18,24 @@ const sortData = (data: PostMeta[]) => {
 export default function BlogPage({ posts }: { posts: PostMeta[] }) {
 	return (
 		<TemplateLayout pageTitle="Blog">
-			<section className="layout min-h-mobile sm:min-h-desktop pt-5">
-				<p> </p>
+			<section className="layout min-h-mobile sm:min-h-desktop pt-[24px]">
 				<h1 className="mb-5 text-lg font-light text-txt-200">
 					So here is my space to share my thoughts and knowledge based on
-					someting that i have learn
+					someting that i have learn.
 				</h1>
-				<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-					{sortData(posts).map((post) => (
-						<BlogCard key={post.slug} post={post} />
-					))}
-				</div>
+				{posts.length === 0 ? (
+					<div className="flex w-full align-middle justify-center">
+						<p className="text-xl">
+							Sorry, currently I have no posted article.
+						</p>
+					</div>
+				) : (
+					<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+						{sortData(posts).map((post) => (
+							<BlogCard key={post.slug} post={post} />
+						))}
+					</div>
+				)}
 			</section>
 		</TemplateLayout>
 	);

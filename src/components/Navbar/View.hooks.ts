@@ -4,7 +4,7 @@ export const useView = () => {
 	const [isScroll, setIsScroll] = useState(false);
 
 	const handleChangeColor = () => {
-		if (window.scrollY >= 90) {
+		if (window.scrollY >= 30) {
 			setIsScroll(true);
 		} else {
 			setIsScroll(false);

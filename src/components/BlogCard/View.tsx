@@ -18,11 +18,11 @@ const BlogCard = ({ post }: BlogCardProps) => {
 					<p className="font-light text-txt-200">{post.description}</p>
 				</div>
 				<div className="absolute bottom-0">
-					<p className="font-medium text-txt-100">
+					<p className="font-medium text-txt-100 flex flex-row">
 						{post.tags.map((tag) => (
-							<Link className="mr-2" key={tag} href={`/tag/${tag}`}>
-								{tag}
-							</Link>
+							<span key={tag} className="flex flex-row mr-2">
+								#{tag}
+							</span>
 						))}
 					</p>
 				</div>
