@@ -4,6 +4,7 @@ export interface PostMeta {
 	tags: string[];
 	description: string;
 	slug: string;
+	banner: string;
 }
 
 export interface Post {

@@ -1,5 +1,6 @@
 import "@/src/styles/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "@/src/styles/mdx.css";
 import type { AppProps } from "next/app";
 import { Poppins, Montserrat } from "next/font/google";
 import Head from "next/head";

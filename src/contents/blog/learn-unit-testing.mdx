@@ -27,7 +27,7 @@ const ComponentOne = () => {
 export default ComponentOne;
 ```
 
-```jsx
+```jsx fileName
 import { render } from "@testing-library/react";
 import ComponentOne "./ComponentOne"
 
@@ -40,12 +40,21 @@ describe("ComponentOne Test", () => {
 
 ### Search Variant and Search Type
 
-Ada 3 search variant pada RTL yaitu `getBy`, `queryBy`, dan `findBy`
-`getBy` digunakan untuk melakukan selecting element dan akan me-return error jika tidak ada element yang match atau terdapat lebih dari 1 element yang match. (Dapat menggunakan `GetAllBy` jika terdapat lebih dari 1 element yang match).
+Ada 3 search variant pada RTL yaitu getBy, queryBy, dan findBy
 
-`queryBy` digunakan untuk melakukan selecting element dan akan me-return nilai null jika tidak ada element yang match, sementara akan me-return error jika terdapat lebih dari 1 element yang match. (Dapat menggunakan `queryAllBy` jika terdapat lebih dari 1 element yang match).
+<b>getBy</b> digunakan untuk melakukan selecting element dan akan me-return error
+jika tidak ada element yang match atau terdapat lebih dari 1 element yang match.
+(Dapat menggunakan GetAllBy jika terdapat lebih dari 1 element yang match).
 
-`findBy` digunakan untuk melakukan selecting element yang akan me-return `Promise` jika terdapat element yang match. `Promise`akan di-reject ketika tidak ada element yang match atau terdapat lebih dari 1 element yang match. (Dapat menggunakan `findAllBy` jika terdapat lebih dari 1 element yang match).
+<b>queryBy</b> digunakan untuk melakukan selecting element dan akan me-return nilai
+null jika tidak ada element yang match, sementara akan me-return error jika terdapat
+lebih dari 1 element yang match. (Dapat menggunakan queryAllBy jika terdapat lebih
+dari 1 element yang match).
+
+<b>findBy</b> digunakan untuk melakukan selecting element yang akan me-return Promise
+jika terdapat element yang match. Promise akan di-reject ketika tidak ada element
+yang match atau terdapat lebih dari 1 element yang match. (Dapat menggunakan findAllBy
+jika terdapat lebih dari 1 element yang match).
 
 **Search Type:**
 
@@ -67,7 +76,7 @@ const ComponentSayHello = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setUser('Albert')
-		},[1000)
+		},1000)
 	}, [])
 
 	return (
@@ -166,13 +175,13 @@ Buat file config dengan nama jest.config.json
 }
 ```
 
-command untuk run test:
+#### command untuk run test:
 
 ```jsx
 npm run test -- --coverage --watchAll=false
 ```
 
-command untuk run test di spesifik file:
+#### command untuk run test di spesifik file:
 
 ```jsx
 npm run test --testPathPattern="src/hooks/__tests__/namaFileTest.test.js" -- --coverage

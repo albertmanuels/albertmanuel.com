@@ -9,14 +9,16 @@ const HomePage = () => {
 	return (
 		<TemplateLayout pageTitle="Albert Manuel">
 			<section>
-				<article className="layout min-h-mobile sm:min-h-desktop flex flex-col-reverse items-start justify-center sm:flex-row  sm:items-center sm:justify-start">
+				<article className="layout min-h-mobile sm:min-h-desktop flex flex-col-reverse items-start justify-center sm:flex-row sm:items-center sm:justify-start">
 					<div className="w-full sm:w-3/5 sm:mr-6">
 						<div className="mb-6">
-							<h1 className="text-cyan-500 text-2xl sm:text-4xl font-extrabold">
+							<h1 className="text-accent text-2xl sm:text-4xl font-bold">
 								Hi, I&apos;m Albert Manuel Simbolon
 							</h1>
-							<h3 className="mb-4">Software Engineer from Indonesia🇮🇩</h3>
-							<h3>
+							<h3 className="text-lg text-txt-300 mb-4">
+								Software Engineer from Indonesia🇮🇩
+							</h3>
+							<h3 className="text-txt-100">
 								Self-taught programmer majored in Telecommunication Engineering
 								and discovered programming while in college. Very interested
 								learn about Web Ecosystems. I have been working as Frontend

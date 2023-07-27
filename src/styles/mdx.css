@@ -1,0 +1,16 @@
+.prose {
+	max-width: 100%;
+}
+
+.prose pre {
+	@apply rounded-none !px-0;
+}
+
+.prose pre {
+	@apply !bg-transparent;
+}
+
+.prose pre > code {
+	@apply grid;
+	counter-reset: line;
+}

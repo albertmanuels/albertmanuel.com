@@ -21,6 +21,24 @@ module.exports = {
 			xl: "1280px",
 			"2xl": "1536px",
 		},
+
+		extend: {
+			colors: {
+				primary: {
+					100: "#414654",
+					200: "#292e3b",
+					300: "#2c2e30",
+					400: "#1D1F21",
+				},
+				accent: "#06b6d4",
+
+				txt: {
+					100: "#d6d3d1",
+					200: "#e0e0e0",
+					300: "#FFFFFF",
+				},
+			},
+		},
 	},
-	plugins: [],
+	plugins: [require("@tailwindcss/typography")],
 };
