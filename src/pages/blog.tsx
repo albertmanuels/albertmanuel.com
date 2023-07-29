@@ -19,10 +19,10 @@ export default function BlogPage({ posts }: { posts: PostMeta[] }) {
 	return (
 		<TemplateLayout pageTitle="Blog">
 			<section className="layout min-h-mobile sm:min-h-desktop pt-[24px]">
-				<h1 className="mb-5 text-lg font-light text-txt-200">
-					So here is my space to share my thoughts and knowledge based on
-					someting that i have learn.
-				</h1>
+				<h4 className="mb-5 text-md font-medium text-txt-200">
+					So, here is my space to share my thoughts and knowledge based on
+					something that i have learn.
+				</h4>
 				{posts.length === 0 ? (
 					<div className="flex w-full align-middle justify-center">
 						<p className="text-xl">

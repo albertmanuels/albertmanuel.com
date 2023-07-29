@@ -23,11 +23,11 @@ export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 					alt="banner"
 				/>
 
-				<article className="prose prose-headings:text-txt-300 prose-blockquote:text-txt-300 prose-p:text-txt-200 prose-headings:mt-0 prose-h2:mb-[16px] prose-h3:mb-2">
+				<article className="prose">
 					<h1 className="not-prose text-[30px] font-semibold text-txt-300 mb-1">
 						{post.meta.title}
 					</h1>
-					<p className="font-light text-txt-200 m-0 mb-3">
+					<p className="not-prose font-light text-txt-200 m-0 mb-3">
 						{formatDate(post.meta.date)} by Albert Manuel
 					</p>
 					<span className="block w-full h-[1px] bg-txt-100 mb-5" />

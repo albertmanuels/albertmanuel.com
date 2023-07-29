@@ -13,11 +13,7 @@ const Navbar = () => {
 		>
 			<nav>
 				<div
-					className={`w-full layout flex flex-row justify-between items-center mx-auto h-20  ${
-						isScroll
-							? "border-b-accent border-b-2"
-							: "border-transparent border-b-2"
-					}`}
+					className={`w-full layout flex flex-row justify-between items-center mx-auto h-20  `}
 				>
 					<div>
 						<Link href="/" className="text-lg text-accent font-semibold">

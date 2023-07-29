@@ -8,7 +8,7 @@ import Link from "next/link";
 const HomePage = () => {
 	return (
 		<TemplateLayout pageTitle="Albert Manuel">
-			<section>
+			<section className="sm:pt-[24px] xl:pt-0">
 				<article className="layout min-h-mobile sm:min-h-desktop flex flex-col-reverse items-start justify-center sm:flex-row sm:items-center sm:justify-start">
 					<div className="w-full sm:w-3/5 sm:mr-6">
 						<div className="mb-6">
@@ -44,8 +44,8 @@ const HomePage = () => {
 						<Image
 							className="rounded-full mx-auto border-accent border-[3px]"
 							src={ProfileImg}
-							width={400}
-							height={400}
+							width={280}
+							height={280}
 							style={{ objectFit: "contain" }}
 							priority
 							alt="profile"
