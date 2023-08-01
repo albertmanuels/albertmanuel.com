@@ -12,7 +12,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
 		>
 			<div className="w-full">
 				<Image
-					className="rounded-t-md"
+					className="w-full rounded-t-md"
 					src={post.banner}
 					width={300}
 					height={80}

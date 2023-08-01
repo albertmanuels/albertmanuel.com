@@ -25,9 +25,7 @@ export default function BlogPage({ posts }: { posts: PostMeta[] }) {
 				</h4>
 				{posts.length === 0 ? (
 					<div className="flex w-full align-middle justify-center">
-						<p className="text-xl">
-							Sorry, currently I have no posted article.
-						</p>
+						<p className="text-xl">There are currently no articles posted</p>
 					</div>
 				) : (
 					<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
