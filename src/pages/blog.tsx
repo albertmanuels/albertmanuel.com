@@ -18,14 +18,14 @@ const sortData = (data: PostMeta[]) => {
 export default function BlogPage({ posts }: { posts: PostMeta[] }) {
 	return (
 		<TemplateLayout pageTitle="Blog">
-			<section className="layout min-h-mobile sm:min-h-desktop pt-[24px]">
+			<section className="layout pt-[24px]">
 				<h4 className="mb-5 text-md font-medium text-txt-200">
-					So, here is my space to share my thoughts and knowledge based on
-					something that i have learn.
+					So, here is my digital garden where I share my knowledge and things
+					that I have learned.
 				</h4>
 				{posts.length === 0 ? (
 					<div className="flex w-full align-middle justify-center">
-						<p className="text-xl">There are currently no articles posted</p>
+						<p className="text-xl">Sorry, no articles are currently posted</p>
 					</div>
 				) : (
 					<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

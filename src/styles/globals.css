@@ -18,6 +18,7 @@ body {
 		max-width: 64rem;
 		margin-left: auto;
 		margin-right: auto;
+		@apply !min-h-mobile sm:min-h-desktop;
 	}
 
 	.layout-post-content {

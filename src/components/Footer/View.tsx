@@ -5,7 +5,7 @@ import { GITHUB_URL, LINKED_URL } from "@/src/constants";
 
 const Footer = () => {
 	return (
-		<footer className="layout flex flex-col-reverse xs:flex-row items-center justify-center pt-4 px-4 lg:px-0 mt-12 sm:mt-12 pb-5 w-full bottom-0">
+		<footer className="w-100 flex flex-col-reverse xs:flex-row items-center justify-center pt-4 px-4 lg:px-0 mt-12 sm:mt-12 pb-5 w-full bottom-0">
 			<p className="xs:mr-5">&copy; 2023. All Rights Reserved.</p>
 			<div className="flex flex-row">
 				<h4 className="mr-3">Get in touch</h4>

@@ -13,7 +13,7 @@ const Navbar = () => {
 		>
 			<nav>
 				<div
-					className={`w-full layout flex flex-row justify-between items-center mx-auto h-20  `}
+					className={`w-full max-w-[64rem] flex flex-row justify-between items-center mx-auto h-20  `}
 				>
 					<div>
 						<Link href="/" className="text-lg text-accent font-semibold">

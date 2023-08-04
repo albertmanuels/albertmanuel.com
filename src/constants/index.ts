@@ -17,13 +17,13 @@ export const PROJECTS = [
 		url: "https://aikrut.id/",
 		technologies: ["React, Javascript, Bootstrap, CSS, SASS"],
 	},
-	{
-		title: "Skillana Landing Page",
-		description: "",
-		thumbnail: SkillanaImg,
-		url: "https://skillana.id/",
-		technologies: ["React, Javascript, CSS, SASS"],
-	},
+	// {
+	// 	title: "Skillana Landing Page",
+	// 	description: "",
+	// 	thumbnail: SkillanaImg,
+	// 	url: "https://skillana.id/",
+	// 	technologies: ["React, Javascript, CSS, SASS"],
+	// },
 	{
 		title: "My Personal Website",
 		description: "",
