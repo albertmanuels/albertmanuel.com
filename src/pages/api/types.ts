@@ -5,6 +5,7 @@ export interface PostMeta {
 	description: string;
 	slug: string;
 	banner: string;
+	thumbnail: string;
 }
 
 export interface Post {

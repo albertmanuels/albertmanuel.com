@@ -9,23 +9,20 @@ import Image from "next/image";
 import "highlight.js/styles/atom-one-dark.css";
 import { formatDate } from "@/src/helpers";
 import type { MDXPostProps } from "@/src/types";
+import CloudinaryImage from "@/src/components/CloudinaryImage/View";
+import MDXComponents from "@/src/components/MDXComponents";
 
 export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 	return (
 		<TemplateLayout pageTitle={post.meta.title}>
 			<section className="layout-post-content min-h-mobile sm:min-h-desktop pt-5">
-				<Image
-					className="h-[300px] mb-4"
-					src={post.meta.banner}
+				<CloudinaryImage
+					publicId={`albertmanuel/banner/${post.meta.banner}`}
 					width={1200}
-					height={780}
-					style={{ objectFit: "cover" }}
+					height={(1200 * 2) / 5}
+					aspect={{ width: 5, height: 2 }}
 					alt="banner"
-					loading="lazy"
-					placeholder="blur"
-					blurDataURL={post.meta.banner}
 				/>
-
 				<article className="prose">
 					<h1 className="not-prose text-[30px] font-semibold text-txt-300 mb-1">
 						{post.meta.title}
@@ -34,7 +31,9 @@ export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 						{formatDate(post.meta.date)} by Albert Manuel
 					</p>
 					<span className="block w-full h-[1px] bg-txt-100 mb-5" />
-					<MDXRemote {...post.source} components={{ Image }} />
+					<article className="prose">
+						<MDXRemote {...post.source} components={{ ...MDXComponents }} />
+					</article>
 				</article>
 			</section>
 		</TemplateLayout>

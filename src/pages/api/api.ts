@@ -32,6 +32,7 @@ export const getPostFromSlug = (slug: string): Post => {
 			title: data.title ?? slug,
 			description: data.description ?? "",
 			banner: data.banner ?? "",
+			thumbnail: data.thumbnail ?? "",
 		},
 	};
 };

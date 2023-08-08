@@ -13,7 +13,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
 			<div className="w-full">
 				<Image
 					className="w-full rounded-t-md"
-					src={post.banner}
+					src={post.thumbnail}
 					width={300}
 					height={80}
 					style={{ aspectRatio: 4 / 2 }}
