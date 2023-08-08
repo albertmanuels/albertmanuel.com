@@ -5,18 +5,61 @@ import ProfileImg from "@/src/assets/albertmanuel.jpg";
 import Link from "next/link";
 import {
 	SiBootstrap,
-	SiFigma,
 	SiGit,
 	SiJavascript,
 	SiNextdotjs,
 	SiNodedotjs,
 	SiReact,
+	SiRedux,
 	SiSass,
 	SiTailwindcss,
 	SiTypescript,
 } from "react-icons/si";
 
-export default function AboutPage() {
+const stacks = [
+	{
+		id: "nextjs",
+		icon: SiNextdotjs,
+	},
+	{
+		id: "react",
+		icon: SiReact,
+	},
+	{
+		id: "typescript",
+		icon: SiTypescript,
+	},
+	{
+		id: "javascript",
+		icon: SiJavascript,
+	},
+	{
+		id: "redux",
+		icon: SiRedux,
+	},
+	{
+		id: "nodejs",
+		icon: SiNodedotjs,
+	},
+	{
+		id: "tailwind",
+		icon: SiTailwindcss,
+	},
+	{
+		id: "bootstrap",
+		icon: SiBootstrap,
+	},
+	{
+		id: "sass",
+		icon: SiSass,
+	},
+	{
+		id: "git",
+		icon: SiGit,
+	},
+];
+
+const AboutPage = () => {
 	return (
 		<TemplateLayout pageTitle="About">
 			<section className="layout">
@@ -51,13 +94,16 @@ export default function AboutPage() {
 								to share my knowledge and things that i have learned.
 							</p>
 
-							<h3 className="text-xl font-medium mb-4">
-								Experienced and familiar with these technologies and tools:
+							<h3 className="text-txt-300 text-lg font-medium mb-4">
+								Experienced and familiar with these technologies:
 							</h3>
 							<figure>
 								<div className="flex flex-wrap gap-3 sm:gap-4">
 									{stacks.map((tech) => (
-										<tech.icon key={tech.id} className="w-10 h-10" />
+										<tech.icon
+											key={tech.id}
+											className="w-10 h-10 fill-txt-200"
+										/>
 									))}
 								</div>
 							</figure>
@@ -79,47 +125,5 @@ export default function AboutPage() {
 			</section>
 		</TemplateLayout>
 	);
-}
-
-const stacks = [
-	{
-		id: "nextjs",
-		icon: SiNextdotjs,
-	},
-	{
-		id: "react",
-		icon: SiReact,
-	},
-	{
-		id: "typescript",
-		icon: SiTypescript,
-	},
-	{
-		id: "javascript",
-		icon: SiJavascript,
-	},
-	{
-		id: "nodejs",
-		icon: SiNodedotjs,
-	},
-	{
-		id: "tailwind",
-		icon: SiTailwindcss,
-	},
-	{
-		id: "bootstrap",
-		icon: SiBootstrap,
-	},
-	{
-		id: "sass",
-		icon: SiSass,
-	},
-	{
-		id: "git",
-		icon: SiGit,
-	},
-	{
-		id: "figma",
-		icon: SiFigma,
-	},
-];
+};
+export default AboutPage;

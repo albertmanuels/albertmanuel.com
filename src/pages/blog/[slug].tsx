@@ -21,6 +21,9 @@ export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 					height={780}
 					style={{ objectFit: "cover" }}
 					alt="banner"
+					loading="lazy"
+					placeholder="blur"
+					blurDataURL={post.meta.banner}
 				/>
 
 				<article className="prose">

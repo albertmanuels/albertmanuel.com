@@ -1,12 +1,7 @@
 import TemplateLayout from "../templates/Layout";
 import { PostMeta } from "./api/types";
 import getAllBlogPosts from "./api/api";
-
-import dynamic from "next/dynamic";
-
-const BlogCard = dynamic(() => import("@/src/components/BlogCard"), {
-	ssr: false,
-});
+import BlogCard from "../components/BlogCard/View";
 
 const sortData = (data: PostMeta[]) => {
 	return data.sort(

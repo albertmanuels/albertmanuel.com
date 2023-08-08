@@ -1,6 +1,5 @@
 import Footer from "@/src/components/Footer";
 import Navbar from "@/src/components/Navbar";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import React, { ReactNode } from "react";
 
@@ -11,9 +10,6 @@ const TemplateLayout = ({
 	children: ReactNode;
 	pageTitle: string;
 }) => {
-	const Navbar = dynamic(() => import("@/src/components/Navbar"), {
-		ssr: false,
-	});
 	return (
 		<>
 			<Head>

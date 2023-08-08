@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useView } from "./View.hooks";
 import { PAGE_LIST } from "./View.constants";
 
 const Navbar = () => {
 	const { asPath } = useRouter();
-	const { isScroll } = useView();
 
 	return (
 		<header

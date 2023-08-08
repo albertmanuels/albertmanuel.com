@@ -1,11 +1,7 @@
 import React from "react";
 import TemplateLayout from "@/src/templates/Layout";
-import dynamic from "next/dynamic";
 import { PROJECTS } from "../constants";
-
-const ProjectCard = dynamic(() => import("@/src/components/ProjectCard"), {
-	ssr: false,
-});
+import ProjectCard from "../components/ProjectCard/View";
 
 const ProjectsPage = () => {
 	return (
