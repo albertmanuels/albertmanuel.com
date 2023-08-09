@@ -119,6 +119,7 @@ const AboutPage = () => {
 							style={{ objectFit: "contain" }}
 							priority
 							alt="profile"
+							placeholder="blur"
 						/>
 					</div>
 				</main>

@@ -1,9 +1,9 @@
 .prose {
-	max-width: 100%;
+	max-width: 54rem;
 }
 
 .prose pre {
-	@apply rounded-none;
+	@apply rounded-md;
 }
 
 /* .prose pre {
@@ -30,5 +30,5 @@
 }
 
 .prose p {
-	@apply !text-txt-200;
+	@apply !text-txt-200 !leading-8 !tracking-wider !font-light;
 }

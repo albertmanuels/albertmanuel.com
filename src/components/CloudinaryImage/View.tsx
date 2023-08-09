@@ -1,4 +1,9 @@
-import React, { ComponentPropsWithoutRef } from "react";
+import React, {
+	ComponentPropsWithoutRef,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import Image from "next/image";
 import { buildUrl } from "cloudinary-build-url";
 import clsx from "clsx";
@@ -59,6 +64,7 @@ const CloudinaryImage = ({
 
 	const RESIZED_MAX_WIDTH = 1000;
 	const resizedToMaxWidth = mdx && +width >= RESIZED_MAX_WIDTH;
+
 	return (
 		<figure
 			className={clsx(className, {
