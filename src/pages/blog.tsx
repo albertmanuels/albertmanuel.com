@@ -35,7 +35,8 @@ export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 }
 
 export async function getStaticProps() {
-	const files: BlogFrontmatter[] = await getAllFilesFrontmatter("blog");
+	const files: BlogFrontmatter[] = (await getAllFilesFrontmatter("blog")) || [];
+
 	const allFiles = JSON.parse(JSON.stringify(files));
 	const posts = allFiles.sort(
 		(postA: { date: string }, postB: { date: string }) =>
