@@ -14,7 +14,7 @@ export default function BlogPostPage({ code, frontmatter }: BlogType) {
 		<TemplateLayout pageTitle={frontmatter.title}>
 			<section className="layout-post-content min-h-mobile sm:min-h-desktop pt-5 gap-4">
 				<CloudinaryImage
-					className="mb-4"
+					className="mb-4 object-cover"
 					publicId={`albertmanuel/banner/${frontmatter.banner}`}
 					width={1200}
 					height={(1200 * 2) / 8}

@@ -3,6 +3,7 @@ import type { BlogCardProps } from "./View.types";
 import Link from "next/link";
 import { formatDate } from "@/src/helpers";
 import Image from "next/image";
+import CloudinaryImage from "../CloudinaryImage/View";
 
 const BlogCard = ({ post }: BlogCardProps) => {
 	return (
@@ -11,13 +12,12 @@ const BlogCard = ({ post }: BlogCardProps) => {
 			className="group w-full h-full relative flex flex-col border border-1 border-txt-300 rounded-md mb-[10px]"
 		>
 			<div className="w-full">
-				<Image
-					className="w-full rounded-t-md"
-					src={post.thumbnail}
+				<CloudinaryImage
+					className="mb-2 object-cover"
+					publicId={`albertmanuel/banner/${post.thumbnail}`}
 					width={300}
-					height={80}
-					style={{ aspectRatio: 4 / 2 }}
-					alt="thumbnail"
+					height={120}
+					alt="banner"
 				/>
 			</div>
 			<div className="h-full p-3">
