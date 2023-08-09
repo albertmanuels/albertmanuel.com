@@ -1,16 +1,16 @@
 import TemplateLayout from "../templates/Layout";
-import { PostMeta } from "./api/types";
-import getAllBlogPosts from "./api/api";
+import { BlogFrontmatter } from "./api/types";
+import { getAllFilesFrontmatter } from "./api/api";
 import BlogCard from "../components/BlogCard/View";
 
-const sortData = (data: PostMeta[]) => {
+const sortData = (data: BlogFrontmatter[]) => {
 	return data.sort(
 		(a: { date: string }, b: { date: string }) =>
 			Number(new Date(b.date)) - Number(new Date(a.date))
 	);
 };
 
-export default function BlogPage({ posts }: { posts: PostMeta[] }) {
+export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 	return (
 		<TemplateLayout pageTitle="Blog">
 			<section className="layout pt-[24px]">
@@ -35,7 +35,12 @@ export default function BlogPage({ posts }: { posts: PostMeta[] }) {
 }
 
 export async function getStaticProps() {
-	const posts = getAllBlogPosts().map((post) => post.meta);
+	const files: BlogFrontmatter[] = await getAllFilesFrontmatter("blog");
+	const allFiles = JSON.parse(JSON.stringify(files));
+	const posts = allFiles.sort(
+		(postA: { date: string }, postB: { date: string }) =>
+			Number(new Date(postB.date)) - Number(new Date(postA.date))
+	);
 
 	return {
 		props: {

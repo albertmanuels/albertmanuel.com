@@ -1,23 +1,21 @@
 import TemplateLayout from "@/src/templates/Layout";
 import type { GetStaticProps, GetStaticPaths } from "next";
-import { getPostFromSlug, getSlugs } from "../api/api";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import rehypeSlug from "rehype-slug";
-import rehypeHighlight from "rehype-highlight/lib";
-import Image from "next/image";
-import "highlight.js/styles/atom-one-dark.css";
+import { getPostData, getSlugs } from "../api/api";
 import { formatDate } from "@/src/helpers";
-import type { MDXPostProps } from "@/src/types";
 import CloudinaryImage from "@/src/components/CloudinaryImage/View";
 import MDXComponents from "@/src/components/MDXComponents";
+import { BlogType } from "../api/types";
+import { useMemo } from "react";
+import { getMDXComponent } from "mdx-bundler/client";
 
-export default function BlogPostPage({ post }: { post: MDXPostProps }) {
+export default function BlogPostPage({ code, frontmatter }: BlogType) {
+	const Component = useMemo(() => getMDXComponent(code), [code]);
 	return (
-		<TemplateLayout pageTitle={post.meta.title}>
+		<TemplateLayout pageTitle={frontmatter.title}>
 			<section className="layout-post-content min-h-mobile sm:min-h-desktop pt-5">
 				<CloudinaryImage
-					publicId={`albertmanuel/banner/${post.meta.banner}`}
+					className="mb-4"
+					publicId={`albertmanuel/banner/${frontmatter.banner}`}
 					width={1200}
 					height={(1200 * 2) / 5}
 					aspect={{ width: 5, height: 2 }}
@@ -25,14 +23,14 @@ export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 				/>
 				<article className="prose">
 					<h1 className="not-prose text-[30px] font-semibold text-txt-300 mb-1">
-						{post.meta.title}
+						{frontmatter.title}
 					</h1>
 					<p className="not-prose font-light text-txt-200 m-0 mb-3">
-						{formatDate(post.meta.date)} by Albert Manuel
+						{formatDate(frontmatter.date)} by Albert Manuel
 					</p>
 					<span className="block w-full h-[1px] bg-txt-100 mb-5" />
 					<article className="prose">
-						<MDXRemote {...post.source} components={{ ...MDXComponents }} />
+						<Component components={{ ...MDXComponents }} />
 					</article>
 				</article>
 			</section>
@@ -42,18 +40,11 @@ export default function BlogPostPage({ post }: { post: MDXPostProps }) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { slug } = params as { slug: string };
-	const { content, meta } = getPostFromSlug(slug);
-
-	const mdxSource = await serialize(content, {
-		mdxOptions: {
-			rehypePlugins: [rehypeSlug, rehypeHighlight],
-		},
-	});
+	const data = await getPostData(slug);
+	const post = JSON.parse(JSON.stringify(data));
 
 	return {
-		props: {
-			post: { source: mdxSource, meta },
-		},
+		props: { ...post },
 	};
 };
 

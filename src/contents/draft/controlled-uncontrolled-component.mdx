@@ -2,7 +2,7 @@
 title: "Controlled and Uncontrolled Component"
 tags:
   - react
-date: 2023-08-08
+date: 2023-06-08
 thumbnail: "/images/unit-test-banner.jpg"
 banner: "unit-test-banner_o85xr8"
 description: What is controlled and uncontrolled component?
@@ -12,7 +12,6 @@ description: What is controlled and uncontrolled component?
 
 ```jsx
 import React, { useState } from "react";
-
 const ControlledComponent = () => {
 	const [inputVal, setInputVal] = useState("");
 
@@ -58,12 +57,5 @@ const UncontrolledComponent = () => {
 
 export default UncontrolledComponent;
 ```
-
-<CloudinaryImage
-	publicId={`albertmanuel/banner/frontend_bo07gj`}
-	width={1200}
-	height={740}
-	alt="banner"
-/>
 
 Pada code di atas dapat dilihat perbedaan bagaimana cara mendapatkan value dari input component tersebut, dimana input value tidak disimpan di suatu state menggunakan useState dan memanggil nama state untuk mendapatkan input value itu sendiri. Melainkan, langsung mengakses valuenya melalui dom dengan memanfaatkan referensi yang dimiliki oleh suatu component, dalam hal ini input component.
