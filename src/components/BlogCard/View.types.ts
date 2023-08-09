@@ -1,5 +1,5 @@
-import { PostMeta } from "@/src/pages/api/types";
+import { BlogFrontmatter } from "@/src/pages/api/types";
 
 export interface BlogCardProps {
-	post: PostMeta;
+	post: BlogFrontmatter;
 }

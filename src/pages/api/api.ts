@@ -1,8 +1,13 @@
-import path from "path";
-import fs from "fs";
+import path, { join } from "path";
+import { promises, readFileSync } from "fs";
 import { sync } from "glob";
 import matter from "gray-matter";
-import type { Post } from "./types";
+import type { BlogFrontmatter, ContentType, PickFrontmatter } from "./types";
+import { bundleMDX } from "mdx-bundler";
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 
 const POSTS_PATH = path.join(process.cwd(), "src/contents", "blog");
 
@@ -18,35 +23,74 @@ export const getSlugs = () => {
 	});
 };
 
-export const getPostFromSlug = (slug: string): Post => {
-	const postPath = path.join(POSTS_PATH, `${slug}.mdx`);
-	const source = fs.readFileSync(postPath);
-	const { content, data } = matter(source);
+export const getAllFilesFrontmatter = async <T extends ContentType>(
+	type: T
+) => {
+	const files = await getFileList(join(process.cwd(), "src", "contents", type));
+
+	return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
+		const source = readFileSync(absolutePath, "utf-8");
+		const { data } = matter(source);
+
+		const result = [
+			{
+				...(data as BlogFrontmatter),
+				slug: absolutePath
+					.replace(join(process.cwd(), "src", "contents", type) + "/", "")
+					.replace(".mdx", ""),
+			},
+			...allPosts,
+		];
+
+		return result;
+	}, []);
+};
+
+export const getFileList = async (dirName: string) => {
+	let files: string[] = [];
+	const items = await promises.readdir(dirName, { withFileTypes: true });
+
+	for (const item of items) {
+		if (item.isDirectory()) {
+			files = [...files, ...(await getFileList(`${dirName}/${item.name}`))];
+		} else {
+			files.push(`${dirName}/${item.name}`);
+		}
+	}
+	return files;
+};
+
+export const getPostData = async (slug: string) => {
+	const fullPath = path.join(POSTS_PATH, `${slug}.mdx`);
+	const mdxSource = readFileSync(fullPath, "utf8");
+
+	const { code, frontmatter } = await bundleMDX({
+		source: mdxSource,
+		mdxOptions(options) {
+			options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
+			options.rehypePlugins = [
+				...(options?.rehypePlugins ?? []),
+				rehypeSlug,
+				[rehypePrettyCode, { theme: "one-dark-pro" }],
+				[
+					rehypeAutolinkHeadings,
+					{
+						properties: {
+							className: ["has-anchor"],
+						},
+					},
+				],
+			];
+
+			return options;
+		},
+	});
 
 	return {
-		content,
-		meta: {
-			slug,
-			date: (data.date ?? new Date()).toString(),
-			tags: (data.tags ?? []).sort(),
-			title: data.title ?? slug,
-			description: data.description ?? "",
-			banner: data.banner ?? "",
-			thumbnail: data.thumbnail ?? "",
-		},
+		slug,
+		frontmatter,
+		code,
 	};
 };
 
-export default function getAllBlogPosts() {
-	const posts = getSlugs()
-		.map((slug) => getPostFromSlug(slug))
-		.sort((a, b) => {
-			if (a.meta.date > b.meta.date) return 1;
-			if (a.meta.date < b.meta.date) return -1;
-
-			return 0;
-		})
-		.reverse();
-
-	return posts;
-}
+export default getPostData;

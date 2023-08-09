@@ -1,4 +1,4 @@
-export interface PostMeta {
+export interface BlogFrontmatter {
 	title: string;
 	date: string;
 	tags: string[];
@@ -8,7 +8,10 @@ export interface PostMeta {
 	thumbnail: string;
 }
 
-export interface Post {
-	meta: PostMeta;
-	content: string;
+export interface BlogType {
+	code: string;
+	frontmatter: BlogFrontmatter;
 }
+
+export type ContentType = "blog";
+export type PickFrontmatter = BlogFrontmatter;

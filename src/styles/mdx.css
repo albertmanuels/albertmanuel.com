@@ -3,15 +3,15 @@
 }
 
 .prose pre {
-	@apply rounded-none !px-0;
+	@apply rounded-none;
 }
 
-.prose pre {
+/* .prose pre {
 	@apply !bg-transparent;
-}
+} */
 
 .prose pre > code {
-	@apply grid;
+	@apply grid p-3;
 	counter-reset: line;
 }
 
