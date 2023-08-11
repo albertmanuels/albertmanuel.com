@@ -68,7 +68,7 @@ const CloudinaryImage = ({
 	return (
 		<figure
 			className={clsx(className, {
-				"overflow-hidden rounded": !noStyle,
+				"overflow-hidden": !noStyle,
 				"mx-auto w-full": mdx && +width <= 800,
 			})}
 			style={{

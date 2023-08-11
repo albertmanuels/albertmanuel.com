@@ -19,7 +19,7 @@ body {
 		max-width: 64rem;
 		margin-left: auto;
 		margin-right: auto;
-		@apply !min-h-mobile sm:min-h-desktop;
+		@apply !min-h-mobile sm:!min-h-desktop;
 	}
 
 	.layout-post-content {
@@ -27,5 +27,15 @@ body {
 		max-width: 54rem;
 		margin-left: auto;
 		margin-right: auto;
+		padding: 10px 0;
 	}
+}
+
+input.toggle:checked + .slider {
+	@apply bg-accent;
+}
+
+input.toggle:checked + .slider::before {
+	transform: translateX(26px);
+	@apply bg-zinc-900;
 }

@@ -10,7 +10,7 @@ module.exports = {
 	],
 	theme: {
 		minHeight: {
-			desktop: "calc(100vh - 170px)",
+			desktop: "calc(100vh - 127px)",
 			mobile: "calc(100vh - 170px)",
 		},
 
@@ -40,5 +40,6 @@ module.exports = {
 			},
 		},
 	},
+	darkMode: "class",
 	plugins: [require("@tailwindcss/typography")],
 };

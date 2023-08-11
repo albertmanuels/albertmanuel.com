@@ -14,7 +14,7 @@ export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 	return (
 		<TemplateLayout pageTitle="Blog">
 			<section className="layout pt-[24px]">
-				<h4 className="mb-5 text-md font-medium text-txt-200">
+				<h4 className="mb-5 text-md font-medium text-primary-200 dark:text-txt-200">
 					So, here is my digital garden where I share my thoughts, knowledge and
 					things that I have learned.
 				</h4>

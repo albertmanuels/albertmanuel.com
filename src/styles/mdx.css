@@ -26,9 +26,9 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-	@apply !mt-0 mb-[12px] !text-txt-300 !leading-8 !tracking-wider !font-medium;
+	@apply !mt-0 mb-[12px] !text-primary-200 dark:!text-txt-300 !leading-8 !tracking-wider !font-medium;
 }
 
 .prose p {
-	@apply !text-txt-200 !leading-8 !tracking-wider !font-light;
+	@apply text-primary-200 dark:!text-txt-200 !leading-8 !tracking-wider !font-light;
 }

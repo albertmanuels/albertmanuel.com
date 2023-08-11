@@ -13,8 +13,15 @@ export default function BlogPostPage({ code, frontmatter }: BlogType) {
 	return (
 		<TemplateLayout pageTitle={frontmatter.title}>
 			<section className="layout-post-content min-h-mobile sm:min-h-desktop pt-5 gap-4">
+				<h1 className="not-prose text-[30px] font-semibold text-primary-200 dark:text-txt-300 mb-1">
+					{frontmatter.title}
+				</h1>
+				<p className="not-prose font-light text-primary-200 dark:text-txt-200 m-0 mb-3">
+					Published on {formatDate(frontmatter.date)}
+				</p>
+
 				<CloudinaryImage
-					className="mb-4 object-cover"
+					className="mb-[3rem] object-cover rounded-md"
 					publicId={`albertmanuel/banner/${frontmatter.banner}`}
 					width={1200}
 					height={(1200 * 2) / 8}
@@ -22,13 +29,6 @@ export default function BlogPostPage({ code, frontmatter }: BlogType) {
 					alt="banner"
 				/>
 
-				<h1 className="not-prose text-[30px] font-semibold text-txt-300 mb-1">
-					{frontmatter.title}
-				</h1>
-				<p className="not-prose font-light text-txt-200 m-0 mb-3">
-					Published on {formatDate(frontmatter.date)}
-				</p>
-				<span className="block w-full h-[1px] bg-txt-100 mb-5" />
 				<article className="prose">
 					<Component components={{ ...MDXComponents }} />
 				</article>

@@ -10,16 +10,17 @@ const HomePage = () => {
 						<h1 className="text-accent text-2xl sm:text-4xl font-semibold">
 							Hi, I&apos;m Albert Manuel
 						</h1>
-						<h3 className="text-lg font-semibold text-txt-300 mb-2">
+						<h3 className="text-lg font-medium text-primary-200 dark:text-txt-300 mb-2">
 							Software Engineer🇮🇩
 						</h3>
 
-						<p className="mb-4 font-light">
-							I work with React ecosystem to build a cool stuff in web platform
+						<p className="text-primary-200 dark:text-txt-200 mb-4 font-light">
+							I work with React ecosystem to build a cool stuff in a web
+							platform
 						</p>
 						<Link
 							href="/about"
-							className="font-light p-2 bg-primary-200 rounded-sm"
+							className="font-light p-2 dark:bg-primary-200 text-primary-200 dark:text-txt-200 border-dashed border-[1px] border-primary-200"
 						>
 							More about me
 						</Link>

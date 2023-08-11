@@ -16,7 +16,9 @@ const TemplateLayout = ({
 				<title>{pageTitle}</title>
 			</Head>
 			<Navbar />
-			<main className="px-4 lg:px-0 mt-20">{children}</main>
+			<div className="px-4 mt-20 lg:px-0 bg-white dark:bg-zinc-900">
+				{children}
+			</div>
 			<Footer />
 		</>
 	);
