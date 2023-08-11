@@ -8,9 +8,7 @@ import {
 	SiGit,
 	SiJavascript,
 	SiNextdotjs,
-	SiNodedotjs,
 	SiReact,
-	SiRedux,
 	SiSass,
 	SiTailwindcss,
 	SiTypescript,
@@ -32,14 +30,6 @@ const stacks = [
 	{
 		id: "javascript",
 		icon: SiJavascript,
-	},
-	{
-		id: "redux",
-		icon: SiRedux,
-	},
-	{
-		id: "nodejs",
-		icon: SiNodedotjs,
 	},
 	{
 		id: "tailwind",
@@ -72,28 +62,23 @@ const AboutPage = () => {
 							</h1>
 
 							<p className="text-txt-200 font-light leading-relaxed mb-3">
-								Hi, I&apos;m Albert. I started learn web development when I was
-								Engineering student at Telkom University. Very interested learn
-								about Web Ecosystems, especially Frontend Development to build a
-								cool stuff that can be interacted with users.
+								Hi, I&apos;m Albert. Very interested learn about Web Ecosystems,
+								especially Frontend Development to build a cool stuff that can
+								be interacted with users.
 							</p>
 							<p className="text-txt-200 font-light leading-relaxed mb-3">
-								I have been working as Frontend Engineer for 2+ years in various
-								industry including E-commerce, Startup, and Software House.
-								Also, I have experience working with remote environment and keep
-								my communication-collaboration smooth and finish my task.
-								<br />
-								Outside of my work, I love to watch a movie, cafe hopping,
-								explore some place, and reading a book.
+								I have been working as Frontend Engineer for 2 years in tech
+								industry and experienced working with remote environment and
+								keep my communication-collaboration smooth. Outside of my work,
+								I love to watch a movie, explore some place, and reading a book.
 							</p>
 							<p className="text-txt-200 font-light leading-relaxed mb-5">
 								Currently I learn how to write a
 								<Link href="/blog" className="text-accent">
 									&nbsp;blogs
 								</Link>{" "}
-								to share my knowledge and things that i have learned.
+								to share my thoughts, knowledge and things that I have learned.
 							</p>
-
 							<h3 className="text-txt-300 text-lg font-medium mb-4">
 								Experienced and familiar with these technologies:
 							</h3>

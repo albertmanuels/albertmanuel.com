@@ -25,10 +25,9 @@ export default function BlogPostPage({ code, frontmatter }: BlogType) {
 				<h1 className="not-prose text-[30px] font-semibold text-txt-300 mb-1">
 					{frontmatter.title}
 				</h1>
-				<p className="not-prose font-light text-txt-200 m-0">
+				<p className="not-prose font-light text-txt-200 m-0 mb-3">
 					Published on {formatDate(frontmatter.date)}
 				</p>
-				<p className="m-0 mb-3">Written by Albert Manuel</p>
 				<span className="block w-full h-[1px] bg-txt-100 mb-5" />
 				<article className="prose">
 					<Component components={{ ...MDXComponents }} />

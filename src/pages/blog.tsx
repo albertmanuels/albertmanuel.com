@@ -15,8 +15,8 @@ export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 		<TemplateLayout pageTitle="Blog">
 			<section className="layout pt-[24px]">
 				<h4 className="mb-5 text-md font-medium text-txt-200">
-					So, here is my digital garden where I share my knowledge and things
-					that I have learned.
+					So, here is my digital garden where I share my thoughts, knowledge and
+					things that I have learned.
 				</h4>
 				{posts.length === 0 ? (
 					<div className="flex w-full align-middle justify-center">

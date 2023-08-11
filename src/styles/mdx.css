@@ -26,7 +26,7 @@
 .prose h4,
 .prose h5,
 .prose h6 {
-	@apply !mt-0 mb-[12px] !text-txt-300;
+	@apply !mt-0 mb-[12px] !text-txt-300 !leading-8 !tracking-wider !font-medium;
 }
 
 .prose p {

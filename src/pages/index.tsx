@@ -1,8 +1,4 @@
 import TemplateLayout from "@/src/templates/Layout";
-import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import ProfileImg from "@/src/assets/albertmanuel.jpg";
 import Link from "next/link";
 
 const HomePage = () => {
@@ -15,7 +11,7 @@ const HomePage = () => {
 							Hi, I&apos;m Albert Manuel
 						</h1>
 						<h3 className="text-lg font-semibold text-txt-300 mb-2">
-							Software Engineer from Indonesia🇮🇩
+							Software Engineer🇮🇩
 						</h3>
 
 						<p className="mb-4 font-light">
