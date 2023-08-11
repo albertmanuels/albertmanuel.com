@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</Head>
 
-			<ThemeProvider enableSystem={false} attribute="class">
+			<ThemeProvider enableSystem={false} defaultTheme="dark" attribute="class">
 				<div className={poppins.className}>
 					<Component {...pageProps} />
 				</div>
