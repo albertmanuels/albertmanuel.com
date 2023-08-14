@@ -1,0 +1,63 @@
+---
+title: "DSA - Big O notation, what it is?"
+description: "Get to know what is Big O notation"
+banner: "frontend_bo07gj"
+thumbnail: "frontend_bo07gj"
+photoBy: "Moren Hsu"
+date: 2023-08-14
+tags:
+  - Fundamental
+  - Javascript
+---
+
+# Data Structure and Algorithm
+
+## Big O
+
+Big O (O stands for Omicron) adalah perhitungan matematis untuk menghitung kompleksitas suatu program dalam menyelesaikan tugasnya. Kompleksitas dibagi menjadi 2 yaitu time complexity (kompleksitas berdasarkan waktu) dan space complexity (kompleksitas berdasarkan memori yang digunakan).
+
+Terdapat 3 notasi matematis yang umum ditemui ketika berbicara tentang kompleksitas:
+
+Ω = Omega → Best Case → Tingkat paling rendah dalam perhitungan worst-case complexity
+
+Θ = Theta → Average Case → Tingkat menengah dalam perhitungan worst-case complexity
+
+O = Omicron → Worst Case → Tingkatan paling tinggi dalam perhitungan worst-case complexity
+
+Contoh:
+
+```jsx
+const arr = [1, 2, 3, 4, 5, 6, 7];
+
+// Angka 1 pada index ke-0 adalah Omega
+// Angka 4 pada index ke-3 adalah Theta
+// Angka 7 pada index ke-6 adalah Omicron
+```
+
+Pada contoh di atas, index ke-0 diasumsikan sebagai **Omega** _(Ω)_ atau _Best Case_ karena jumlah iterasi yang dilakukan untuk mendapatkan value pada index tersebut paling sedikit (_least_) jika dibandingkan dengan jumlah iterasi yang dilakukan untuk mendapatkan value di index lainnya. Dalam hal ini untuk mendapatkan value 4 dan 7. Sedangkan index ke-3 diasumsikan sebagai **Theta** (Θ) atau _Average Case_ karena jumlah iterasi yang dilakukan untuk mendapatkan value pada index ke-3 berada diantara Omega dan Omicron, yang artinya jumlah iterasi Theta lebih banyak dari yang dilakukan oleh Omega namun jumlah iterasinya masih lebih sedikit daripada Omicron. Terakhir, index ke-6 diasumsikan sebagai **Omicron** (Big O) atau _Worst Case_ karena jumlah iterasi yang dilakukan untuk mendapatkan value pada index ke-6 adalah yang terbanyak jika dibandingkan dengan semua index sebelumnya.
+
+Jadi, ketika berbicara tentang Big O maka kita berbicara tentang perhitungan kompleksitas pada kasus terburuk (Worst Case).
+
+## Big O Notations
+
+- O(n) → hasil perhitungan dari O(n) akan selalu sama _(proportional)_ dengan nilai *n-*nya*.*
+  Misalkan _n_ input adalah 5, maka penulisan notasinya adalah O(5) yang berarti jumlah operasi/proses yang dilakukan adalah sebanyak 5 operasi/proses. Sebagai contoh dapat dilihat pada code berikut:
+
+  ```jsx
+  const logItems = (n) => {
+  	for (let i = 0; i < n; i++) {
+  		console.log(i);
+  	}
+  };
+
+  logItems(5);
+
+  // Result
+  0;
+  1;
+  2;
+  3;
+  4;
+  ```
+
+  Pada code di atas, function logItems melakukan loop/iterasi sebanyak _n,_ dalam kasus ini **n** adalah 5. Jika function tersebut dijalankan, maka _result_ yang didapatkan adalah 0,1,2,3,4 yang mana jumlah angkanya ada 5. Maka dari itu dapat dikatakan bahwa function di atas menerapkan O(n) complexity.

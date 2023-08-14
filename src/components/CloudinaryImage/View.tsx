@@ -1,9 +1,4 @@
-import React, {
-	ComponentPropsWithoutRef,
-	useEffect,
-	useRef,
-	useState,
-} from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import Image from "next/image";
 import { buildUrl } from "cloudinary-build-url";
 import clsx from "clsx";
@@ -40,7 +35,7 @@ const CloudinaryImage = ({
 		transformations: {
 			effect: {
 				name: "blur",
-				value: 1000,
+				value: 10000,
 			},
 			quality: 1,
 			rawTransformation: aspect
@@ -103,7 +98,7 @@ const CloudinaryImage = ({
 				<div className="absolute top-0 left-0">
 					<span className="mt-0">
 						<Image
-							className="mt-0"
+							className="mt-0 transition-opacity opacity-0 duration-[2x]"
 							src={url}
 							width={
 								resizedToMaxWidth ? Math.min(+width, RESIZED_MAX_WIDTH) : width
@@ -113,8 +108,8 @@ const CloudinaryImage = ({
 									? (RESIZED_MAX_WIDTH * +height) / +width
 									: height
 							}
+							onLoadingComplete={(img) => img.classList.remove("opacity-0")}
 							alt={alt}
-							blurDataURL={urlBlurred}
 						/>
 					</span>
 				</div>

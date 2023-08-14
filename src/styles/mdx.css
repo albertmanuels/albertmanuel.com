@@ -17,7 +17,7 @@
 
 .prose strong,
 .prose blockquote {
-	@apply !text-txt-300;
+	@apply !text-primary-200 dark:!text-txt-300;
 }
 
 .prose h1,
@@ -29,6 +29,7 @@
 	@apply !mt-0 mb-[12px] !text-primary-200 dark:!text-txt-300 !leading-8 !tracking-wider !font-medium;
 }
 
-.prose p {
+.prose p,
+.prose ul > li {
 	@apply text-primary-200 dark:!text-txt-200 !leading-8 !tracking-wider !font-light;
 }
