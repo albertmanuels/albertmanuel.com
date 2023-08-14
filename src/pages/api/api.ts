@@ -26,8 +26,7 @@ export const getSlugs = () => {
 export const getAllFilesFrontmatter = async <T extends ContentType>(
 	type: T
 ) => {
-	const files =
-		(await getFileList(join(process.cwd(), "src", "contents", type))) || [];
+	const files = await getFileList(join(process.cwd(), "src", "contents", type));
 
 	return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
 		const source = readFileSync(absolutePath, "utf-8");
