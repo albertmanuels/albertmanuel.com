@@ -98,7 +98,7 @@ const CloudinaryImage = ({
 				<div className="absolute top-0 left-0">
 					<span className="mt-0">
 						<Image
-							className="mt-0 transition-opacity opacity-0 duration-[2x]"
+							className="mt-0 transition-opacity opacity-0 duration-[2s]"
 							src={url}
 							width={
 								resizedToMaxWidth ? Math.min(+width, RESIZED_MAX_WIDTH) : width
