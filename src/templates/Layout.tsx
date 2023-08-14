@@ -6,18 +6,17 @@ import React, { ReactNode } from "react";
 const TemplateLayout = ({
 	children,
 	pageTitle,
+	description = "",
 }: {
 	children: ReactNode;
 	pageTitle: string;
+	description?: string;
 }) => {
 	return (
 		<>
 			<Head>
 				<title>{pageTitle}</title>
-				<meta
-					content="Hi I'm Albert Manuel, Frontend Engineer"
-					name="description"
-				/>
+				<meta content={description} name="description" />
 			</Head>
 			<Navbar />
 			<div className="px-4 mt-20 lg:px-0 bg-white dark:bg-zinc-900">

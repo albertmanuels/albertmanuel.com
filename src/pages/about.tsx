@@ -51,7 +51,10 @@ const stacks = [
 
 const AboutPage = () => {
 	return (
-		<TemplateLayout pageTitle="About">
+		<TemplateLayout
+			pageTitle="About"
+			description="Albert is a Frontend Engineer working with React ecosystems to build a cool stuff in a web platform"
+		>
 			<section className="layout">
 				<main className="layout flex flex-col-reverse items-start justify-center sm:flex-row sm:items-center sm:justify-start">
 					<div className="w-full sm:w-3/5 sm:mr-6">

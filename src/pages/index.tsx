@@ -3,7 +3,10 @@ import Link from "next/link";
 
 const HomePage = () => {
 	return (
-		<TemplateLayout pageTitle="Albert Manuel">
+		<TemplateLayout
+			pageTitle="Albert Manuel"
+			description="Hi, I'm Albert Manuel. I work with React ecosystems to build a cool stuff in a web platform"
+		>
 			<section>
 				<main className="layout flex justify-center items-center">
 					<div className="mb-6">
