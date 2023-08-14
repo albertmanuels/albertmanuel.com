@@ -13,6 +13,7 @@ import {
 	SiTailwindcss,
 	SiTypescript,
 } from "react-icons/si";
+import CloudinaryImage from "../components/CloudinaryImage/View";
 
 const stacks = [
 	{
@@ -101,15 +102,13 @@ const AboutPage = () => {
 					</div>
 
 					<div className="w-full mb-8 mt-1 sm:mt-0 sm:w-2/5">
-						<Image
+						<CloudinaryImage
 							className="rounded-full mx-auto border-accent border-[3px]"
-							src={ProfileImg}
-							width={280}
-							height={280}
-							style={{ objectFit: "contain" }}
-							priority
-							alt="profile"
-							placeholder="blur"
+							publicId="https://res.cloudinary.com/albertmanuel/image/upload/v1692031371/albertmanuel/banner/albertmanuel_ft6yac.jpg"
+							width={350}
+							height={350}
+							mdx={false}
+							alt="profile pict"
 						/>
 					</div>
 				</main>

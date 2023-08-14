@@ -24,7 +24,9 @@ export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 				</h4>
 				{posts.length === 0 ? (
 					<div className="flex w-full align-middle justify-center">
-						<p className="text-xl">Sorry, no articles are currently posted</p>
+						<p className="text-xl text-primary-200 dark:text-txt-200">
+							Sorry, no articles are currently posted
+						</p>
 					</div>
 				) : (
 					<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -42,10 +44,11 @@ export async function getStaticProps() {
 	const files: BlogFrontmatter[] = (await getAllFilesFrontmatter("blog")) || [];
 
 	const allFiles = JSON.parse(JSON.stringify(files));
-	const posts = allFiles.sort(
-		(postA: { date: string }, postB: { date: string }) =>
-			Number(new Date(postB.date)) - Number(new Date(postA.date))
-	);
+	const posts =
+		allFiles.sort(
+			(postA: { date: string }, postB: { date: string }) =>
+				Number(new Date(postB.date)) - Number(new Date(postA.date))
+		) || [];
 
 	return {
 		props: {
