@@ -14,6 +14,10 @@ const TemplateLayout = ({
 		<>
 			<Head>
 				<title>{pageTitle}</title>
+				<meta
+					content="Hi I'm Albert Manuel, Frontend Engineer"
+					name="description"
+				/>
 			</Head>
 			<Navbar />
 			<div className="px-4 mt-20 lg:px-0 bg-white dark:bg-zinc-900">
