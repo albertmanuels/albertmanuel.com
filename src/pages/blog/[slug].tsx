@@ -12,7 +12,7 @@ export default function BlogPostPage({ code, frontmatter }: BlogType) {
 	const Component = useMemo(() => getMDXComponent(code), [code]);
 	return (
 		<TemplateLayout pageTitle={frontmatter.title}>
-			<section className="layout-post-content min-h-mobile sm:min-h-desktop pt-5 gap-4">
+			<section className="layout-post-content min-h-mobile md:min-h-desktop gap-4">
 				<h1 className="not-prose text-[30px] font-semibold text-primary-200 dark:text-txt-300 mb-1">
 					{frontmatter.title}
 				</h1>
