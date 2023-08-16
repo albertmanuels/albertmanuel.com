@@ -14,6 +14,7 @@ import {
 	SiTypescript,
 } from "react-icons/si";
 import CloudinaryImage from "../components/CloudinaryImage/View";
+import { useCheckScreenSize } from "../hooks";
 
 const stacks = [
 	{
@@ -56,11 +57,11 @@ const AboutPage = () => {
 			pageTitle="About"
 			description="Albert is a Frontend Engineer working with React ecosystems to build a cool stuff in a web platform"
 		>
-			<section className="layout">
+			<section className="pt-[24px] lg:pt-0">
 				<main className="layout flex flex-col-reverse items-start justify-center sm:flex-row sm:items-center sm:justify-start">
-					<div className="w-full sm:w-3/5 sm:mr-6">
+					<div className="w-full sm:w-3/5 md:w-3/5 lg:w-3/5 sm:mr-6">
 						<article className="mb-6">
-							<h1 className="text-primary-200 dark:text-txt-200 text-2xl sm:text-4xl font-semibold mb-4">
+							<h1 className="text-primary-200 dark:text-txt-200 text-2xl sm:text-4xl font-semibold mb-1 md:mb-4">
 								About
 							</h1>
 							<h1 className="text-accent text-2xl sm:text-4xl font-semibold mb-3 fade-in">
@@ -101,12 +102,13 @@ const AboutPage = () => {
 						</article>
 					</div>
 
-					<div className="w-full mb-8 mt-1 sm:mt-0 sm:w-2/5">
+					<div className="w-full sm:w-2/5 md:w-2/5 lg:w-2/5 mb-8 sm:mt-[-10%] md:mt-0">
 						<CloudinaryImage
-							className="rounded-full mx-auto border-accent border-[3px]"
+							className="rounded-full mx-auto border-accent border-[3px] w-4/5 xs:w-80 sm:w-full"
 							publicId="albertmanuel/banner/albertmanuel_ft6yac"
-							width={350}
-							height={350}
+							width={800}
+							height={(800 * 4) / 4}
+							aspect={{ width: 4, height: 4 }}
 							mdx={false}
 							alt="profile pict"
 							priority={true}

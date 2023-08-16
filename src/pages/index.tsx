@@ -7,8 +7,8 @@ const HomePage = () => {
 			pageTitle="Albert Manuel"
 			description="Hi, I'm Albert Manuel. I work with React ecosystems to build a cool stuff in a web platform"
 		>
-			<section>
-				<main className="layout flex justify-center items-center">
+			<section className="layout justify-center flex items-center">
+				<main className="flex justify-center items-center">
 					<div className="mb-6">
 						<h1 className="text-accent text-2xl sm:text-4xl font-semibold">
 							Hi, I&apos;m Albert Manuel

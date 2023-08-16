@@ -11,12 +11,13 @@ module.exports = {
 	theme: {
 		minHeight: {
 			desktop: "calc(100vh - 127px)",
-			mobile: "calc(100vh - 170px)",
+			mobile: "calc(100vh - 154px)",
 		},
 
 		screens: {
 			xs: "392px",
 			sm: "640px",
+			md: "768px",
 			lg: "1024px",
 			xl: "1280px",
 			"2xl": "1536px",
