@@ -104,11 +104,12 @@ const AboutPage = () => {
 					<div className="w-full mb-8 mt-1 sm:mt-0 sm:w-2/5">
 						<CloudinaryImage
 							className="rounded-full mx-auto border-accent border-[3px]"
-							publicId="https://res.cloudinary.com/albertmanuel/image/upload/v1692031371/albertmanuel/banner/albertmanuel_ft6yac.jpg"
+							publicId="albertmanuel/banner/albertmanuel_ft6yac"
 							width={350}
 							height={350}
 							mdx={false}
 							alt="profile pict"
+							priority={true}
 						/>
 					</div>
 				</main>

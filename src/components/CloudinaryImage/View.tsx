@@ -15,6 +15,7 @@ type CloudinaryImageProps = {
 		height: number;
 	};
 	noStyle?: boolean;
+	priority?: boolean;
 };
 
 const CloudinaryImage = ({
@@ -26,6 +27,7 @@ const CloudinaryImage = ({
 	mdx = false,
 	aspect,
 	noStyle = false,
+	priority = false,
 	style,
 }: CloudinaryImageProps & ComponentPropsWithoutRef<"figure">) => {
 	const urlBlurred = buildUrl(publicId, {
@@ -34,8 +36,7 @@ const CloudinaryImage = ({
 		},
 		transformations: {
 			effect: {
-				name: "blur",
-				value: 10000,
+				name: "blur:1000",
 			},
 			quality: 1,
 			rawTransformation: aspect
@@ -79,6 +80,8 @@ const CloudinaryImage = ({
 					paddingTop: aspectRatio
 						? `${aspectRatio * 100}%`
 						: `${(+height / +width) * 100}%`,
+					backgroundPosition: "center center",
+					backgroundSize: "100%",
 				}}
 			>
 				<style jsx>
@@ -87,8 +90,8 @@ const CloudinaryImage = ({
 							content: "";
 							position: absolute;
 							inset: 0;
-							filter: blur(20px);
 							z-index: 0;
+							filter: blur(20px);
 							background-image: url(${urlBlurred});
 							background-position: center center;
 							background-size: 100%;
@@ -98,7 +101,7 @@ const CloudinaryImage = ({
 				<div className="absolute top-0 left-0">
 					<span className="mt-0">
 						<Image
-							className="mt-0 transition-opacity opacity-0 duration-[2s]"
+							className="mt-0"
 							src={url}
 							width={
 								resizedToMaxWidth ? Math.min(+width, RESIZED_MAX_WIDTH) : width
@@ -108,7 +111,7 @@ const CloudinaryImage = ({
 									? (RESIZED_MAX_WIDTH * +height) / +width
 									: height
 							}
-							onLoadingComplete={(img) => img.classList.remove("opacity-0")}
+							priority={priority}
 							alt={alt}
 						/>
 					</span>

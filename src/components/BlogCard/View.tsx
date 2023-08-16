@@ -15,7 +15,8 @@ const BlogCard = ({ post }: BlogCardProps) => {
 					className="mb-2 rounded-t-md object-cover"
 					publicId={`albertmanuel/banner/${post.thumbnail}`}
 					width={1200}
-					height={600}
+					height={(1200 * 2) / 4}
+					aspect={{ width: 4, height: 2 }}
 					alt="banner"
 				/>
 			</div>
