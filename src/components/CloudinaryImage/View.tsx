@@ -82,22 +82,9 @@ const CloudinaryImage = ({
 						: `${(+height / +width) * 100}%`,
 					backgroundPosition: "center center",
 					backgroundSize: "100%",
+					backgroundImage: `url(${urlBlurred})`,
 				}}
 			>
-				<style jsx>
-					{`
-						.banner-blur::before {
-							content: "";
-							position: absolute;
-							inset: 0;
-							z-index: 0;
-							filter: blur(20px);
-							background-image: url(${urlBlurred});
-							background-position: center center;
-							background-size: 100%;
-						}
-					`}
-				</style>
 				<div className="absolute top-0 left-0">
 					<span className="mt-0">
 						<Image

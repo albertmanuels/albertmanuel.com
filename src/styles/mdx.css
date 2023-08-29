@@ -6,10 +6,6 @@
 	@apply rounded-md;
 }
 
-/* .prose pre {
-	@apply !bg-transparent;
-} */
-
 .prose pre > code {
 	@apply grid p-3;
 	counter-reset: line;
@@ -29,7 +25,16 @@
 	@apply !mt-0 mb-[12px] !text-primary-200 dark:!text-txt-300 !leading-8 !tracking-wider !font-medium;
 }
 
+.prose h2 {
+	@apply !font-semibold;
+}
+
 .prose p,
-.prose ul > li {
+.prose ul > li,
+.prose ol > li {
+	@apply text-primary-200 dark:!text-txt-200 !leading-8 !tracking-wider !font-light;
+}
+
+::marker {
 	@apply text-primary-200 dark:!text-txt-200 !leading-8 !tracking-wider !font-light;
 }

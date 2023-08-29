@@ -69,15 +69,15 @@ const AboutPage = () => {
 							</h1>
 
 							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
-								Hi, I&apos;m Albert. Very interested learn about Web Ecosystems,
-								especially Frontend Development to build a cool stuff that can
-								be interacted with users.
+								Hi, I&apos;m Albert. Very interested to learn about Web
+								Ecosystems, especially Frontend Development to build a cool
+								stuff that can be interacted with users.
 							</p>
 							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
 								I have been working as Frontend Engineer for 2 years in tech
 								industry and experienced working with remote environment and
 								keep my communication-collaboration smooth. Outside of my work,
-								I love to watch a movie, explore some place, and reading a book.
+								I love to watch a movie, explore some place, and read a book.
 							</p>
 							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-5">
 								Currently I learn how to write a
@@ -109,9 +109,8 @@ const AboutPage = () => {
 							width={800}
 							height={(800 * 4) / 4}
 							aspect={{ width: 4, height: 4 }}
-							mdx={false}
 							alt="profile pict"
-							priority={true}
+							mdx={false}
 						/>
 					</div>
 				</main>
