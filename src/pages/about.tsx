@@ -1,7 +1,5 @@
 import React from "react";
 import TemplateLayout from "../templates/Layout";
-import Image from "next/image";
-import ProfileImg from "@/src/assets/albertmanuel.jpg";
 import Link from "next/link";
 import {
 	SiBootstrap,
@@ -14,7 +12,6 @@ import {
 	SiTypescript,
 } from "react-icons/si";
 import CloudinaryImage from "../components/CloudinaryImage/View";
-import { useCheckScreenSize } from "../hooks";
 
 const stacks = [
 	{

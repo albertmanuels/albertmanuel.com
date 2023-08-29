@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef } from "react";
+import React, { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { buildUrl } from "cloudinary-build-url";
 import clsx from "clsx";
@@ -15,7 +15,6 @@ type CloudinaryImageProps = {
 		height: number;
 	};
 	noStyle?: boolean;
-	priority?: boolean;
 };
 
 const CloudinaryImage = ({
@@ -27,7 +26,6 @@ const CloudinaryImage = ({
 	mdx = false,
 	aspect,
 	noStyle = false,
-	priority = false,
 	style,
 }: CloudinaryImageProps & ComponentPropsWithoutRef<"figure">) => {
 	const urlBlurred = buildUrl(publicId, {
@@ -80,11 +78,22 @@ const CloudinaryImage = ({
 					paddingTop: aspectRatio
 						? `${aspectRatio * 100}%`
 						: `${(+height / +width) * 100}%`,
-					backgroundPosition: "center center",
-					backgroundSize: "100%",
-					backgroundImage: `url(${urlBlurred})`,
 				}}
 			>
+				<style jsx>
+					{`
+						.banner-blur::before {
+							content: "";
+							position: absolute;
+							inset: 0;
+							filter: blur(20px);
+							z-index: 0;
+							background: url(${urlBlurred});
+							background-position: center center;
+							background-size: 100%;
+						}
+					`}
+				</style>
 				<div className="absolute top-0 left-0">
 					<span className="mt-0">
 						<Image
@@ -98,7 +107,6 @@ const CloudinaryImage = ({
 									? (RESIZED_MAX_WIDTH * +height) / +width
 									: height
 							}
-							priority={priority}
 							alt={alt}
 						/>
 					</span>
