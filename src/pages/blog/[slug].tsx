@@ -24,8 +24,8 @@ export default function BlogPostPage({ code, frontmatter }: BlogType) {
 					className="mb-[3rem] object-cover rounded-md"
 					publicId={`albertmanuel/banner/${frontmatter.banner}`}
 					width={1200}
-					height={(1200 * 2) / 8}
-					aspect={{ width: 8, height: 2 }}
+					height={(1200 * 2) / 4}
+					aspect={{ width: 4, height: 2 }}
 					alt="banner"
 				/>
 
