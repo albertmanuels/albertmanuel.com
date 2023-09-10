@@ -12,7 +12,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 const POSTS_PATH = path.join(process.cwd(), "src/contents", "/blog");
 
 export const getSlugs = () => {
-	const paths = sync(`${POSTS_PATH}/*.mdx`) || null;
+	const paths = sync(`${POSTS_PATH}/*.mdx`);
 
 	return paths.map((path) => {
 		const parts = path.split("/");
@@ -26,8 +26,7 @@ export const getSlugs = () => {
 export const getAllFilesFrontmatter = async <T extends ContentType>(
 	type: T
 ) => {
-	const files =
-		(await getFileList(join(process.cwd(), "src", "contents", type))) || null;
+	const files = await getFileList(join(process.cwd(), "src", "contents", type));
 
 	return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
 		const source = readFileSync(absolutePath, "utf-8");
