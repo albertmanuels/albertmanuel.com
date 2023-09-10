@@ -9,10 +9,10 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 
-const POSTS_PATH = path.join(process.cwd(), "src/contents", "blog");
+const POSTS_PATH = path.join(process.cwd(), "src/contents", "/blog");
 
 export const getSlugs = () => {
-	const paths = sync(`${POSTS_PATH}/*.mdx`) || [];
+	const paths = sync(`${POSTS_PATH}/*.mdx`) || null;
 
 	return paths.map((path) => {
 		const parts = path.split("/");
@@ -26,7 +26,8 @@ export const getSlugs = () => {
 export const getAllFilesFrontmatter = async <T extends ContentType>(
 	type: T
 ) => {
-	const files = await getFileList(join(process.cwd(), "src", "contents", type));
+	const files =
+		(await getFileList(join(process.cwd(), "src", "contents", type))) || null;
 
 	return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
 		const source = readFileSync(absolutePath, "utf-8");
@@ -62,6 +63,8 @@ export const getFileList = async (dirName: string) => {
 
 export const getPostData = async (slug: string) => {
 	const fullPath = path.join(POSTS_PATH, `${slug}.mdx`);
+
+	console.log(fullPath);
 	const mdxSource = readFileSync(fullPath, "utf8");
 
 	const { code, frontmatter } = await bundleMDX({
