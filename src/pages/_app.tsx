@@ -16,6 +16,27 @@ export default function App({ Component, pageProps }: AppProps) {
 		<>
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<meta
+					name="description"
+					content="I work with React ecosystems to build a cool stuff in web platform"
+				/>
+				<meta property="og:url" content="https://www.albertmanuel.com" />
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content="Albert Manuel" />
+				<meta
+					property="og:description"
+					content="I work with React ecosystems to build a cool stuff in web platform"
+				/>
+				<meta property="og:image" content="" />
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta property="twitter:domain" content="albertmanuel.com" />
+				<meta property="twitter:url" content="https://www.albertmanuel.com" />
+				<meta name="twitter:title" content="Albert Manuel" />
+				<meta
+					name="twitter:description"
+					content="I work with React ecosystems to build a cool stuff in web platform"
+				/>
+				<meta name="twitter:image" content="" />
 			</Head>
 
 			<ThemeProvider enableSystem={false} defaultTheme="dark" attribute="class">
