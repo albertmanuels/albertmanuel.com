@@ -17,8 +17,7 @@ const HomePage = () => {
 							Software Engineer🇮🇩
 						</h3>
 						<p className="text-primary-200 dark:text-txt-200 mb-4 font-light">
-							I work with React ecosystem to build a cool stuff in a web
-							platform
+							I work with React ecosystem to build cool stuff in web platform
 						</p>
 						<Link
 							href="/about"

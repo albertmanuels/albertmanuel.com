@@ -3,13 +3,13 @@ import TemplateLayout from "../templates/Layout";
 import Link from "next/link";
 import {
 	SiBootstrap,
-	SiGit,
 	SiJavascript,
 	SiNextdotjs,
 	SiReact,
 	SiSass,
 	SiTailwindcss,
 	SiTypescript,
+	SiNodedotjs,
 } from "react-icons/si";
 import CloudinaryImage from "../components/CloudinaryImage/View";
 
@@ -31,6 +31,10 @@ const stacks = [
 		icon: SiJavascript,
 	},
 	{
+		id: "nodejs",
+		icon: SiNodedotjs,
+	},
+	{
 		id: "tailwind",
 		icon: SiTailwindcss,
 	},
@@ -41,10 +45,6 @@ const stacks = [
 	{
 		id: "sass",
 		icon: SiSass,
-	},
-	{
-		id: "git",
-		icon: SiGit,
 	},
 ];
 
@@ -66,23 +66,49 @@ const AboutPage = () => {
 							</h1>
 
 							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
-								Hi, I&apos;m Albert. Very interested to learn about Web
-								Ecosystems, especially Frontend Development to build a cool
-								stuff that can be interacted with users.
+								Hi! You can call me Albert, I&rsquo;m a Software Engineer who
+								loves to creating a cool stuff thru coding and learn new things
+								as much as possible.
 							</p>
+
 							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
-								I have been working as Frontend Engineer for 2 years in tech
-								industry and experienced working with remote environment and
-								keep my communication-collaboration smooth. Outside of my work,
-								I love to watch a movie, explore some place, and read a book.
+								I have been working as Software Engineer focusing on Frontend
+								Development for 2 years in several industries includes
+								e-commerce, startup, and software house. Since my first time job
+								at 2021, I found my self enjoyed working with cross-function in
+								a team and also individual work to solve the problem and making
+								real impact.
 							</p>
-							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-5">
-								Currently I learn how to write a
+
+							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
+								Outside of my work, I enjoyed my free time to watch a movie
+								(preferred action and horror genre), visit a coffee shop,
+								explore places that I found interesting, and read a book (mostly
+								self improvement related).
+							</p>
+
+							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
+								Beside that, in order to improve my skills and keep up-to-date,
+								I also use my free time to take an online courses from udemy
+								and/or watching youtube videos that related with programming and
+								computer science in general.
+							</p>
+
+							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
+								In this website, I will share my thoughts, stories, and things
+								that I have learned in some{" "}
 								<Link href="/blog" className="text-accent">
-									&nbsp;blogs
-								</Link>{" "}
-								to share my thoughts, knowledge and things that I have learned.
+									blog posts
+								</Link>
+								.
 							</p>
+
+							<p className="text-primary-200 dark:text-txt-200 font-light leading-relaxed mb-3">
+								Yuppp, That&rsquo;s short about me! If you want to know more
+								about me, feel free to connect and contact through my linkedin.
+								I&rsquo;m always open to new opportunity and new friends.
+							</p>
+
 							<h3 className="text-primary-200 dark:text-txt-200 text-lg font-medium mb-4">
 								Experienced and familiar with these technologies:
 							</h3>
@@ -99,13 +125,13 @@ const AboutPage = () => {
 						</article>
 					</div>
 
-					<div className="w-full sm:w-2/5 md:w-2/5 lg:w-2/5 mb-8 sm:mt-[-10%] md:mt-0">
+					<div className="w-full sm:w-2/8 md:w-2/6 lg:w-2/6 mb-8 sm:mt-[-10%] md:mt-0">
 						<CloudinaryImage
-							className="rounded-full mx-auto border-accent border-[3px] w-4/5 xs:w-80 sm:w-full"
-							publicId="albertmanuel/banner/albertmanuel_ft6yac"
-							width={800}
-							height={(800 * 4) / 4}
-							aspect={{ width: 4, height: 4 }}
+							className="rounded-full mx-auto border-accent border-[3px] w-3/5 xs:w-80 sm:w-full"
+							publicId="albertmanuel/images/profile-albert_ecwqic"
+							width={600}
+							height={(600 * 3) / 3}
+							aspect={{ width: 3, height: 3 }}
 							alt="profile pict"
 							mdx={false}
 						/>
