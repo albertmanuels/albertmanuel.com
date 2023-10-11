@@ -27,27 +27,22 @@ export const getAllFilesFrontmatter = async <T extends ContentType>(
 	type: T
 ) => {
 	const files = await getFileList(join(process.cwd(), "src", "contents", type));
+	return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
+		const source = readFileSync(absolutePath, "utf-8");
+		const { data } = matter(source);
 
-	if (files) {
-		return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
-			const source = readFileSync(absolutePath, "utf-8");
-			const { data } = matter(source);
+		const result = [
+			{
+				...(data as BlogFrontmatter),
+				slug: absolutePath
+					.replace(join(process.cwd(), "src", "contents", type) + "/", "")
+					.replace(".mdx", ""),
+			},
+			...allPosts,
+		];
 
-			const result = [
-				{
-					...(data as BlogFrontmatter),
-					slug: absolutePath
-						.replace(join(process.cwd(), "src", "contents", type) + "/", "")
-						.replace(".mdx", ""),
-				},
-				...allPosts,
-			];
-
-			return result;
-		}, []);
-	} else {
-		return [];
-	}
+		return result;
+	}, []);
 };
 
 export const getFileList = async (dirName: string) => {

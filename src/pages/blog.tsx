@@ -10,7 +10,7 @@ const sortData = (data: BlogFrontmatter[]) => {
 	);
 };
 
-export default function BlogPage({ posts }: { posts: BlogFrontmatter[] | [] }) {
+export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 	return (
 		<TemplateLayout
 			pageTitle="Blog"
@@ -43,22 +43,15 @@ export default function BlogPage({ posts }: { posts: BlogFrontmatter[] | [] }) {
 export async function getStaticProps() {
 	const files: BlogFrontmatter[] = await getAllFilesFrontmatter("blog");
 
-	if (files.length !== 0) {
-		const allFiles = JSON.parse(JSON.stringify(files));
-		const posts = allFiles.sort(
-			(postA: { date: string }, postB: { date: string }) =>
-				Number(new Date(postB.date)) - Number(new Date(postA.date))
-		);
-		return {
-			props: {
-				posts,
-			},
-		};
-	} else {
-		return {
-			props: {
-				posts: [],
-			},
-		};
-	}
+	const allFiles = JSON.parse(JSON.stringify(files));
+	const posts = allFiles.sort(
+		(postA: { date: string }, postB: { date: string }) =>
+			Number(new Date(postB.date)) - Number(new Date(postA.date))
+	);
+
+	return {
+		props: {
+			posts,
+		},
+	};
 }
