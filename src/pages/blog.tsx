@@ -11,7 +11,6 @@ const sortData = (data: BlogFrontmatter[]) => {
 };
 
 export default function BlogPage({ posts }: { posts: BlogFrontmatter[] | [] }) {
-	console.log("posts: " + posts);
 	return (
 		<TemplateLayout
 			pageTitle="Blog"

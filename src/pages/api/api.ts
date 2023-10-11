@@ -28,22 +28,26 @@ export const getAllFilesFrontmatter = async <T extends ContentType>(
 ) => {
 	const files = await getFileList(join(process.cwd(), "src", "contents", type));
 
-	return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
-		const source = readFileSync(absolutePath, "utf-8");
-		const { data } = matter(source);
+	if (files) {
+		return files.reduce((allPosts: PickFrontmatter[], absolutePath) => {
+			const source = readFileSync(absolutePath, "utf-8");
+			const { data } = matter(source);
 
-		const result = [
-			{
-				...(data as BlogFrontmatter),
-				slug: absolutePath
-					.replace(join(process.cwd(), "src", "contents", type) + "/", "")
-					.replace(".mdx", ""),
-			},
-			...allPosts,
-		];
+			const result = [
+				{
+					...(data as BlogFrontmatter),
+					slug: absolutePath
+						.replace(join(process.cwd(), "src", "contents", type) + "/", "")
+						.replace(".mdx", ""),
+				},
+				...allPosts,
+			];
 
-		return result;
-	}, []);
+			return result;
+		}, []);
+	} else {
+		return [];
+	}
 };
 
 export const getFileList = async (dirName: string) => {
@@ -63,7 +67,6 @@ export const getFileList = async (dirName: string) => {
 export const getPostData = async (slug: string) => {
 	const fullPath = path.join(POSTS_PATH, `${slug}.mdx`);
 
-	console.log(fullPath);
 	const mdxSource = readFileSync(fullPath, "utf8");
 
 	const { code, frontmatter } = await bundleMDX({
