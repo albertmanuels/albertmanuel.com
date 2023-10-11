@@ -10,7 +10,8 @@ const sortData = (data: BlogFrontmatter[]) => {
 	);
 };
 
-export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
+export default function BlogPage({ posts }: { posts: BlogFrontmatter[] | [] }) {
+	console.log("posts: " + posts);
 	return (
 		<TemplateLayout
 			pageTitle="Blog"
@@ -30,7 +31,7 @@ export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 					</div>
 				) : (
 					<div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-						{sortData(posts).map((post) => (
+						{sortData(posts)?.map((post) => (
 							<BlogCard key={post.slug} post={post} />
 						))}
 					</div>
@@ -43,15 +44,22 @@ export default function BlogPage({ posts }: { posts: BlogFrontmatter[] }) {
 export async function getStaticProps() {
 	const files: BlogFrontmatter[] = await getAllFilesFrontmatter("blog");
 
-	const allFiles = JSON.parse(JSON.stringify(files));
-	const posts = allFiles.sort(
-		(postA: { date: string }, postB: { date: string }) =>
-			Number(new Date(postB.date)) - Number(new Date(postA.date))
-	);
-
-	return {
-		props: {
-			posts,
-		},
-	};
+	if (files.length !== 0) {
+		const allFiles = JSON.parse(JSON.stringify(files));
+		const posts = allFiles.sort(
+			(postA: { date: string }, postB: { date: string }) =>
+				Number(new Date(postB.date)) - Number(new Date(postA.date))
+		);
+		return {
+			props: {
+				posts,
+			},
+		};
+	} else {
+		return {
+			props: {
+				posts: [],
+			},
+		};
+	}
 }
