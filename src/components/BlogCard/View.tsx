@@ -4,7 +4,7 @@ import Link from "next/link";
 import { formatDate } from "@/src/helpers";
 import CloudinaryImage from "../CloudinaryImage/View";
 
-const BlogCard = ({ post }) => {
+const BlogCard = ({ post }: { post: any }) => {
   return (
     <Link
       href={`/blog/${post.slug}`}
