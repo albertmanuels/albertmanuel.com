@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
-import type { BlogCardProps } from "./View.types";
 import Link from "next/link";
 import { formatDate } from "@/src/helpers";
 import CloudinaryImage from "../CloudinaryImage/View";
 
-const BlogCard = ({ post }: BlogCardProps) => {
+const BlogCard = ({ post }) => {
   return (
     <Link
       href={`/blog/${post.slug}`}
