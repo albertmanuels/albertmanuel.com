@@ -1,5 +1,4 @@
 import CloudinaryImage from "@/src/components/CloudinaryImage";
-import { formatDate } from "@/src/helpers";
 import React from "react";
 
 const BlogPage = () => {
