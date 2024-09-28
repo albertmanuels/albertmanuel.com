@@ -37,6 +37,10 @@ module.exports = {
 					300: "#FFFFFF",
 				},
 			},
+			width: {
+				experienceRightSided: "calc(50% + 4px)",
+				experienceLeftSided: "50%"
+			}
 		},
 	},
 	darkMode: "class",

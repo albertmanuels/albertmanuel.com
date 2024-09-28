@@ -1,56 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import {
-  SiBootstrap,
-  SiJavascript,
-  SiNextdotjs,
-  SiReact,
-  SiSass,
-  SiTailwindcss,
-  SiTypescript,
-  SiNodedotjs,
-} from "react-icons/si";
 import CloudinaryImage from "@/src/components/CloudinaryImage/View";
-
-const stacks = [
-  {
-    id: "nextjs",
-    icon: SiNextdotjs,
-  },
-  {
-    id: "react",
-    icon: SiReact,
-  },
-  {
-    id: "typescript",
-    icon: SiTypescript,
-  },
-  {
-    id: "javascript",
-    icon: SiJavascript,
-  },
-  {
-    id: "nodejs",
-    icon: SiNodedotjs,
-  },
-  {
-    id: "tailwind",
-    icon: SiTailwindcss,
-  },
-  {
-    id: "bootstrap",
-    icon: SiBootstrap,
-  },
-  {
-    id: "sass",
-    icon: SiSass,
-  },
-];
+import ExperienceSection from "./components/ExperienceSection";
+import { stacks } from "./About.constants";
 
 const AboutPage = () => {
   return (
-    <section className="pt-[24px] lg:pt-0">
-      <main className="flex flex-col-reverse items-start justify-center layout sm:flex-row sm:items-center sm:justify-start">
+    <main className="pt-[24px] pb-6 md:pb-0 lg:pt-0 layout">
+      <div className="flex flex-col-reverse items-start justify-center sm:flex-row sm:items-center sm:justify-start">
         <div className="w-full sm:w-3/5 md:w-3/5 lg:w-3/5 sm:mr-6">
           <article className="mb-6">
             <h1 className="mb-1 text-2xl font-semibold text-primary-200 dark:text-txt-200 sm:text-4xl md:mb-4">
@@ -68,7 +25,7 @@ const AboutPage = () => {
 
             <p className="mb-3 font-light leading-relaxed text-primary-200 dark:text-txt-200">
               I have been working as Software Engineer focusing on Frontend
-              Development for 2 years in several industries includes e-commerce,
+              Development for 3 years in several industries includes e-commerce,
               startup, and software house. Since my first time job at 2021, I
               found my self enjoyed working with cross-function in a team and
               also individual work to solve the problem and making real impact.
@@ -122,7 +79,7 @@ const AboutPage = () => {
         <div className="w-full sm:w-2/8 md:w-2/6 lg:w-2/6 mb-8 sm:mt-[-10%] md:mt-0">
           <CloudinaryImage
             className="rounded-full mx-auto border-accent border-[3px] w-3/5 xs:w-80 sm:w-full"
-            publicId="albertmanuel/images/profile-albert_ecwqic"
+            publicId="albertmanuel.com/assets/bkwzaooasm4biupaqkaw"
             width={600}
             height={(600 * 3) / 3}
             aspect={{ width: 3, height: 3 }}
@@ -130,8 +87,9 @@ const AboutPage = () => {
             mdx={false}
           />
         </div>
-      </main>
-    </section>
+      </div>
+      {/* <ExperienceSection /> */}
+    </main>
   );
 };
 export default AboutPage;

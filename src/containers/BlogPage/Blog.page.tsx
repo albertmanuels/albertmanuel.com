@@ -1,24 +1,22 @@
-import CloudinaryImage from "@/src/components/CloudinaryImage";
 import React from "react";
+import { blogPosts } from ".velite";
+import BlogCard from "@/src/components/BlogCard";
 
 const BlogPage = () => {
   return (
     <section className="gap-4 layout-post-content min-h-mobile md:min-h-desktop">
       <h1 className="not-prose text-[30px] font-semibold text-primary-200 dark:text-txt-300 mb-1">
-        TEST
+        Blog
       </h1>
-      <p className="m-0 mb-3 font-light not-prose text-primary-200 dark:text-txt-200">
-        Published on TEST
-      </p>
-
-      <CloudinaryImage
-        className="mb-[3rem] object-cover rounded-md"
-        publicId={`albertmanuel/banner/TEST`}
-        width={1200}
-        height={(1200 * 2) / 4}
-        aspect={{ width: 4, height: 2 }}
-        alt="banner"
-      />
+      <hr className="mb-6" />
+      <ul className="grid gap-3 pb-10 sm:grid-cols-3 md:px-4">
+        {blogPosts
+          .filter((item) => item.published)
+          .sort((a, b) => a.date.localeCompare(b.date))
+          .map((blog) => (
+            <BlogCard key={blog.slug} blog={blog} />
+          ))}
+      </ul>
     </section>
   );
 };
