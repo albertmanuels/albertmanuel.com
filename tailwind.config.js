@@ -8,8 +8,8 @@ module.exports = {
 	],
 	theme: {
 		minHeight: {
-			desktop: "calc(100vh - 127px)",
-			mobile: "calc(100vh - 154px)",
+			desktop: "calc(100vh - 154px)",
+			mobile: "calc(100vh - 181px)",
 		},
 
 		screens: {
@@ -29,7 +29,7 @@ module.exports = {
 					300: "#2c2e30",
 					400: "#1D1F21",
 				},
-				accent: "#06b6d4",
+				accent: "#1640D6",
 
 				txt: {
 					100: "#d6d3d1",
@@ -39,8 +39,13 @@ module.exports = {
 			},
 			width: {
 				experienceRightSided: "calc(50% + 4px)",
-				experienceLeftSided: "50%"
+				experienceLeftSided: "50%",
+				inherit: 'inherit'
+			},
+			maxWidth: {
+				inherit: 'inherit'
 			}
+			
 		},
 	},
 	darkMode: "class",

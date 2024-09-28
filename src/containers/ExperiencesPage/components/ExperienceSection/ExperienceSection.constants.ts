@@ -11,7 +11,7 @@ export const experiences = [
   },
   {
     company: 'Skyshi Digital Indonesia',
-    position: 'Frontend Engineer',
+    position: 'Frontend Engineer (Project based)',
     description: [
       'lorem',
       'lorem'

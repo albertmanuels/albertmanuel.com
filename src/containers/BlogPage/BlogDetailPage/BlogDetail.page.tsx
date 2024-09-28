@@ -19,12 +19,6 @@ const getCourseFromParams = async (params: BlogDetailProps["params"]) => {
   return blog;
 };
 
-export async function generateStaticParams(): Promise<
-  BlogDetailProps["params"][]
-> {
-  return blogPosts.map((blog) => ({ slug: blog.slugAsParams.split("/") }));
-}
-
 const BlogDetailPage = async ({ params }: BlogDetailProps) => {
   const blog = await getCourseFromParams(params);
 

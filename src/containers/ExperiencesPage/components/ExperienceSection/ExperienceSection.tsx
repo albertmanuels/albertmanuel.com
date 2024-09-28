@@ -13,11 +13,12 @@ const ExperienceSection = () => {
     });
   };
   return (
-    <section className="flex flex-col items-center">
-      <h1 className="mb-6 text-4xl font-semibold text-primary-200 dark:text-white">
+    <section className="min-h-mobile md:min-h-desktop">
+      <h1 className="mb-1 text-4xl font-semibold text-primary-200 dark:text-white">
         Work Experiences
       </h1>
-      <div className="flex flex-col justify-start w-full md:w-[35vw]">
+      <hr className="mb-6" />
+      <div className="flex flex-col justify-start w-full">
         {renderExperience()}
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiNodedotjs, SiTailwindcss, SiBootstrap, SiSass } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiNodedotjs, SiTailwindcss, SiBootstrap, SiSass, SiReactquery } from "react-icons/si";
 
 export const stacks = [
   {
@@ -18,19 +18,15 @@ export const stacks = [
     icon: SiJavascript,
   },
   {
+    id: "reactquery",
+    icon: SiReactquery,
+  },
+  {
     id: "nodejs",
     icon: SiNodedotjs,
   },
   {
     id: "tailwind",
     icon: SiTailwindcss,
-  },
-  {
-    id: "bootstrap",
-    icon: SiBootstrap,
-  },
-  {
-    id: "sass",
-    icon: SiSass,
   },
 ];

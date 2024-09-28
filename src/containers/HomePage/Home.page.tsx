@@ -1,36 +1,68 @@
-import { LINKED_URL } from "@/src/constants";
 import Link from "next/link";
 import React from "react";
+import { stacks } from "./Home.constants";
 
 const HomePage = () => {
   return (
-    <section className="flex items-center justify-center layout">
-      <main className="flex items-center justify-center">
-        <div className="mb-6">
-          <h1 className="text-2xl font-semibold text-accent sm:text-4xl">
-            Hi, I&apos;m Albert Manuel
-          </h1>
-          <h3 className="mb-2 text-lg font-medium text-primary-200 dark:text-txt-300">
-            Software Engineer🇮🇩
-          </h3>
-          <Link
-            href="/about"
-            className="inline-block mb-2 font-light p-2 dark:bg-primary-200 text-primary-200 dark:text-txt-200 border-dashed border-[1px] border-primary-200"
-          >
-            More about me
-          </Link>
-          <div className="flex flex-row items-center gap-x-4">
-            <Link
-              href="https://drive.google.com/file/d/1aBs4OLcwYmV52SQL26Df7_mJZ8_tl6hZ/view?usp=sharing"
-              target="_blank"
-            >
-              Resume
-            </Link>
-            <Link href={LINKED_URL}>Linkedin</Link>
+    <article className="flex flex-col gap-5">
+      <div className="w-full min-h-[12vh]">
+        <h1 className="text-4xl font-bold text-primary-200 dark:text-white">
+          Hi!
+        </h1>
+        <h1 className="mb-2 text-4xl font-bold text-primary-200 dark:text-white">
+          You can call me{" "}
+          <span className="border-b-2 border-dotted border-accent text-primary-200 dark:text-white">
+            Albert
+          </span>
+        </h1>
+        <p className="mb-4 text-lg text-primary-200 dark:text-white">
+          I&rsquo;m a Software Engineer who loves to creating a cool stuff thru
+          coding and learn new things as much as possible.
+        </p>
+        <h3 className="mb-4 text-lg font-medium text-primary-200 dark:text-txt-200">
+          Experienced and familiar with these technologies:
+        </h3>
+        <figure>
+          <div className="flex flex-wrap gap-3 sm:gap-4">
+            {stacks.map((tech) => (
+              <tech.icon
+                key={tech.id}
+                className="w-10 h-10 fill-primary-100 dark:fill-txt-200"
+              />
+            ))}
           </div>
+        </figure>
+      </div>
+
+      <div>
+        <h2 className="mb-3 text-xl font-semibold text-primary-200 dark:text-white">
+          Featured Projects
+        </h2>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-2">
+          <Link href="/" className="inline-block w-full">
+            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
+              <h4>Pokepedia</h4>
+            </div>
+          </Link>
+          <Link href="/" className="inline-block w-full">
+            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
+              <h4>Pokepedia</h4>
+            </div>
+          </Link>
+          <Link href="/" className="inline-block w-full">
+            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
+              <h4>Pokepedia</h4>
+            </div>
+          </Link>
+
+          <Link href="/" className="inline-block w-full">
+            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
+              <h4>Pokepedia</h4>
+            </div>
+          </Link>
         </div>
-      </main>
-    </section>
+      </div>
+    </article>
   );
 };
 
