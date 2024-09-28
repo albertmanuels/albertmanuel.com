@@ -5,9 +5,10 @@ import Link from "next/link";
 import { GITHUB_URL, LINKED_URL } from "@/src/constants";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="flex flex-col-reverse items-center justify-center w-full px-4 py-5 bg-white dark:bg-zinc-900 xs:flex-row lg:px-0 text-primary-200 dark:text-txt-300">
-      <p className="xs:mr-5">&copy; 2023. All Rights Reserved.</p>
+      <p className="xs:mr-5">&copy; {currentYear}. All Rights Reserved.</p>
       <div className="flex flex-row">
         <h4 className="mr-3">Get in touch</h4>
         <div>
