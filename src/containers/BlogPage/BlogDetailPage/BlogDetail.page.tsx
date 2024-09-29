@@ -26,7 +26,7 @@ const BlogDetailPage = async ({ params }: BlogDetailProps) => {
     notFound();
   }
   return (
-    <section className="pb-5 layout-post-content min-h-mobile md:min-h-desktop">
+    <section className="pb-5 layout-post-content">
       <CloudinaryImage
         className="mb-4"
         publicId={blog.thumbnail}

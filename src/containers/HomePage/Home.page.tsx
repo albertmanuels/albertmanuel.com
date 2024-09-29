@@ -40,23 +40,7 @@ const HomePage = () => {
         </h2>
         <div className="grid grid-cols-2 gap-6 md:grid-cols-2">
           <Link href="/" className="inline-block w-full">
-            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Pokepedia</h4>
-            </div>
-          </Link>
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Pokepedia</h4>
-            </div>
-          </Link>
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Pokepedia</h4>
-            </div>
-          </Link>
-
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-md border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
+            <div className="border rounded-lg border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
               <h4>Pokepedia</h4>
             </div>
           </Link>

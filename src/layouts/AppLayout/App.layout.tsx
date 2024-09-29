@@ -19,12 +19,14 @@ export default function RootLayout({
           attribute="class"
         >
           <Navbar />
-          <main className="grid grid-cols-6 mt-20 w-[72rem] mx-auto pt-8 bg-white dark:bg-zinc-900">
-            <section className="col-span-2">
+          <main className="grid sm:grid-cols-6 px-4 md:px-0 md:w-[72rem] mx-auto bg-white dark:bg-zinc-900 pt-10 min-h-mobile md:min-h-desktop">
+            <section className="w-full mb-10 sm:mb-0 sm:col-span-2">
               <ProfileSection />
             </section>
 
-            <section className="w-full col-span-4 pl-6">{children}</section>
+            <section className="w-full sm:col-span-4 sm:pl-6">
+              {children}
+            </section>
           </main>
           <Footer />
         </ThemeProvider>

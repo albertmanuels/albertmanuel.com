@@ -7,10 +7,10 @@ import { RiGraduationCapFill } from "react-icons/ri";
 
 const ProfileSection = () => {
   return (
-    <div className="relative flex-col items-center px-2 text-primary-200 md:min-h-desktop min-h-mobile dark:text-white">
-      <div className="sticky top-[70px]">
+    <div className="relative h-[100vh] md:h-full text-primary-200 dark:text-white min-h-inherit">
+      <div className="sticky top-[70px] flex flex-col items-center">
         <CloudinaryImage
-          className="w-3/4 mx-auto mb-5 rounded-full"
+          className="w-1/2 mx-auto mb-5 rounded-full md:w-3/4"
           publicId="albertmanuel.com/assets/bkwzaooasm4biupaqkaw"
           width={600}
           height={(600 * 3) / 3}
@@ -19,38 +19,38 @@ const ProfileSection = () => {
           mdx={false}
         />
         <div>
-          <h1 className="text-3xl font-semibold text-center text-primary-200 dark:text-white">
+          <h1 className="text-2xl font-semibold text-center sm:text-3xl text-primary-200 dark:text-white">
             Albert Manuel Simbolon
           </h1>
-          <p className="mb-4 text-xl font-light text-center">
+          <p className="mb-4 text-lg font-light text-center sm:text-xl">
             Software Engineer
           </p>
           <hr />
           <div className="flex flex-col gap-2 mt-4 mb-10">
-            <p className="flex items-center text-lg font-light gap-x-2">
-              <SiGooglemaps className="w-6 h-6 fill-primary-100 dark:fill-txt-200" />
+            <p className="flex items-center font-light text-md sm:text-lg gap-x-2">
+              <SiGooglemaps className="w-4 h-4 sm:w-6 sm:h-6 fill-primary-100 dark:fill-txt-200" />
               Jakarta, Indonesia
             </p>
-            <p className="flex items-start text-lg font-light gap-x-2">
-              <RiGraduationCapFill className="w-7 h-7 fill-primary-100 dark:fill-txt-200" />
+            <p className="flex items-start font-light text-md sm:text-lg gap-x-2">
+              <RiGraduationCapFill className="w-5 h-5 sm:w-7 sm:h-7 fill-primary-100 dark:fill-txt-200" />
               Bachelor of Engineering, Telkom University
             </p>
             <ul className="flex flex-col gap-y-2">
               <li className="w-max">
                 <Link
                   href={LINKEDIN_URL}
-                  className="flex items-center text-lg font-light gap-x-2"
+                  className="flex items-center font-light text-md sm:text-lg gap-x-2"
                 >
-                  <SiLinkedin className="w-6 h-6 fill-primary-100 dark:fill-txt-200" />
+                  <SiLinkedin className="w-4 h-4 sm:w-6 sm:h-6 fill-primary-100 dark:fill-txt-200" />
                   LinkedIn
                 </Link>
               </li>
               <li className="w-max">
                 <Link
                   href={GITHUB_URL}
-                  className="flex items-center text-lg font-light gap-x-2"
+                  className="flex items-center font-light text-md sm:text-lg gap-x-2"
                 >
-                  <SiGithub className="w-6 h-6 fill-primary-100 dark:fill-txt-200" />
+                  <SiGithub className="w-4 h-4 sm:w-6 sm:h-6 fill-primary-100 dark:fill-txt-200" />
                   Github
                 </Link>
               </li>

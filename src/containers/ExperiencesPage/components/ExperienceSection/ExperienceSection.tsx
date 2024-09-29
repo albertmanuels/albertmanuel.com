@@ -13,7 +13,7 @@ const ExperienceSection = () => {
     });
   };
   return (
-    <section className="min-h-mobile md:min-h-desktop">
+    <section>
       <h1 className="mb-1 text-4xl font-semibold text-primary-200 dark:text-white">
         Work Experiences
       </h1>

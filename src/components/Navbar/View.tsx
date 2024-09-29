@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full fixed top-0 px-4 lg:px-0 bg-white dark:bg-zinc-900 z-10`}
+      className={`w-full sticky top-0 px-4 lg:px-0 bg-white dark:bg-zinc-900 z-10`}
     >
       <nav className="w-full max-w-[72rem] flex flex-row justify-between items-center mx-auto h-20">
         <div>
