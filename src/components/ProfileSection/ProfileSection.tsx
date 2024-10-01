@@ -58,8 +58,9 @@ const ProfileSection = () => {
           </div>
           <Link
             className="inline-block w-full py-2 text-lg font-medium text-center text-white border-2 border-blue-800 rounded-md bg-zinc-900"
-            href="https://drive.google.com/file/d/1aBs4OLcwYmV52SQL26Df7_mJZ8_tl6hZ/view?usp=sharing"
+            href="/resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Resume
           </Link>
