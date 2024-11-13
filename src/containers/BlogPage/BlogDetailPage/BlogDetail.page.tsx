@@ -7,13 +7,12 @@ import CloudinaryImage from "@/src/components/CloudinaryImage";
 
 type BlogDetailProps = {
   params: {
-    slug: string[];
+    blogSlug: string;
   };
-  searchParams: string;
 };
 
 const getCourseFromParams = async (params: BlogDetailProps["params"]) => {
-  const slug = params?.slug?.join("/");
+  const slug = params?.blogSlug;
   const blog = blogPosts.find((blog) => blog.slugAsParams === slug);
 
   return blog;

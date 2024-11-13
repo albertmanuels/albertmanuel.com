@@ -5,8 +5,8 @@ import BlogCard from "@/src/components/BlogCard";
 const BlogPage = () => {
   const noPublised = blogPosts.every((item) => !item.published);
   return (
-    <section className="layout-post-content">
-      <h1 className="mb-1 text-4xl font-semibold not-prose text-primary-200 dark:text-txt-300">
+    <section>
+      <h1 className="mb-3 text-5xl font-semibold not-prose text-primary-200 dark:text-txt-300">
         Blog
       </h1>
       <hr className="mb-6" />

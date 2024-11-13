@@ -1,12 +1,9 @@
 "use client";
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const ThemeSlider = () => {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
 
   return (
     <label className="relative inline-block w-[50px] height-[20px]">

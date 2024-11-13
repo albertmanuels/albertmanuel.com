@@ -4,11 +4,15 @@ export const PAGE_LIST = [
 		path: "/",
 	},
 	{
-		name: "Experiences",
-		path: "/experiences",
+		name: "Projects",
+		path: "/projects",
 	},
 	{
 		name: "Blog",
 		path: "/blog",
+	},
+	{
+		name: "About",
+		path: "/about",
 	},
 ];

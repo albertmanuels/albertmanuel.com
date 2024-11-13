@@ -8,8 +8,8 @@ module.exports = {
 	],
 	theme: {
 		minHeight: {
-			desktop: "calc(100vh - 126px)",
-			mobile: "calc(100vh - 80px)",
+			desktop: "calc(100vh - 140px)",
+			mobile: "calc(100vh - 94px)",
 		},
 
 		screens: {
@@ -30,7 +30,8 @@ module.exports = {
 					400: "#1D1F21",
 				},
 				accent: "#1640D6",
-
+				subAccent: "#FF4C29",
+				darkMode: "#040D12",
 				txt: {
 					100: "#d6d3d1",
 					200: "#e0e0e0",
