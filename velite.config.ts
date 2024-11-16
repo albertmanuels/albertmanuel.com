@@ -16,6 +16,7 @@ const blogPosts = defineCollection({
     date: s.isodate(),
     published: s.boolean(),
     body: s.mdx(),
+    featured: s.boolean()
   }).transform(computedFields),
 })
 
