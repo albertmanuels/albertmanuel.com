@@ -18,7 +18,7 @@ export default function RootLayout({
           attribute="class"
         >
           <Navbar />
-          <main className="px-10 lg:px-0 md:max-w-[72rem] mx-auto bg-white dark:bg-darkMode pt-10 min-h-mobile md:min-h-desktop">
+          <main className="px-6 lg:px-0 md:max-w-[72rem] mx-auto bg-white dark:bg-darkMode pt-10 min-h-mobile md:min-h-desktop">
             {children}
           </main>
           <Footer />
