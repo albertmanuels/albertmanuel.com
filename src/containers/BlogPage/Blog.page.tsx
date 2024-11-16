@@ -16,10 +16,10 @@ const BlogPage = () => {
         </div>
       )}
 
-      <ul className="grid gap-3 pb-10 sm:grid-cols-3">
+      <ul className="grid gap-10 pb-10 sm:grid-cols-3">
         {blogPosts
           .filter((item) => item.published)
-          .sort((a, b) => a.date.localeCompare(b.date))
+          .sort((a, b) => b.date.localeCompare(a.date))
           .map((blog) => (
             <BlogCard key={blog.slug} blog={blog} />
           ))}
