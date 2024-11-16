@@ -16,7 +16,7 @@ const BlogPage = () => {
         </div>
       )}
 
-      <ul className="grid gap-10 pb-10 sm:grid-cols-3">
+      <ul className="grid gap-5 pb-10 sm:grid-cols-2 md:grid-cols-3">
         {blogPosts
           .filter((item) => item.published)
           .sort((a, b) => b.date.localeCompare(a.date))
