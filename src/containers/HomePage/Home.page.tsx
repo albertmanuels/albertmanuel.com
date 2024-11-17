@@ -1,10 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import { stacks } from "./Home.constants";
+import { blogPosts } from ".velite";
+import BlogCard from "@/src/components/BlogCard";
 
 const HomePage = () => {
   return (
-    <article className="flex flex-col gap-5 pt-16">
+    <article className="flex flex-col gap-5 pt-8">
       <div className="w-full min-h-[12vh]">
         <h1 className="text-5xl font-bold text-primary-200 dark:text-white">
           Hi!
@@ -17,9 +18,9 @@ const HomePage = () => {
         </h1>
         <p className="w-full mb-5 text-xl text-primary-200 dark:text-txt-100 md:w-3/5">
           I&rsquo;m a Software Engineer, currently working with{" "}
-          <span className="text-subAccent">React Ecosystem</span> and{" "}
-          <span className="text-subAccent">TypeScript</span> as my go-to tools
-          to solves problems and build quality products.
+          <span className="text-subAccent">TypeScript</span> and{" "}
+          <span className="text-subAccent">React Ecosystem</span> as my go-to
+          tools to build modern and quality web applications.
         </p>
 
         <div className="flex items-center gap-4 mb-14">
@@ -27,13 +28,14 @@ const HomePage = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-4 py-2 border rounded-md border-primary-100 dark:border-transparent text-primary-200 dark:text-txt-100 bg-subAccent"
+            className="inline-block px-4 py-2 font-semibold border border-transparent rounded-md dark:text-txt-300 bg-subAccent"
           >
             Resume
           </Link>
           <Link
+            prefetch
             href="/about"
-            className="inline-block px-4 py-2 border rounded-md border-primary-100 dark:border-accent text-primary-200 dark:text-txt-100"
+            className="inline-block px-4 py-2 font-semibold border rounded-md border-primary-100 dark:border-subAccent text-primary-200 dark:text-txt-300"
           >
             Learn more about me
           </Link>
@@ -53,41 +55,9 @@ const HomePage = () => {
           </div>
         </figure> */}
       </div>
-
-      <div className="mb-4">
-        <div className="flex items-center justify-between">
-          <h2 className="mb-3 text-xl font-semibold text-primary-200 dark:text-white ">
-            Featured Projects
-          </h2>
-          <Link
-            href="/projects"
-            className="delay-100 text-primary-200 dark:text-txt-200 hover:dark:text-txt-300 hover:delay-100"
-          >
-            Show more
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-lg border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Pokepedia</h4>
-            </div>
-          </Link>
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-lg border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Pokepedia</h4>
-            </div>
-          </Link>
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-lg border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Pokepedia</h4>
-            </div>
-          </Link>
-        </div>
-      </div>
-
       <div>
-        <div className="flex items-center justify-between">
-          <h2 className="mb-3 text-xl font-semibold text-primary-200 dark:text-white">
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="text-xl font-semibold text-primary-200 dark:text-white">
             Featured Blogs
           </h2>
           <Link
@@ -97,18 +67,13 @@ const HomePage = () => {
             Show more
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-lg border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Blog 1</h4>
-            </div>
-          </Link>
-          <Link href="/" className="inline-block w-full">
-            <div className="border rounded-lg border-[1px] w-full border-zinc-900 dark:border-slate-200 min-h-[12vh] max-h-[15vh] px-4 py-3 text-primary-200 dark:text-white">
-              <h4>Blog 2</h4>
-            </div>
-          </Link>
-        </div>
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+          {blogPosts
+            .filter((item) => item.published && item.featured)
+            .map((blog) => (
+              <BlogCard key={blog.slug} blog={blog} />
+            ))}
+        </ul>
       </div>
     </article>
   );

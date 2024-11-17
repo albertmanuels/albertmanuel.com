@@ -1,8 +1,16 @@
 "use client";
 import { ThemeProvider } from "next-themes";
 import "@/src/styles/globals.css";
+import "@/src/styles/mdx.css";
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
 
 export default function RootLayout({
   children,
@@ -10,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.className}>
       <body className="bg-white dark:bg-darkMode">
         <ThemeProvider
           enableSystem={false}

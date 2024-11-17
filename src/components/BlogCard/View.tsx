@@ -1,14 +1,35 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { formatDate } from "@/src/helpers";
 
 const BlogCard = ({ blog }: { blog: BlogCardProps }) => {
+  const updateCursor = ({ x, y }: { x: string; y: string }) => {
+    document.documentElement.style.setProperty("--x", x);
+    document.documentElement.style.setProperty("--y", y);
+  };
+
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => {
+      const x = `${event.clientX}px`;
+      const y = `${event.clientY}px`;
+      updateCursor({ x, y });
+    };
+
+    if (document) {
+      document.body.addEventListener("pointermove", handlePointerMove);
+    }
+
+    return () => {
+      document.body.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, []);
+
   return (
     <Link
       prefetch={true}
       href={`${blog.slug}`}
-      className="group w-full relative flex flex-col border border-1 border-primary-300 dark:border-gray-500 hover:border-primary-100 rounded-md mb-[10px] hover:-translate-y-1 hover:shadow-md hover:shadow-gray-50 delay-75"
+      className="blogCard group w-full relative flex flex-col border border-1 border-primary-300 dark:border-gray-500 hover:border-primary-100 rounded-md mb-[10px] delay-75"
     >
       <div className="min-h-[20dvh] px-5 py-3">
         <h2 className="mb-1 text-2xl font-medium transition ease-in text-primary-200 dark:text-txt-300">

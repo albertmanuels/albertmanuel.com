@@ -1,4 +1,6 @@
 import {defineConfig, defineCollection, s} from "velite"
+import rehypeShiki from '@shikijs/rehype'
+import remarkRehype from "remark-rehype"
 
 const computedFields = <T extends {slug: string}> (data: T) => ({
   ...data,
@@ -20,6 +22,13 @@ const blogPosts = defineCollection({
   }).transform(computedFields),
 })
 
+const rehypePluginOptions = {
+  theme: 'one-dark-pro',
+  filterMetaString: (string: string) => string.replace(/filename="[^"]*"/, ""),
+  keepBackground: false,
+  bypassInlineCode: true,
+}
+
 export default defineConfig({
   root: "src/content",
   output: {
@@ -31,7 +40,7 @@ export default defineConfig({
   },
   collections: {blogPosts},
   mdx: {
-    rehypePlugins: [],
-    remarkPlugins: []
-  }
+    rehypePlugins: [[rehypeShiki, rehypePluginOptions]],
+    remarkPlugins: [[remarkRehype]]
+  },
 })

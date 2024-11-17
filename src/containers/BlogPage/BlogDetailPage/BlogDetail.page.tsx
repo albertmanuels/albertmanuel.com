@@ -42,9 +42,20 @@ const BlogDetailPage = async ({ params }: BlogDetailProps) => {
         Written on {formatDate(blog.date)}
       </p>
       <hr />
-      <article className="pt-4 text-lg text-primary-200 dark:text-txt-300">
-        <MDXContent code={blog.body} />
-      </article>
+      <div className="flex gap-5">
+        <article className="inline-block w-3/4 col-span-3 pt-4 text-lg blog text-primary-200 dark:text-txt-300">
+          <MDXContent code={blog.body} />
+        </article>
+
+        <div className="w-1/4 sticky max-h-[30vh] top-40 mt-5 bg-primary-200">
+          <h3 className="text-xl text-center">Table of Contents</h3>
+          <ul>
+            <li>Sub 1</li>
+            <li>Sub 2</li>
+            <li>Sub 3</li>
+          </ul>
+        </div>
+      </div>
     </section>
   );
 };

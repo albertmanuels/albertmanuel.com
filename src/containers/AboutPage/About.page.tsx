@@ -5,7 +5,7 @@ import React from "react";
 const AboutPage = () => {
   return (
     <section>
-      <h1 className="mb-3 text-5xl font-semibold not-prose text-primary-200 dark:text-txt-300">
+      <h1 className="mb-3 text-5xl font-semibold text-primary-200 dark:text-txt-300">
         About
       </h1>
       <hr className="mb-8" />
@@ -27,7 +27,7 @@ const AboutPage = () => {
           <p className="mb-5 text-lg text-primary-100 dark:text-txt-100">
             Hi there! I&rsquo;m Albert Manuel Simbolon. With over 3 years of
             experience in web development, I have been gaining my skills on both
-            technical and non-technical.
+            technical and non-technical. I love to
           </p>
 
           {/* Education background */}
@@ -57,11 +57,11 @@ const AboutPage = () => {
             <p className="mb-2 text-gray-500 dark:text-gray-400 text-md">
               {expericence.date}
             </p>
-            <ul className="text-lg list-disc">
+            {/* <ul className="text-lg list-disc">
               {expericence.responsibilities.map((item, idx) => (
                 <li key={`${idx}-${item}`}>{item}</li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         ))}
       </div>

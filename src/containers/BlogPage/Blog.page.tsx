@@ -6,13 +6,15 @@ const BlogPage = () => {
   const noPublised = blogPosts.every((item) => !item.published);
   return (
     <section>
-      <h1 className="mb-3 text-5xl font-semibold not-prose text-primary-200 dark:text-txt-300">
+      <h1 className="mb-3 text-5xl font-semibold text-primary-200 dark:text-txt-300">
         Blog
       </h1>
       <hr className="mb-6" />
       {noPublised && (
         <div className="flex items-center justify-center">
-          <h1>No Post Published</h1>
+          <h1 className="dark:text-txt-300 text-primary-100">
+            No Post Published
+          </h1>
         </div>
       )}
 
