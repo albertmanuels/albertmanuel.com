@@ -11,7 +11,7 @@ const AboutPage = () => {
       </h1>
       <hr className="mb-8" />
       <div className="flex flex-col w-full mb-8 md:mb-10 md:flex-row gap-x-10">
-        <div className="mx-auto mb-8 md:mx-0 md:mb-0">
+        <div className="flex mx-auto mb-8 flex-column md:mx-0 md:mb-0">
           <Image
             src="/images/albert.png"
             width={220}
@@ -35,12 +35,13 @@ const AboutPage = () => {
             In early 2019, I had my first experience in learning web
             development, where I took a free course on web programming
             fundamental taught by Dicoding Indonesia. It was fun and challenging
-            to learn new things that weren't quite aligned with my major (fun
-            fact: I'm not a computer science or IT student). I really enjoyed my
-            time and learned a lot about HTML, CSS and programming with
-            JavaScript. Since then, I have been continued my learning journey
-            through online courses, YouTube videos, articles and have explored
-            more about web development, especially front-end development.
+            to learn new things that weren&rsquo;t quite aligned with my major
+            (fun fact: I&rsquo;m not a computer science or IT student). I really
+            enjoyed my time and learned a lot about HTML, CSS and programming
+            with JavaScript. Since then, I have been continued my learning
+            journey through online courses, YouTube videos, articles and have
+            explored more about web development, especially front-end
+            development.
           </p>
           <p className="mb-5 text-lg text-primary-100 dark:text-txt-100">
             Currently, I am working as a{" "}
@@ -61,8 +62,8 @@ const AboutPage = () => {
             learn in order to become a better leader in the future.
           </p>
           <p className="mb-5 text-lg text-primary-100 dark:text-txt-100">
-            On this website, I've started writing blog articles as part of my
-            learning journey, and I hope others find them helpful too.
+            On this website, I&rsquo;ve started writing blog articles as part of
+            my learning journey, and I hope others find them helpful too.
           </p>
         </div>
       </div>
