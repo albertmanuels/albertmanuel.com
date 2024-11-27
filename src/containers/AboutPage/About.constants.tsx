@@ -1,15 +1,14 @@
 import {
   SiApollographql,
-  SiJest,
+  SiGithub,
+  SiLinkedin,
   SiMui,
   SiNextdotjs,
   SiNodedotjs,
-  SiPrisma,
   SiReact,
   SiReacthookform,
   SiRedux,
   SiTailwindcss,
-  SiTestinglibrary,
   SiTypescript,
 } from "react-icons/si";
 
@@ -23,7 +22,15 @@ export const techStacks = [
   SiRedux,
   SiReacthookform,
   SiApollographql,
-  SiPrisma,
-  SiTestinglibrary,
-  SiJest,
+];
+
+export const socialMedia = [
+  {
+    icon: SiLinkedin,
+    link: "https://linkedin.com/in/albertmanuels",
+  },
+  {
+    icon: SiGithub,
+    link: "https://github.com/albertmanuels",
+  },
 ];

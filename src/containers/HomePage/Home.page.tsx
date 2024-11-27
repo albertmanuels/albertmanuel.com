@@ -16,12 +16,10 @@ const HomePage = () => {
             Albert
           </span>
         </h1>
-        <p className="w-full mb-5 text-xl text-primary-200 dark:text-txt-100 md:w-3/5">
-          I&rsquo;m a Software Engineer working with{" "}
-          <span className="text-subAccent">JavaScript</span> and{" "}
-          <span className="text-subAccent">TypeScript</span> in web development.
+        <p className="w-full mb-5 text-xl text-primary-200 dark:text-txt-100 md:w-4/5">
+          I&rsquo;m a Software Engineer working with JavaScript in the web
+          ecosystem
         </p>
-
         <div className="flex items-center gap-4 mb-14">
           <Link
             href="/resume.pdf"
@@ -39,20 +37,6 @@ const HomePage = () => {
             Learn more about me
           </Link>
         </div>
-
-        {/* <h3 className="mb-4 text-lg font-medium text-primary-200 dark:text-txt-200">
-          Experienced and familiar with these technologies:
-        </h3>
-        <figure>
-          <div className="flex flex-wrap gap-3 sm:gap-4">
-            {stacks.map((tech) => (
-              <tech.icon
-                key={tech.id}
-                className="w-10 h-10 fill-primary-100 dark:fill-txt-200"
-              />
-            ))}
-          </div>
-        </figure> */}
       </div>
       <div>
         <div className="flex items-center justify-between mb-5">
