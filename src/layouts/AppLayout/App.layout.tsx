@@ -9,7 +9,7 @@ import { Roboto } from "next/font/google";
 const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
-  weight: "400",
+  weight: ["300", "400", "500", "700", "900"],
 });
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
           attribute="class"
         >
           <Navbar />
-          <main className="px-6 lg:px-0 md:max-w-[72rem] mx-auto bg-white dark:bg-darkMode pt-10 min-h-mobile md:min-h-desktop">
+          <main className="px-6 lg:px-0 md:max-w-[64rem] mx-auto bg-white dark:bg-darkMode pt-10 min-h-mobile md:min-h-desktop">
             {children}
           </main>
           <Footer />

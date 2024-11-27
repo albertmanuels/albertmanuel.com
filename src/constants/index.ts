@@ -5,7 +5,7 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/albertmanuels/";
 
 export const experiences = [
   {
-    title: "Middle Frontend Developer",
+    title: "Middle Frontend Engineer",
     company: "Infosys Solusi Terpadu",
     date: "November 2023 - Present",
     responsibilities: [
@@ -21,7 +21,7 @@ export const experiences = [
     ],
   },
   {
-    title: "Frontend Engineer",
+    title: "Frontend Developer (Freelance)",
     company: "Skyshi Digital Indonesia",
     date: "May 2023 - August 2023",
     responsibilities: [
@@ -47,7 +47,7 @@ export const experiences = [
     ],
   },
   {
-    title: "Frontend Engineer",
+    title: "Frontend Developer",
     company: "Widya Skilloka",
     date: "June 2021 - April 2022",
     responsibilities: [

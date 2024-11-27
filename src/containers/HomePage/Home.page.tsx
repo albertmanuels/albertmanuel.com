@@ -17,10 +17,9 @@ const HomePage = () => {
           </span>
         </h1>
         <p className="w-full mb-5 text-xl text-primary-200 dark:text-txt-100 md:w-3/5">
-          I&rsquo;m a Software Engineer, currently working with{" "}
-          <span className="text-subAccent">TypeScript</span> and{" "}
-          <span className="text-subAccent">React Ecosystem</span> as my go-to
-          tools to build modern and quality web applications.
+          I&rsquo;m a Software Engineer working with{" "}
+          <span className="text-subAccent">JavaScript</span> and{" "}
+          <span className="text-subAccent">TypeScript</span> in web development.
         </p>
 
         <div className="flex items-center gap-4 mb-14">

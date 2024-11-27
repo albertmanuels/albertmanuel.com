@@ -11,8 +11,8 @@ const BlogCard = ({ blog }: { blog: BlogCardProps }) => {
 
   useEffect(() => {
     const handlePointerMove = (event: PointerEvent) => {
-      const x = `${event.clientX}px`;
-      const y = `${event.clientY}px`;
+      const x = String(event.clientX);
+      const y = String(event.clientY);
       updateCursor({ x, y });
     };
 

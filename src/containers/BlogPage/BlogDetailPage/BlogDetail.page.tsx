@@ -26,6 +26,12 @@ const BlogDetailPage = async ({ params }: BlogDetailProps) => {
   }
   return (
     <section className="pb-5 layout-post-content">
+      <h1 className="mb-3 text-4xl font-bold text-primary-200 dark:text-txt-300">
+        {blog.title}
+      </h1>
+      <p className="mb-3 font-light text-md text-primary-200 dark:text-txt-300">
+        Written on {formatDate(blog.date)}
+      </p>
       <CloudinaryImage
         className="mb-4"
         publicId={blog.thumbnail}
@@ -35,26 +41,20 @@ const BlogDetailPage = async ({ params }: BlogDetailProps) => {
         alt="profile pict"
         mdx={false}
       />
-      <h1 className="mb-3 text-4xl font-bold text-primary-200 dark:text-txt-300">
-        {blog.title}
-      </h1>
-      <p className="mb-3 font-light text-md text-primary-200 dark:text-txt-300">
-        Written on {formatDate(blog.date)}
-      </p>
       <hr />
       <div className="flex gap-5">
-        <article className="inline-block w-3/4 col-span-3 pt-4 text-lg blog text-primary-200 dark:text-txt-300">
+        <article className="inline-block col-span-3 pt-4 text-lg blog text-primary-200 dark:text-txt-300">
           <MDXContent code={blog.body} />
         </article>
 
-        <div className="w-1/4 sticky max-h-[30vh] top-40 mt-5 bg-primary-200">
+        {/* <div className="w-1/4 sticky max-h-[30vh] top-28 mt-5 bg-primary-200">
           <h3 className="text-xl text-center">Table of Contents</h3>
           <ul>
             <li>Sub 1</li>
             <li>Sub 2</li>
             <li>Sub 3</li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </section>
   );

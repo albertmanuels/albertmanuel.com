@@ -19,7 +19,7 @@ const Navbar = () => {
     <header
       className={`w-full sticky top-0 px-6 lg:px-0 bg-white dark:bg-darkMode z-10`}
     >
-      <nav className="w-full max-w-[72rem] flex flex-row justify-end md:justify-between items-center mx-auto h-24">
+      <nav className="w-full max-w-[64rem] flex flex-row justify-end md:justify-between items-center mx-auto h-24">
         <Link
           href="/"
           className="flex items-center hidden gap-3 text-2xl font-semibold md:block text-darkMode dark:text-white"
@@ -31,7 +31,7 @@ const Navbar = () => {
             {PAGE_LIST.map((page, idx) => (
               <li
                 key={idx}
-                className={`text-md md:text-lg font-semibold
+                className={`text-md md:text-lg font-medium
                 ${
                   isActivePath(page.path)
                     ? "border border-x-0 border-t-0 border-b-2 border-b-accent pb-[2px] text-primary-200 dark:text-txt-300"
