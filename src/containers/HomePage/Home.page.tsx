@@ -17,8 +17,7 @@ const HomePage = () => {
           </span>
         </h1>
         <p className="w-full mb-5 text-xl text-primary-200 dark:text-txt-100 md:w-4/5">
-          I&rsquo;m a Software Engineer working with JavaScript in the web
-          ecosystem
+          I am a software engineer working with JavaScript in web ecosystem.
         </p>
         <div className="flex items-center gap-4 mb-14">
           <Link

@@ -46,15 +46,6 @@ const BlogDetailPage = async ({ params }: BlogDetailProps) => {
         <article className="inline-block col-span-3 pt-4 text-lg blog text-primary-200 dark:text-txt-300">
           <MDXContent code={blog.body} />
         </article>
-
-        {/* <div className="w-1/4 sticky max-h-[30vh] top-28 mt-5 bg-primary-200">
-          <h3 className="text-xl text-center">Table of Contents</h3>
-          <ul>
-            <li>Sub 1</li>
-            <li>Sub 2</li>
-            <li>Sub 3</li>
-          </ul>
-        </div> */}
       </div>
     </section>
   );

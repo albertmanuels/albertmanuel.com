@@ -51,7 +51,7 @@ const AboutPage = () => {
         <div className="mb-10 w-full w-min-[42vw] md:max-w-[58vw]">
           <p className="mb-5 text-lg text-primary-100 dark:text-txt-100">
             Hi there! I&rsquo;m Albert, a Software Engineer working with
-            JavaScript in the web ecosystem.
+            JavaScript in web ecosystem.
           </p>
 
           <p className="mb-5 text-lg text-primary-100 dark:text-txt-100">
