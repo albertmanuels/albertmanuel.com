@@ -1,7 +1,11 @@
+import BlogCard from "@/src/components/BlogCard";
+import { fetchPages } from "@/src/lib/notion";
 import Link from "next/link";
 import React from "react";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const featuredBlogs = await fetchPages();
+
   return (
     <article className="flex flex-col gap-5 pt-8">
       <div className="w-full min-h-[12vh]">
@@ -47,13 +51,22 @@ const HomePage = () => {
             Show more
           </Link>
         </div>
-        {/* <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
-          {blogPosts
-            .filter((item) => item.published && item.featured)
-            .map((blog) => (
-              <BlogCard key={blog.slug} blog={blog} />
-            ))}
-        </ul> */}
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+          {featuredBlogs.results
+            .filter(
+              (item: any) => item.properties.featured.select.name === "true"
+            )
+            .map((post: any) => {
+              const normalizedBlogData = {
+                title: post.properties.title.title[0].text.content,
+                slug: post.properties.slug.rich_text[0].plain_text,
+                createdAt: post.properties.createdAt.created_time,
+                description:
+                  post.properties.description.rich_text[0].plain_text,
+              };
+              return <BlogCard key={post.id} blog={normalizedBlogData} />;
+            })}
+        </ul>
       </div>
     </article>
   );

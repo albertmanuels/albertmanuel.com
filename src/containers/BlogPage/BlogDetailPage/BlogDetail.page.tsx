@@ -4,6 +4,8 @@ import { fetchBySlug, fetchPageBlocks, notion } from "@/src/lib/notion";
 import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
+import CloudinaryImage from "@/src/components/CloudinaryImage";
+import { formatDate } from "@/src/helpers";
 
 type BlogDetailProps = {
   params: {
@@ -32,18 +34,18 @@ const BlogDetailPage = async ({ params: { blogSlug } }: BlogDetailProps) => {
       <h1 className="mb-3 text-4xl font-bold text-primary-200 dark:text-txt-300">
         {blog.properties.title.title[0].text.content}
       </h1>
-      {/* <p className="mb-3 font-light text-md text-primary-200 dark:text-txt-300">
-        Written on {formatDate(blog.date)}
-      </p> */}
-      {/* <CloudinaryImage
+      <p className="mb-3 font-light text-md text-primary-200 dark:text-txt-300">
+        Written on {formatDate(blog.properties.createdAt.created_time)}
+      </p>
+      <CloudinaryImage
         className="mb-4"
-        publicId={blog.thumbnail}
+        publicId={blog.properties.banner.url}
         width={1200}
         height={(200 * 3) / 3}
         aspect={{ width: 12, height: 4 }}
         alt="profile pict"
         mdx={false}
-      /> */}
+      />
       <hr />
       <div className="flex gap-5">
         <article

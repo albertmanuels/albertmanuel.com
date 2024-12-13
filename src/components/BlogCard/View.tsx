@@ -27,6 +27,7 @@ const BlogCard = ({ blog }: { blog: BlogCardProps }) => {
 
   return (
     <Link
+      key={blog.slug}
       prefetch={true}
       href={`/blog/${blog.slug}`}
       className="blogCard group w-full relative flex flex-col border border-1 border-primary-300 dark:border-gray-500 hover:border-primary-100 rounded-md mb-[10px] delay-75"

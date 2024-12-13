@@ -1,7 +1,7 @@
 import "server-only"
 import {Client} from "@notionhq/client"
 import React from "react"
-import { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 
 export const notion = new Client({
   auth: process.env.NOTION_TOKEN
@@ -15,6 +15,18 @@ export const fetchPages = React.cache(() => {
       status: {
         equals: "published"
       }
+    }
+  })
+})
+
+export const fetchFeaturedBlogs = React.cache(() => {
+  return notion.databases.query({
+    database_id: process.env.NOTION_DATABASE_ID!,
+    filter: {
+      property: "featured",
+      status: {
+        equals: "true"
+      },
     }
   })
 })
