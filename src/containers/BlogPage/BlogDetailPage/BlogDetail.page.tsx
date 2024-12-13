@@ -12,13 +12,8 @@ type BlogDetailProps = {
 };
 
 const BlogDetailPage = async ({ params: { blogSlug } }: BlogDetailProps) => {
-  // const blog = await getCourseFromParams(params);
-
-  // if (!blog || !blog.published) {
-  //   notFound();
-  // }
-
   const blog = await fetchBySlug(blogSlug);
+
   if (!blog) {
     notFound();
   }
