@@ -15,6 +15,10 @@
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@notion-render/bookmark-plugin": "^0.0.2",
+    "@notion-render/client": "^0.0.2",
+    "@notion-render/hljs-plugin": "^0.0.2",
+    "@notionhq/client": "^2.2.15",
     "@shikijs/rehype": "^1.23.0",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
@@ -38,14 +42,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
-    "rehype-autolink-headings": "^6.1.1",
-    "rehype-highlight": "^6.0.0",
-    "rehype-pretty-code": "^0.10.2",
-    "rehype-slug": "^5.1.0",
-    "remark-gfm": "^3.0.1",
-    "remark-rehype": "^11.1.1",
     "sharp": "^0.33.5",
-    "shiki": "^0.14.7",
     "typescript": "5.0.2"
   },
   "devDependencies": {
@@ -53,7 +50,6 @@
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7",
-    "velite": "^0.1.1"
+    "tailwindcss": "^3.2.7"
   }
 }

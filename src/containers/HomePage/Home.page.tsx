@@ -1,7 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { blogPosts } from ".velite";
-import BlogCard from "@/src/components/BlogCard";
 
 const HomePage = () => {
   return (
@@ -49,13 +47,13 @@ const HomePage = () => {
             Show more
           </Link>
         </div>
-        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+        {/* <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
           {blogPosts
             .filter((item) => item.published && item.featured)
             .map((blog) => (
               <BlogCard key={blog.slug} blog={blog} />
             ))}
-        </ul>
+        </ul> */}
       </div>
     </article>
   );

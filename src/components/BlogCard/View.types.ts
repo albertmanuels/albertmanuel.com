@@ -1,6 +1,6 @@
 type BlogCardProps = {
   title: string;
   slug: string;
-  date: string;
+  createdAt: string;
   description: string;
 };
