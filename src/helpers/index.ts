@@ -6,3 +6,8 @@ export const formatDate = (date: string) => {
 
 	return result;
 };
+
+export const generateHyperlink = (link: string) => {
+	const result = link.split(" ").join("-").toLowerCase();
+	return `#${result}`;
+};

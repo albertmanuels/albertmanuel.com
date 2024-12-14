@@ -5,13 +5,9 @@ import { NotionRenderer } from "@notion-render/client";
 import hljsPlugin from "@notion-render/hljs-plugin";
 import bookmarkPlugin from "@notion-render/bookmark-plugin";
 import CloudinaryImage from "@/src/components/CloudinaryImage";
-import { formatDate } from "@/src/helpers";
-
-type BlogDetailProps = {
-  params: {
-    blogSlug: string;
-  };
-};
+import { formatDate, generateHyperlink } from "@/src/helpers";
+import HTML, { IDoc } from "html-parse-stringify";
+import { BlogDetailProps } from "./BlogDetail.types";
 
 const BlogDetailPage = async ({ params: { blogSlug } }: BlogDetailProps) => {
   const blog = await fetchBySlug(blogSlug);
@@ -19,6 +15,7 @@ const BlogDetailPage = async ({ params: { blogSlug } }: BlogDetailProps) => {
   if (!blog) {
     notFound();
   }
+
   const blocks = await fetchPageBlocks(blog.id);
 
   const renderer = new NotionRenderer({
@@ -28,6 +25,42 @@ const BlogDetailPage = async ({ params: { blogSlug } }: BlogDetailProps) => {
   renderer.use(bookmarkPlugin(undefined));
 
   const html = await renderer.render(...blocks);
+
+  const normalizedHtml: IDoc[] = HTML.parse(html).map((item: any) => {
+    const headingText = (headingObj: any) => {
+      return headingObj.children
+        .find((children: { type: string }) => children.type === "text")
+        .content.trim();
+    };
+
+    if (item.name === "h2") {
+      return {
+        ...item,
+        children: [
+          {
+            type: "tag",
+            name: "a",
+            attrs: {
+              href: generateHyperlink(headingText(item)),
+              id: generateHyperlink(headingText(item)).replace("#", ""),
+              class: ["anchor"],
+            },
+
+            children: [
+              {
+                type: "text",
+                content: headingText(item),
+              },
+            ],
+          },
+        ],
+      };
+    }
+
+    return item;
+  });
+
+  const htmlContent = HTML.stringify(normalizedHtml);
 
   return (
     <section className="pb-5 layout-post-content">
@@ -49,7 +82,7 @@ const BlogDetailPage = async ({ params: { blogSlug } }: BlogDetailProps) => {
       <hr />
       <article
         className="pt-4 text-lg blog text-primary-200 dark:text-txt-300"
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
     </section>
   );

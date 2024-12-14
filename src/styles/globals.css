@@ -89,6 +89,17 @@ input.toggle:checked + .slider::before {
   @apply mt-2 text-center dark:text-txt-100 text-primary-200;
 }
 
+.blog > h2 > a:hover::after {
+  content: "#";
+  margin-left: 10px;
+  @apply text-subAccent
+  
+}
+
+.blog > h2 > a {
+  @apply scroll-mt-[100px]
+}
+
 pre {
   tab-size: 8;
   color: white;

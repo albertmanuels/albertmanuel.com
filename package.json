@@ -33,6 +33,7 @@
     "glob": "^10.3.3",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.8.0",
+    "html-parse-stringify": "^3.0.1",
     "mdx-bundler": "^9.2.1",
     "moment": "^2.29.4",
     "next": "14.2",
