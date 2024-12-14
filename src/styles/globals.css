@@ -88,3 +88,11 @@ input.toggle:checked + .slider::before {
 .notion-image > legend {
   @apply mt-2 text-center dark:text-txt-100 text-primary-200;
 }
+
+pre {
+  tab-size: 8;
+  color: white;
+  padding: 20px;
+  white-space: pre-wrap;
+  @apply dark:bg-slate-800 bg-slate-900;
+}

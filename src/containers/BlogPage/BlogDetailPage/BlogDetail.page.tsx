@@ -47,12 +47,10 @@ const BlogDetailPage = async ({ params: { blogSlug } }: BlogDetailProps) => {
         mdx={false}
       />
       <hr />
-      <div className="flex gap-5">
-        <article
-          className="inline-block col-span-3 pt-4 text-lg blog text-primary-200 dark:text-txt-300"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div>
+      <article
+        className="pt-4 text-lg blog text-primary-200 dark:text-txt-300"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </section>
   );
 };

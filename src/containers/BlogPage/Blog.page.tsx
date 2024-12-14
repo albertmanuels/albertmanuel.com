@@ -1,6 +1,5 @@
 import React from "react";
 import { fetchPages } from "@/src/lib/notion";
-import Link from "next/link";
 import BlogCard from "@/src/components/BlogCard";
 
 export const BlogPage = async () => {
@@ -12,13 +11,13 @@ export const BlogPage = async () => {
         Blog
       </h1>
       <hr className="mb-6" />
-      {/* {noPublised && (
+      {posts.results.length < 1 && (
         <div className="flex items-center justify-center">
           <h1 className="dark:text-txt-300 text-primary-100">
             No Post Published
           </h1>
         </div>
-      )} */}
+      )}
 
       <ul className="grid gap-5 pb-10 sm:grid-cols-2 md:grid-cols-3">
         {posts.results.map((post: any) => {
