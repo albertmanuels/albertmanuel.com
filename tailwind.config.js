@@ -1,11 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-	content: [
-		'./components/**/*.{ts,tsx,mdx}',
-    './app/**/*.{ts,tsx,mdx}',
-    './src/**/*.{ts,tsx,mdx}',
-	],
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts}'],
 	theme: {
 		minHeight: {
 			desktop: "calc(100vh - 140px)",
@@ -49,6 +45,6 @@ module.exports = {
 			
 		},
 	},
-	darkMode: "class",
+  darkMode: ["class"],
 	plugins: [require("@tailwindcss/typography")],
 };

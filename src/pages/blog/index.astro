@@ -1,26 +1,28 @@
 ---
-
+import Layout from "@layouts/Layout.astro";
 ---
 
-<section>
-  <h1 class="mb-3 text-5xl font-semibold text-primary-200 dark:text-txt-300">
-    Blog
-  </h1>
-  <hr class="mb-6" />
-  {
-    true && (
-      <div class="flex items-center justify-center">
-        <h1 class="dark:text-txt-300 text-primary-100">No Post Published</h1>
-      </div>
-    )
-  }
+<Layout>
+  <section>
+    <h1 class="mb-3 text-5xl font-semibold text-primary-200 dark:text-txt-300">
+      Blog
+    </h1>
+    <hr class="mb-6" />
+    {
+      true && (
+        <div class="flex items-center justify-center">
+          <h1 class="dark:text-txt-300 text-primary-100">No Post Published</h1>
+        </div>
+      )
+    }
 
-  <ul class="grid gap-5 pb-10 sm:grid-cols-2 md:grid-cols-3">
-    <!-- {
-      blogPosts
-        .filter((item) => item.published)
-        .sort((a, b) => b.date.localeCompare(a.date))
-        .map((blog) => <BlogCard key={blog.slug} blog={blog} />)
-    } -->
-  </ul>
-</section>
+    <ul class="grid gap-5 pb-10 sm:grid-cols-2 md:grid-cols-3">
+      <!-- {
+        blogPosts
+          .filter((item) => item.published)
+          .sort((a, b) => b.date.localeCompare(a.date))
+          .map((blog) => <BlogCard key={blog.slug} blog={blog} />)
+      } -->
+    </ul>
+  </section>
+</Layout>
