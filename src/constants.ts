@@ -12,3 +12,14 @@ export const navbarList = [
 		path: "/about",
 	},
 ];
+
+export const socialMedia = [
+	{
+		name: "linkedin",
+		link: "https://linkedin.com/in/albertmanuels",
+	},
+	{
+		name: "github",
+		link: "https://github.com/albertmanuels",
+	},
+];
