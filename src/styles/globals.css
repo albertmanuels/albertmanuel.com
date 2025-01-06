@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 body {
   margin: 0;
@@ -77,4 +76,3 @@ input.toggle:checked + .slider::before {
     linear-gradient(white, white) 0 50% / 4px 100% no-repeat,
     linear-gradient(white, white) 100% 50% / 4px 100% no-repeat;
 }
-
