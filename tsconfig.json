@@ -9,6 +9,7 @@
     "paths": {
       "@*": ["./src/*"]
     },
+    "allowJs": true,
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"

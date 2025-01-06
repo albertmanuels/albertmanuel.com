@@ -1,18 +1,18 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import { formatDate } from "./../lib";
 
 type Props = {
-  title: string;
-  slug: string;
-  date: string;
-  description: string;
+  blog: CollectionEntry<"blog">;
 };
 
-const { slug, date, title, description } = Astro.props;
+const { blog } = Astro.props;
+const { slug, data } = blog;
+const { title, date, description } = data;
 ---
 
 <a
-  href={slug}
+  href={`/${blog.collection}/${slug}`}
   class="blogCard group w-full relative flex flex-col border border-1 border-primary-300 dark:border-gray-500 hover:border-primary-100 rounded-md mb-[10px] delay-75"
 >
   <div class="min-h-[20dvh] px-5 py-3">

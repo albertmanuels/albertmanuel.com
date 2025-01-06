@@ -1,5 +1,13 @@
 ---
+import BlogCard from "@components/BlogCard.astro";
 import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const blogs = (await getCollection("blog"))
+  .filter((blog) => blog.data.published)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const isEmpty = blogs.length < 1;
 ---
 
 <Layout>
@@ -9,7 +17,7 @@ import Layout from "@layouts/Layout.astro";
     </h1>
     <hr class="mb-6" />
     {
-      true && (
+      isEmpty && (
         <div class="flex items-center justify-center">
           <h1 class="dark:text-txt-300 text-primary-100">No Post Published</h1>
         </div>
@@ -17,12 +25,7 @@ import Layout from "@layouts/Layout.astro";
     }
 
     <ul class="grid gap-5 pb-10 sm:grid-cols-2 md:grid-cols-3">
-      <!-- {
-        blogPosts
-          .filter((item) => item.published)
-          .sort((a, b) => b.date.localeCompare(a.date))
-          .map((blog) => <BlogCard key={blog.slug} blog={blog} />)
-      } -->
+      {blogs.map((blog) => <BlogCard blog={blog} />)}
     </ul>
   </section>
 </Layout>

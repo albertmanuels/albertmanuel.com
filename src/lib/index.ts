@@ -1,5 +1,4 @@
-export function formatDate(dateStr: string) {
-  const date = new Date(dateStr)
+export function formatDate(date: Date) {
   return Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "2-digit",
