@@ -1,12 +1,8 @@
-export const PAGE_LIST = [
+export const navbarList = [
 	{
 		name: "Home",
 		path: "/",
 	},
-	// {
-	// 	name: "Projects",
-	// 	path: "/projects",
-	// },
 	{
 		name: "Blog",
 		path: "/blog",
