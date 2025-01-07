@@ -1,0 +1,49 @@
+---
+import { navbarList } from "@constants";
+
+const pathname = Astro.url.pathname;
+
+const isActivePath = (path: string) => {
+  if (path === "/") {
+    return pathname === path;
+  } else {
+    return pathname.startsWith(path);
+  }
+};
+---
+
+<header
+  class={`w-full sticky top-0 px-6 lg:px-0 bg-white dark:bg-darkMode z-10`}
+>
+  <nav
+    class="w-full max-w-[64rem] flex flex-row justify-end md:justify-between items-center mx-auto h-24"
+  >
+    <a
+      href="/"
+      class="flex items-center hidden gap-3 text-2xl font-semibold md:block text-darkMode dark:text-white"
+    >
+      Albert Manuel
+    </a>
+    <div class="flex flex-row items-center gap-10">
+      <ul class="flex flex-row gap-6 p-0 m-0 md:gap-10 list-style-none">
+        {
+          navbarList.map((page) => (
+            <li
+              class={`text-md md:text-lg font-medium
+          ${
+            isActivePath(page.path)
+              ? "border border-x-0 border-t-0 border-b-2 border-b-accent pb-[2px] text-primary-200 dark:text-txt-300"
+              : "border border-x-0 border-t-0 border-b-2 border-b-transparent pb-[2px] text-primary-200 dark:text-txt-300"
+          } 
+          font-medium
+          `}
+            >
+              <a href={page.path}>{page.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <!-- <ThemeButton /> -->
+    </div>
+  </nav>
+</header>

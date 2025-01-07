@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 body {
   margin: 0;
@@ -18,18 +17,17 @@ body {
 @layer base {
   .layout {
     width: 100%;
-    max-width: 64rem;
+    max-width: 46rem;
     margin-left: auto;
     margin-right: auto;
-    @apply !min-h-mobile md:!min-h-desktop;
+    @apply !min-h-mobile md:!min-h-desktop md:max-w-[46rem] xl:px-0 px-6;
   }
+}
 
-  .layout-post-content {
-    width: 100%;
-    max-width: 64rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.prose {
+  display: inline-block;
+  width: 100%;
+  max-width: 46rem;
 }
 
 input.toggle:checked + .slider {
@@ -77,4 +75,3 @@ input.toggle:checked + .slider::before {
     linear-gradient(white, white) 0 50% / 4px 100% no-repeat,
     linear-gradient(white, white) 100% 50% / 4px 100% no-repeat;
 }
-

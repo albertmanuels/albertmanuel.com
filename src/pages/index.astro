@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import BlogCard from "@components/BlogCard.astro";
+
+const blogs = (await getCollection("blog"))
+  .filter((blog) => blog.data.published && blog.data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout>
+  <article class="flex flex-col gap-5 pt-8">
+    <div class="w-full min-h-[12vh]">
+      <h1 class="text-5xl font-bold text-primary-200 dark:text-white">Hi!</h1>
+      <h1 class="mb-4 text-5xl font-bold text-primary-200 dark:text-white">
+        You can call me{" "}
+        <span
+          class="border-b-2 border-dotted border-accent text-primary-200 dark:text-white"
+        >
+          Albert
+        </span>
+      </h1>
+      <p
+        class="w-full mb-5 text-xl text-primary-200 dark:text-txt-100 md:w-4/5"
+      >
+        I am a software engineer working with JavaScript in web ecosystem.
+      </p>
+      <div class="flex items-center gap-4 mb-14">
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-4 py-2 font-semibold border border-transparent rounded-md dark:text-txt-300 bg-subAccent"
+        >
+          Resume
+        </a>
+        <a
+          href="/about"
+          class="inline-block px-4 py-2 font-semibold border rounded-md border-primary-100 dark:border-subAccent text-primary-200 dark:text-txt-300"
+        >
+          Learn more about me
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-xl font-semibold text-primary-200 dark:text-white">
+          Featured Blogs
+        </h2>
+        <a
+          href="/blog"
+          class="delay-100 text-primary-200 dark:text-txt-200 hover:dark:text-txt-300 hover:delay-100"
+        >
+          Show more
+        </a>
+      </div>
+      <ul class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+        {blogs.map((blog) => <BlogCard blog={blog} />)}
+      </ul>
+    </div>
+  </article>
+</Layout>

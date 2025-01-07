@@ -1,0 +1,25 @@
+---
+import "@styles/globals.css";
+import "@styles/mdx.css";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Albert Manuel</title>
+  </head>
+
+  <body class="bg-white dark:bg-darkMode">
+    <Header />
+    <main class="pt-10 bg-white dark:bg-darkMode layout">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
