@@ -1,5 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import BlogCard from "@components/BlogCard.astro";
+
+const blogs = (await getCollection("blog"))
+  .filter((blog) => blog.data.published && blog.data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout>
@@ -49,11 +55,7 @@ import Layout from "../layouts/Layout.astro";
         </a>
       </div>
       <ul class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
-        <!-- {
-          blogPosts
-            .filter((item) => item.published && item.featured)
-            .map((blog) => <BlogCard key={blog.slug} blog={blog} />)
-        } -->
+        {blogs.map((blog) => <BlogCard blog={blog} />)}
       </ul>
     </div>
   </article>

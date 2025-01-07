@@ -1,5 +1,6 @@
 ---
 import "@styles/globals.css";
+import "@styles/mdx.css";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 ---
@@ -16,9 +17,7 @@ import Footer from "@components/Footer.astro";
 
   <body class="bg-white dark:bg-darkMode">
     <Header />
-    <main
-      class="px-6 lg:px-0 md:max-w-[64rem] mx-auto bg-white dark:bg-darkMode pt-10 min-h-mobile md:min-h-desktop"
-    >
+    <main class="pt-10 bg-white dark:bg-darkMode layout">
       <slot />
     </main>
     <Footer />
