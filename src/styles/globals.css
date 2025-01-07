@@ -27,7 +27,7 @@ body {
 .prose {
   display: inline-block;
   width: 100%;
-  max-width: 46rem;
+  @apply md:max-w-[46rem]
 }
 
 input.toggle:checked + .slider {
