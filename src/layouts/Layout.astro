@@ -3,21 +3,26 @@ import "@styles/globals.css";
 import "@styles/mdx.css";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import Head from "@components/Head.astro";
+import { SITE } from "@constants";
+
+type Props = {
+  title: string;
+  description: string;
+  image?: string;
+};
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Albert Manuel</title>
+    <Head title={`${title} | ${SITE.NAME}`} description={description} />
   </head>
-
   <body class="bg-white dark:bg-darkMode">
     <Header />
-    <main class="pt-10 bg-white dark:bg-darkMode layout">
+    <main class="bg-white dark:bg-darkMode layout">
       <slot />
     </main>
     <Footer />

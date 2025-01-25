@@ -2,15 +2,16 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import BlogCard from "@components/BlogCard.astro";
+import { HOME } from "@constants";
 
 const blogs = (await getCollection("blog"))
   .filter((blog) => blog.data.published && blog.data.featured)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout>
+<Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <article class="flex flex-col gap-5 pt-8">
-    <div class="w-full min-h-[12vh]">
+    <div class="w-full min-h-[12vh] animate">
       <h1 class="text-5xl font-bold text-primary-200 dark:text-white">Hi!</h1>
       <h1 class="mb-4 text-5xl font-bold text-primary-200 dark:text-white">
         You can call me{" "}
@@ -43,7 +44,7 @@ const blogs = (await getCollection("blog"))
       </div>
     </div>
     <div>
-      <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center justify-between mb-5 animate">
         <h2 class="text-xl font-semibold text-primary-200 dark:text-white">
           Featured Blogs
         </h2>
@@ -54,7 +55,7 @@ const blogs = (await getCollection("blog"))
           Show more
         </a>
       </div>
-      <ul class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
+      <ul class="flex flex-col gap-3 animate">
         {blogs.map((blog) => <BlogCard blog={blog} />)}
       </ul>
     </div>

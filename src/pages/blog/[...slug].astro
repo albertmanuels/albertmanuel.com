@@ -16,22 +16,24 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const props = Astro.props;
-const { title, date } = props.data;
+const { title, date, description } = props.data;
 
 const { Content } = await props.render();
 ---
 
-<Layout>
+<Layout title={title} description={description}>
   <section class="w-full pb-5 prose mdx">
-    <h1 class="mb-3 text-primary-200 dark:text-txt-300">
+    <h1 class="mb-3 text-primary-200 dark:text-txt-300 animate">
       {title}
     </h1>
-    <p class="mb-3 font-light text-md text-primary-200 dark:text-txt-300">
+    <p
+      class="mb-3 font-light text-md text-primary-200 dark:text-txt-300 animate"
+    >
       Written on {formatDate(date)}
     </p>
     <hr />
     <article
-      class="col-span-3 pt-4 text-lg blog text-primary-200 dark:text-txt-300"
+      class="col-span-3 text-md lg:text-lg blog text-primary-200 dark:text-txt-300 animate"
     >
       <Content />
     </article>

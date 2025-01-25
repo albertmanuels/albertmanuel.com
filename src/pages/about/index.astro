@@ -1,10 +1,10 @@
 ---
-import { socialMedia } from "@constants";
+import { ABOUT, socialMedia } from "@constants";
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 ---
 
-<Layout>
+<Layout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
   <section>
     <h1 class="mb-3 text-5xl font-semibold text-primary-200 dark:text-txt-300">
       About
@@ -50,12 +50,12 @@ import { Image } from "astro:assets";
         </ol>
       </div>
       <div class="mb-10 w-full w-min-[42vw] md:max-w-[58vw]">
-        <p class="mb-5 text-lg text-primary-100 dark:text-txt-100">
-          Hi there! I&rsquo;m Albert, a Software Engineer working with
-          JavaScript in web ecosystem.
+        <p class="mb-4 text-lg text-primary-100 dark:text-txt-100">
+          Hi there! I&rsquo;m Albert Manuel Simbolon, a Software Engineer
+          working with JavaScript in web ecosystem.
         </p>
 
-        <p class="mb-5 text-lg text-primary-100 dark:text-txt-100">
+        <p class="mb-4 text-lg text-primary-100 dark:text-txt-100">
           In early 2019, I had my first experience learning web development,
           where I took a course on web programming fundamental taught by
           Dicoding Indonesia. It was fun and challenging to learn new things
@@ -66,7 +66,7 @@ import { Image } from "astro:assets";
           courses, YouTube videos, articles and have explored more about web
           development, especially front-end development.
         </p>
-        <p class="mb-5 text-lg text-primary-100 dark:text-txt-100">
+        <p class="mb-4 text-lg text-primary-100 dark:text-txt-100">
           Currently, I am working as a{" "}
           <span class="text-subAccent">Frontend Engineer</span> at an IT consulting
           company in Indonesia. This is my first Full-time experience working on
@@ -83,11 +83,11 @@ import { Image } from "astro:assets";
           leading a team! I still have a lot to learn in order to become a better
           leader in the future.
         </p>
-        <p class="mb-5 text-lg text-primary-100 dark:text-txt-100">
+        <p class="mb-4 text-lg text-primary-100 dark:text-txt-100">
           On this website, I&rsquo;ve started writing blog articles as part of
           my learning journey, and I hope others find them helpful too.
         </p>
-        <div class="w-full mb-5">
+        <div class="w-full mb-4">
           <p class="mb-8 text-lg text-primary-200 dark:text-txt-300">
             Tech stack that I familiar
           </p>

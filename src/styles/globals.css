@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
@@ -17,10 +21,10 @@ body {
 @layer base {
   .layout {
     width: 100%;
-    max-width: 46rem;
+    max-width: 64rem;
     margin-left: auto;
     margin-right: auto;
-    @apply !min-h-mobile md:!min-h-desktop md:max-w-[46rem] xl:px-0 px-6;
+    @apply !min-h-mobile md:!min-h-desktop md:max-w-[64rem] xl:px-0 px-6;
   }
 }
 
@@ -28,6 +32,19 @@ body {
   display: inline-block;
   width: 100%;
   @apply md:max-w-[46rem];
+}
+
+.prose hr {
+  @apply my-6;
+}
+
+.animate {
+  @apply opacity-0 translate-y-3;
+  @apply transition-all duration-700 ease-out;
+}
+
+.animate.show {
+  @apply opacity-100 translate-y-0;
 }
 
 input.toggle:checked + .slider {
@@ -70,7 +87,8 @@ input.toggle:checked + .slider::before {
     transparent;
   background-attachment: fixed;
   pointer-events: none;
-  mask: linear-gradient(white, white) 50% 0 / 100% 4px no-repeat,
+  mask:
+    linear-gradient(white, white) 50% 0 / 100% 4px no-repeat,
     linear-gradient(white, white) 50% 100% / 100% 4px no-repeat,
     linear-gradient(white, white) 0 50% / 4px 100% no-repeat,
     linear-gradient(white, white) 100% 50% / 4px 100% no-repeat;
