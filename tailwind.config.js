@@ -3,11 +3,6 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts}'],
 	theme: {
-		minHeight: {
-			desktop: "calc(100vh - 140px)",
-			mobile: "calc(100vh - 142px)",
-		},
-
 		screens: {
 			xs: "392px",
 			sm: "640px",
@@ -18,6 +13,10 @@ module.exports = {
 		},
 
 		extend: {
+			minHeight: {
+				desktop: "calc(100vh - 140px)",
+				mobile: "calc(100vh - 142px)",
+			},
 			colors: {
 				primary: {
 					100: "#414654",

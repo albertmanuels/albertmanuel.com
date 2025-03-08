@@ -13,10 +13,10 @@ const isActivePath = (path: string) => {
 ---
 
 <header
-  class={`w-full sticky top-0 px-6 lg:px-0 bg-white dark:bg-darkMode z-10`}
+  class={`w-full fixed top-0 left-0 right-0 px-6 lg:px-0 bg-white dark:bg-darkMode z-[2]`}
 >
   <nav
-    class="w-full max-w-[64rem] flex flex-row justify-between items-center mx-auto h-24"
+    class="w-full max-w-[58rem] flex flex-row justify-between items-center mx-auto h-24"
   >
     <a
       href="/"
@@ -43,7 +43,6 @@ const isActivePath = (path: string) => {
           ))
         }
       </ul>
-      <!-- <ThemeButton /> -->
     </div>
   </nav>
 </header>

@@ -29,10 +29,10 @@ export const navbarList = [
 		name: "Blog",
 		path: "/blog",
 	},
-	{
-		name: "About",
-		path: "/about",
-	},
+	// {
+	// 	name: "About",
+	// 	path: "/about",
+	// },
 ];
 
 export const socialMedia = [

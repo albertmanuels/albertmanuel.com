@@ -21,10 +21,12 @@ const { title, description } = Astro.props;
     <Head title={`${title} | ${SITE.NAME}`} description={description} />
   </head>
   <body class="bg-white dark:bg-darkMode">
-    <Header />
-    <main class="bg-white dark:bg-darkMode layout">
-      <slot />
-    </main>
-    <Footer />
+    <div class="flex flex-col h-screen">
+      <Header />
+      <main class="bg-white dark:bg-darkMode layout mt-[84px]">
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>

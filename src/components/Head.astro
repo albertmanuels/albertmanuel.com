@@ -63,7 +63,7 @@ const { title, description, image = "" } = Astro.props;
 
 <script is:inline>
   function init() {
-    preloadTheme();
+    // preloadTheme();
     onScroll();
     animate();
 
@@ -88,7 +88,7 @@ const { title, description, image = "" } = Astro.props;
     const systemThemeButton = document.getElementById("system-theme-button");
     systemThemeButton?.addEventListener("click", () => {
       localStorage.setItem("theme", "system");
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+      toggleTheme(window.matchMedia("(prefers-color-scheme: light)").matches);
     });
 
     window
@@ -156,17 +156,17 @@ const { title, description, image = "" } = Astro.props;
     document.head.removeChild(css);
   }
 
-  function preloadTheme() {
-    const userTheme = localStorage.theme;
+  // function preloadTheme() {
+  //   const userTheme = localStorage.theme;
 
-    if (userTheme === "light" || userTheme === "dark") {
-      toggleTheme(userTheme === "dark");
-    } else {
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }
-  }
+  //   if (userTheme === "light" || userTheme === "dark") {
+  //     toggleTheme(userTheme === "dark");
+  //   } else {
+  //     toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  //   }
+  // }
 
   document.addEventListener("DOMContentLoaded", () => init());
   document.addEventListener("astro:after-swap", () => init());
-  preloadTheme();
+  // preloadTheme();
 </script>
