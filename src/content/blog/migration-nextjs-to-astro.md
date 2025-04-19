@@ -5,5 +5,3 @@ date: 2025-01-07
 published: false
 featured: false
 ---
-
-### Migration Next.js to Astro

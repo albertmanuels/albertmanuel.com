@@ -24,14 +24,14 @@ body {
     max-width: 58rem;
     margin-left: auto;
     margin-right: auto;
-    @apply md:max-w-[58rem] xl:px-0 px-6;
+    @apply sm:max-w-[58rem] xl:px-0 px-6;
   }
 }
 
 .prose {
   display: inline-block;
   width: 100%;
-  @apply md:max-w-[46rem];
+  @apply sm:max-w-[58rem];
 }
 
 .prose hr {

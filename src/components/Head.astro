@@ -63,7 +63,7 @@ const { title, description, image = "" } = Astro.props;
 
 <script is:inline>
   function init() {
-    // preloadTheme();
+    preloadTheme();
     onScroll();
     animate();
 
@@ -73,6 +73,12 @@ const { title, description, image = "" } = Astro.props;
     const backToPrev = document.getElementById("back-to-prev");
     backToPrev?.addEventListener("click", () => window.history.back());
 
+    const toggleThemeButton = document.getElementById("themeToggle");
+    toggleThemeButton?.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      toggleTheme(isDark);
+    });
     const lightThemeButton = document.getElementById("light-theme-button");
     lightThemeButton?.addEventListener("click", () => {
       localStorage.setItem("theme", "light");
@@ -156,17 +162,17 @@ const { title, description, image = "" } = Astro.props;
     document.head.removeChild(css);
   }
 
-  // function preloadTheme() {
-  //   const userTheme = localStorage.theme;
+  function preloadTheme() {
+    const userTheme = localStorage.theme;
 
-  //   if (userTheme === "light" || userTheme === "dark") {
-  //     toggleTheme(userTheme === "dark");
-  //   } else {
-  //     toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-  //   }
-  // }
+    if (userTheme === "light" || userTheme === "dark") {
+      toggleTheme(userTheme === "dark");
+    } else {
+      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+  }
 
   document.addEventListener("DOMContentLoaded", () => init());
   document.addEventListener("astro:after-swap", () => init());
-  // preloadTheme();
+  preloadTheme();
 </script>
