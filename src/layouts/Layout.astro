@@ -1,15 +1,13 @@
 ---
-import "@styles/globals.css";
-import "@styles/mdx.css";
+import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Head from "@components/Head.astro";
-import { SITE } from "@constants";
+import Pagefind from "@components/PageFind.astro";
+import { SITE } from "@consts";
 
 type Props = {
   title: string;
   description: string;
-  image?: string;
 };
 
 const { title, description } = Astro.props;
@@ -18,15 +16,14 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <Head title={`${title} | ${SITE.NAME}`} description={description} />
+    <Head title={`${title} | ${SITE.TITLE}`} description={description} />
   </head>
-  <body class="bg-white dark:bg-darkMode">
-    <div class="flex flex-col h-screen">
-      <Header />
-      <main class="bg-white dark:bg-darkMode layout mt-[84px]">
-        <slot />
-      </main>
-      <Footer />
-    </div>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <Pagefind />
   </body>
 </html>
