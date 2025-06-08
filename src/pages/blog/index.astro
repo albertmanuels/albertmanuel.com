@@ -1,33 +1,55 @@
 ---
-import BlogCard from "@components/BlogCard.astro";
-import { BLOG } from "@constants";
+import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { BLOG } from "@consts";
 
-const blogs = (await getCollection("blog"))
-  .filter((blog) => blog.data.published)
+const data = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const isEmpty = blogs.length < 1;
+type Acc = {
+  [year: string]: CollectionEntry<"blog">[];
+};
+
+const posts = data.reduce((acc: Acc, post) => {
+  const year = post.data.date.getFullYear().toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(post);
+  return acc;
+}, {});
+
+const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
 ---
 
 <Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
-  <section>
-    <h1
-      class="mb-3 text-5xl font-semibold animate text-primary-200 dark:text-txt-300"
-    >
-      Blogs
-    </h1>
-    <hr class="mb-6 animate" />
-    {
-      isEmpty && (
-        <div class="flex items-center justify-center">
-          <h1 class="dark:text-txt-300 text-primary-100">No Post Published</h1>
+  <Container>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10">
+        <div class="space-y-4">
+          {
+            years.map((year) => (
+              <section class="animate space-y-4">
+                <div class="font-semibold text-black dark:text-white">
+                  {year}
+                </div>
+                <div>
+                  <ul class="not-prose flex flex-col gap-4">
+                    {posts[year].map((post) => (
+                      <li>
+                        <ArrowCard entry={post} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+            ))
+          }
         </div>
-      )
-    }
-    <ul class="flex flex-col gap-3 pb-10">
-      {blogs.map((blog) => <BlogCard blog={blog} />)}
-    </ul>
-  </section>
+      </div>
+    </aside>
+  </Container>
 </Layout>
