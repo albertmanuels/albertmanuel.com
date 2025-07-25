@@ -5,7 +5,7 @@ import React from "react";
 async function Blogs() {
   const posts = await getBlogPosts();
   return (
-    <div>
+    <div className="pt-12">
       <h1 className="font-bold">Blogs</h1>
       {posts.map(({ slug, ...delegated }) => (
         <PostCard key={slug} metadata={{ slug, ...delegated }} />
