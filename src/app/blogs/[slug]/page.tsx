@@ -4,11 +4,12 @@ import { loadBlogPost } from "@/helpers/file-helpers";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import React from "react";
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: { slug: string };
-}) => {
+export const generateMetadata = async (
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) => {
+  const params = await props.params;
   const { frontmatter } = await loadBlogPost(params.slug);
 
   return {
@@ -17,7 +18,8 @@ export const generateMetadata = async ({
   };
 };
 
-async function BlogDetail({ params }: { params: { slug: string } }) {
+async function BlogDetail(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const { frontmatter, content } = await loadBlogPost(params.slug);
 
   return (
