@@ -1,0 +1,1 @@
+export const TITLE = "Albert Manuel | Software Engineer";
