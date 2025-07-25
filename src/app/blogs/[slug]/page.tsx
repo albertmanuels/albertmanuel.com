@@ -28,6 +28,7 @@ export const generateMetadata = async (props: {
 async function BlogDetail(props: { params: Promise<{ slug: string }> }) {
   try {
     const params = await props.params;
+
     const { frontmatter, content } = await loadBlogPost(params.slug);
 
     return (
