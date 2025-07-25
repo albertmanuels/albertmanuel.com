@@ -38,7 +38,9 @@ export const loadBlogPost = cache(async function loadBlogPost(slug: string) {
 
   const {data: frontmatter, content} = matter(rawContent);
 
-  return { frontmatter, content}
+  const inferedFrontmatter = frontmatter as PostMeta;
+  
+  return { frontmatter: inferedFrontmatter, content}
 })  
 
 function readFile(localPath: string) {
