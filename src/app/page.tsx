@@ -1,6 +1,9 @@
 import PostCard from "@/components/PostCard";
+import { getBlogPosts } from "@/helpers/file-helpers";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getBlogPosts();
+
   return (
     <div className="pt-12">
       <section className="mb-10">
@@ -17,27 +20,9 @@ export default function Home() {
       </section>
       <section>
         <h2 className="text-3xl font-semibold">Latest writings</h2>
-        <PostCard
-          metadata={{
-            title: "Post Title",
-            date: "July 25, 2025",
-            slug: "post-title",
-          }}
-        />
-        <PostCard
-          metadata={{
-            title: "Post Title",
-            date: "July 25, 2025",
-            slug: "post-title",
-          }}
-        />
-        <PostCard
-          metadata={{
-            title: "Post Title",
-            date: "July 25, 2025",
-            slug: "post-title",
-          }}
-        />
+        {posts.map(({ slug, ...delegated }) => (
+          <PostCard key={slug} metadata={{ slug, ...delegated }} />
+        ))}
       </section>
     </div>
   );
