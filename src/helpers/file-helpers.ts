@@ -13,12 +13,12 @@ interface PostMeta {
 }
 
 export async function getBlogPosts() {
-  const fileNames = await readDirectory('/src/content');
+  const fileNames = await readDirectory('./src/content');
 
   const blogPosts: PostMeta[] = [];
 
   for(const fileName of fileNames) {
-    const rawContent = await readFile(`/src/content/${fileName}`);
+    const rawContent = await readFile(`./src/content/${fileName}`);
 
     const {data: frontmatter} = matter(rawContent) as unknown as { data: Omit<PostMeta, 'slug'> };
 
@@ -34,7 +34,7 @@ export async function getBlogPosts() {
 }
 
 export const loadBlogPost = cache(async function loadBlogPost(slug: string) {
-  const rawContent = await readFile(`/src/content/${slug}.mdx`);
+  const rawContent = await readFile(`./src/content/${slug}.mdx`);
 
   const {data: frontmatter, content} = matter(rawContent);
 
