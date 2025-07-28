@@ -19,7 +19,7 @@ export default async function Home() {
         </p>
       </section>
       <section>
-        <h2 className="text-3xl font-semibold">Latest writings</h2>
+        <h2 className="text-3xl font-semibold !mb-10">Latest writings</h2>
         {posts.map(({ slug, ...delegated }) => (
           <PostCard key={slug} metadata={{ slug, ...delegated }} />
         ))}

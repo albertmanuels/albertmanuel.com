@@ -26,7 +26,7 @@ const Header = () => {
         isScrolled ? "backdrop-blur-lg bg-white/20 shadow-sm" : "bg-transparent"
       )}
     >
-      <div className={cn("max-w-2xl mx-auto py-4 px-4")}>
+      <div className={cn("max-w-3xl mx-auto py-4 px-4")}>
         <nav className="flex justify-between">
           <Link href="/" className="text-xl font-bold">
             albertmanuel

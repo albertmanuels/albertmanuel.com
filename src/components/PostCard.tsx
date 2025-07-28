@@ -14,14 +14,26 @@ type Props = {
 
 const PostCard = (props: Props) => {
   const { metadata } = props;
-  const { title, publishedOn, slug, description } = metadata;
+  const { title, publishedOn, slug, description, tags } = metadata;
 
   return (
     <Link href={`/blogs/${slug}`}>
       <div className="w-full bg-transparent shadow-md hover:shadow-lg transition-shadow duration-300">
+        {tags && (
+          <div className="mb-2">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-block bg-gray-400 rounded-sm p-1 text-xs font-semibold text-gray-700 mr-2"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
         <h2 className="text-xl font-semibold mb-2">{title}</h2>
-        <p className="text-md text-gray-400">{formatDate(publishedOn)}</p>
-        <p className="text-md text-gray-600">{description}</p>
+        <p className="text-gray-400">{formatDate(publishedOn)}</p>
+        <p className=" text-gray-600">{description}</p>
       </div>
     </Link>
   );

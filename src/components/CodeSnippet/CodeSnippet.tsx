@@ -4,9 +4,11 @@ import theme from "./theme";
 
 const CodeSnippet = (props: BrightProps) => {
   return (
-    <div className="rounded-lg border border-gray-300 px-4 bg-gray-50 dark:bg-gray-800 my-5">
-      <Code {...props} theme={theme} />
-    </div>
+    <Code
+      {...props}
+      theme={theme}
+      codeClassName="bg-gray-300 dark:bg-gray-800 p-4 rounded-md"
+    />
   );
 };
 

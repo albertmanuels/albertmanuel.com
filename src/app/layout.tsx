@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${workSans.variable} antialiased`}>
         <Header />
-        <main className="min-h-svh max-w-2xl mx-auto px-4">{children}</main>
+        <main className="min-h-svh max-w-3xl mx-auto px-4">{children}</main>
         <Footer />
       </body>
     </html>

@@ -9,6 +9,8 @@ interface PostMeta {
   title: string;
   description: string;
   tags?: string[];
+  featured: boolean;
+  published: boolean;
 }
 
 export async function getBlogPosts() {
@@ -21,16 +23,16 @@ export async function getBlogPosts() {
       const rawContent = await readFile(`./src/content/${fileName}`);
 
       const {data: frontmatter} = matter(rawContent) as unknown as { data: Omit<PostMeta, 'slug'> };
-
+      
       blogPosts.push({
         ...frontmatter,
         slug: fileName.replace(".mdx", ''),
       })
-
     }
-      return blogPosts.sort((p1, p2) => {
-        return p1.publishedOn < p2.publishedOn ? 1 : -1
-      })
+    
+    return blogPosts.filter((blog) => blog.published).sort((p1, p2) => {
+      return p1.publishedOn < p2.publishedOn ? 1 : -1
+    })
   } catch (error) {
     console.error("Error loading blog posts:", error);
     return [];
