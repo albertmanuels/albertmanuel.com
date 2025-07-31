@@ -141,7 +141,7 @@ p {
   color: var(--body);
   font-size: 1.05rem;
   line-height: 1.6;
-  margin-bottom: 0.25em;
+  margin-bottom: 1em;
 }
 
 .muted, .text-muted {

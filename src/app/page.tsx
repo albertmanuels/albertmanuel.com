@@ -1,5 +1,8 @@
 import PostCard from "@/components/PostCard";
+import { socials } from "@/constants/global";
 import { getBlogPosts } from "@/helpers/file-helpers";
+import { GithubIcon, LinkedinIcon } from "lucide-react";
+import Link from "next/link";
 
 export default async function Home() {
   const posts = await getBlogPosts();
@@ -17,6 +20,15 @@ export default async function Home() {
           </span>{" "}
           and all-things-web.
         </p>
+        <div className="flex items-center gap-2">
+          <span>Let&rsquo;s connect: </span>
+          <Link href={socials.LINKEDIN}>
+            <LinkedinIcon />
+          </Link>
+          <Link href={socials.GITHUB}>
+            <GithubIcon />
+          </Link>
+        </div>
       </section>
       <section>
         <h2 className="text-3xl font-semibold !mb-10">Latest writings</h2>

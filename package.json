@@ -12,6 +12,7 @@
     "bright": "^1.0.0",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
+    "lucide-react": "^0.534.0",
     "motion": "^12.23.9",
     "next": "15.4.3",
     "next-mdx-remote": "^5.0.0",
