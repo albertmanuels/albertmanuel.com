@@ -27,9 +27,7 @@ const BlogHero = (props: Props) => {
       )}
       <h1 className="font-bold">{title}</h1>
       <p>{description}</p>
-      <span className="text-md text-gray-500">
-        Published on {formatDate(publishedOn)}
-      </span>
+      <span className="text-sm">Published on {formatDate(publishedOn)}</span>
     </div>
   );
 };

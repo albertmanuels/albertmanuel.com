@@ -8,7 +8,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    if (window.screenY > 0) {
+    if (window.screenY > 50) {
       setIsScrolled(true);
     }
 
