@@ -18,7 +18,7 @@ const PostCard = (props: Props) => {
 
   return (
     <Link href={`/blogs/${slug}`}>
-      <div className="w-full bg-transparent shadow-md hover:shadow-lg transition-shadow duration-300">
+      <div className="w-full bg-transparent shadow-md hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg">
         {tags && (
           <div className="mb-2">
             {tags.map((tag) => (
@@ -31,7 +31,7 @@ const PostCard = (props: Props) => {
             ))}
           </div>
         )}
-        <h2 className="text-xl font-semibold mb-2">{title}</h2>
+        <h2 className="text-xl font-semibold">{title}</h2>
         <p className="text-gray-400">{formatDate(publishedOn)}</p>
         <p className=" text-gray-600">{description}</p>
       </div>
