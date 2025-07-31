@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-color-theme="light">
       <body className={`${workSans.variable} antialiased`}>
         <Header />
         <main className="min-h-svh max-w-3xl mx-auto px-4">{children}</main>
