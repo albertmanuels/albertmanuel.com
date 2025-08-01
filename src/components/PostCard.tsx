@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { formatDate } from "@/helpers/utils";
-import Badge from "./Badge";
+import BadgeCollection from "./BadgeCollection";
 
 type Props = {
   metadata: {
@@ -25,13 +25,7 @@ const PostCard = (props: Props) => {
   return (
     <Link href={`/blogs/${slug}`}>
       <div className="w-full bg-transparent shadow-md hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg">
-        {tags && (
-          <div className="flex flex-wrap gap-2 mb-2">
-            {tags.map((tag) => (
-              <Badge key={tag} tag={tag} />
-            ))}
-          </div>
-        )}
+        {tags && <BadgeCollection tags={tags} />}
         <h2 className="text-xl font-semibold">{postTitle}</h2>
         <p className="text-gray-400">{formatDate(publishedOn)}</p>
         <p className=" text-gray-600">{postDescription}</p>
