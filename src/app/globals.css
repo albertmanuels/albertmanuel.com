@@ -36,6 +36,12 @@
 
   --pre-background: #292421;
 
+  --blue-accent: #A7C8EB;
+  --blue-bg-surface: #D8EAFD;
+  --blue-badge: #C2DFF5;
+  --blue-button: #B3D4F0;
+  --blue-border: #A2BCD8;
+
   /* Font families */
   --font-sans: 'Inter', 'Work Sans', 'Nunito', 'Cabin', Arial, Helvetica, sans-serif;
   --font-heading: 'Recoleta', 'Clash Display', 'Playfair Display', 'DM Serif Display', serif;
@@ -78,6 +84,12 @@
   /* Inline code bg */
   --color-inline-code-bg: #3E3A37;
   --pre-background: #292421;
+
+  --blue-accent: #7AA7D9;
+  --blue-bg-surface: #2C3A4D;
+  --blue-badge: #3C4C61;
+  --blue-button: #375474;
+  --blue-border: #4D637A;
 }
 
 /* Optionally, keep auto dark mode for users who prefer it */
@@ -115,6 +127,13 @@
     /* Inline code bg */
     --color-inline-code-bg: #3E3A37;
     --pre-background: #292421;
+
+
+  --blue-accent: #7AA7D9;
+  --blue-bg-surface: #2C3A4D;
+  --blue-badge: #3C4C61;
+  --blue-button: #375474;
+  --blue-border: #4D637A;
   }
 }
 
@@ -230,5 +249,9 @@ pre {
   p {
     margin-bottom: 1.25em;
     line-height: 1.6;
+    text-align: justify;
+    word-spacing: normal;
+    text-justify: inter-word;
+    hyphens: auto;
   }
 }

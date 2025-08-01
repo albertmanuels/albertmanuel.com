@@ -1,6 +1,7 @@
 import { formatDate } from "@/helpers/utils";
 import Link from "next/link";
 import React from "react";
+import Badge from "./Badge";
 
 type Props = {
   metadata: {
@@ -22,12 +23,7 @@ const PostCard = (props: Props) => {
         {tags && (
           <div className="mb-2">
             {tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-block bg-gray-400 rounded-sm p-1 text-xs font-semibold text-gray-700 mr-2"
-              >
-                {tag}
-              </span>
+              <Badge key={tag} tag={tag} />
             ))}
           </div>
         )}

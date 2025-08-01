@@ -1,0 +1,108 @@
+---
+title: "Rendering strategies in Frontend with Next.js"
+description: "Explore different rendering strategies in frontend development."
+publishedOn: "2025-08-01"
+tags: 
+  - "Frontend"
+  - "React.js"
+featured: false
+published: false
+---
+
+## Introduction
+In this article, we will explore various rendering strategies in frontend development, particularly focusing on Next.js
+and how it handles different rendering methods. Understanding these strategies is crucial for optimizing performance and user experience in web applications.
+
+<Hr/>
+
+## Rendering Strategies
+Next.js provides several rendering strategies to cater to different use cases:
+- **Static Generation (SSG)**: Pre-renders pages at build time, serving static HTML to users. Ideal for content that doesn't change often.
+- **Server-Side Rendering (SSR)**: Renders pages on each request, allowing for
+dynamic content that changes frequently. Useful for pages that require up-to-date data.
+- **Client-Side Rendering (CSR)**: Renders pages in the browser using JavaScript
+after the initial page load. Suitable for highly interactive applications where SEO is not a primary concern.
+- **Incremental Static Regeneration (ISR)**: Combines the benefits of SSG and SSR by allowing static pages to be updated after the build, without needing a full rebuild.
+
+<Hr/>
+
+## Choosing the Right Strategy
+When deciding which rendering strategy to use, consider the following factors:
+- **Content Freshness**: If your content changes frequently, SSR or ISR may be more appropriate. For static content, SSG is often the best choice.
+- **Performance**: SSG generally offers the best performance since pages are served as static files
+  from a CDN. SSR can be slower due to server processing time, while CSR may lead to longer initial load times.
+- **SEO Requirements**: SSG and SSR are better for SEO since they provide fully rendered
+  HTML to search engines. CSR can lead to issues with indexing if not handled properly.
+- **User Experience**: Consider how users interact with your application. CSR can provide a more dynamic experience, but may require additional loading states. 
+- **Development Complexity**: Some strategies may require more complex setup and maintenance. SSG is often simpler to implement, while SSR and ISR may involve more server-side logic.
+
+<Hr/>
+
+## Conclusion
+Choosing the right rendering strategy in Next.js depends on your application's specific needs. By understanding the strengths
+and weaknesses of each method, you can optimize performance, improve user experience, and ensure that your application meets its functional requirements. Experiment with different strategies to find the best fit for your project.
+
+<Hr/>
+
+## Further Reading
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Rendering Strategies in Next.js](https://nextjs.org/docs/app/building-your-application/rendering)
+- [Optimizing Performance in Next.js](https://nextjs.org/docs/app/building-your-application/optimizing)
+
+<Hr/>  
+
+## Example Code Snippet
+```javascript
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+export default function DataFetchingComponent() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get('/api/data');
+      setData(response.data);
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      {data ? (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+}
+```
+This example demonstrates a simple data fetching component using React hooks. It fetches data from an API
+and displays it once available. This pattern is commonly used in CSR applications, where data is fetched
+after the initial page load. For SSR or SSG, you would typically fetch data in the
+`getServerSideProps` or `getStaticProps` functions, respectively.
+```javascript
+export async function getStaticProps() {
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  return {
+    props: {
+      data,
+    },
+  };
+}
+```
+This code snippet shows how to fetch data at build time for static generation in Next.js. The
+`getStaticProps` function runs at build time and provides the fetched data as props to the page component. This is ideal for pages that do not require frequent updates and can be served as static HTML.
+```javascript
+export async function getServerSideProps() {
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  return {
+    props: {
+      data,    
+    },
+  };
+}
+```
+This code snippet demonstrates how to fetch data on each request for server-side rendering in Next.js.

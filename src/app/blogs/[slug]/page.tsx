@@ -42,7 +42,13 @@ async function BlogDetail(props: { params: Promise<{ slug: string }> }) {
 
         <div className="prose">
           <article>
-            <MDXRemote source={content} components={{ pre: CodeSnippet }} />
+            <MDXRemote
+              source={content}
+              components={{
+                pre: CodeSnippet,
+                Hr: () => <hr className="my-8" />,
+              }}
+            />
           </article>
         </div>
       </div>

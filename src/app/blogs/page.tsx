@@ -7,9 +7,11 @@ async function Blogs() {
   return (
     <div className="pt-12">
       <h1 className="font-bold">Blogs</h1>
-      {posts.map(({ slug, ...delegated }) => (
-        <PostCard key={slug} metadata={{ slug, ...delegated }} />
-      ))}
+      <ul className="flex flex-col gap-6">
+        {posts.map(({ slug, ...delegated }) => (
+          <PostCard key={slug} metadata={{ slug, ...delegated }} />
+        ))}
+      </ul>
     </div>
   );
 }

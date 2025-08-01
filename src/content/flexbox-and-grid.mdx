@@ -1,0 +1,115 @@
+---
+title: "Back to Basics: Flexbox and Grid in CSS"
+description: "Learn the fundamentals of Flexbox and Grid in CSS for responsive web design."
+publishedOn: "2025-08-01"
+tags: 
+  - "Frontend"
+  - "CSS"
+  - "Fundamentals"
+featured: false
+published: false
+---
+
+## Introduction
+In this article, we will explore the basics of Flexbox and Grid in CSS, two powerful layout systems that enable responsive web design. Understanding these concepts is essential for modern web development, as they
+allow developers to create flexible and adaptive layouts that work across various screen sizes and devices. 
+Flexbox and Grid are both part of the CSS Flexible Box Layout Module and the CSS Grid Layout Module, respectively. They provide different approaches to layout design, each with its own strengths and use cases. 
+
+## Flexbox
+Flexbox, or the Flexible Box Layout, is a one-dimensional layout model that allows you to
+arrange items in a single row or column. It is particularly useful for aligning items within a container and distributing space among them. Flexbox is designed to provide a more efficient way to lay out
+items in a container, even when their size is unknown or dynamic.
+
+### Key Concepts of Flexbox
+- **Flex Container**: The parent element that holds the flex items. You can create a flex container by setting the `display` property to `flex` or `inline-flex`.
+- **Flex Items**: The child elements within the flex container. These items can be arranged and aligned using various Flexbox properties.
+- **Main Axis and Cross Axis**: The main axis is the primary direction in which the flex items are laid out (horizontal by default), while the cross axis is perpendicular to the main axis (vertical by default).
+- **Flex Properties**: Flexbox provides several properties to control the layout, including:
+  - `flex-direction`: Defines the direction of the main axis (row, column, row-reverse, column-reverse).
+  - `justify-content`: Aligns flex items along the main axis (flex-start, flex-end, center, space-between, space-around).
+  - `align-items`: Aligns flex items along the cross axis (flex-start, flex-end, center, baseline, stretch).
+  - `flex-wrap`: Controls whether flex items should wrap onto multiple lines (nowrap, wrap, wrap-reverse).  
+- **Flex Grow, Shrink, and Basis**: These properties control how flex items grow, shrink, and their initial size within the flex container. 
+```css
+.flex-container {      
+  display: flex;
+  flex-direction: row; /* or column */
+  justify-content: center; /* or flex-start, flex-end, space-between, space-around */
+  align-items: center; /* or flex-start, flex-end, baseline, stretch */
+  flex-wrap: wrap; /* or nowrap, wrap-reverse */
+}
+.flex-item {
+  flex-grow: 1; /* allows the item to grow */
+  flex-shrink: 1; /* allows the item to shrink */
+  flex-basis: 100px; /* sets the initial size of the item */
+}
+``` 
+### Example of Flexbox
+```html
+<div class="flex-container">
+  <div class="flex-item">Item 1</div>
+  <div class="flex-item">Item 2</div>
+  <div class="flex-item">Item 3</div>
+</div>
+```
+```css
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-item {
+  flex: 1; /* Each item will take equal space */
+  padding: 10px;
+  background-color: lightblue;
+  margin: 5px;
+}
+```
+### Benefits of Flexbox
+- **Responsive Design**: Flexbox makes it easy to create responsive layouts that adapt to different
+screen sizes and orientations.
+- **Alignment and Distribution**: It provides powerful alignment and distribution options for items within a container, making it easier to create complex layouts.
+- **Dynamic Sizing**: Flexbox allows items to grow and shrink dynamically based on the available space, which is particularly useful for fluid layouts.   
+- **Simplified Layouts**: It simplifies the process of creating layouts that require equal spacing or alignment, reducing the need for complex CSS rules.
+
+<Hr/>
+
+## Grid
+Grid is a two-dimensional layout model that allows you to create complex grid-based layouts with rows and columns. It provides a more structured approach to layout design compared to Flexbox, making it ideal for applications with a clear grid structure.
+
+### Key Concepts of Grid
+- **Grid Container**: The parent element that holds the grid items. You can create a grid container by setting the `display` property to `grid` or `inline-grid`.
+- **Grid Items**: The child elements within the grid container. These items can be placed into specific grid cells using various Grid properties.
+- **Grid Lines**: The lines that divide the grid into rows and columns. You can refer to these lines when placing grid items.
+- **Grid Properties**: Grid provides several properties to control the layout, including:
+  - `grid-template-columns`: Defines the number and size of the columns in the grid.
+  - `grid-template-rows`: Defines the number and size of the rows in the grid.
+  - `grid-area`: Specifies the area in which a grid item should be placed.
+  - `justify-items`: Aligns grid items along the row axis (start, end, center, stretch).
+  - `align-items`: Aligns grid items along the column axis (start, end, center, stretch).
+
+### Example of Grid
+```html
+<div class="grid-container">
+  <div class="grid-item">Item 1</div>
+  <div class="grid-item">Item 2</div>
+  <div class="grid-item">Item 3</div>
+</div>
+```
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.grid-item {
+  padding: 10px;
+  background-color: lightgreen;
+}
+```
+### Benefits of Grid
+- **Two-Dimensional Layouts**: Grid is designed for two-dimensional layouts, making it easier to create complex designs with both rows and columns.
+- **Explicit Placement**: It allows for explicit placement of items within the grid, giving you more control over the layout.
+- **Responsive Design**: Grid can be easily adapted for responsive design by using media queries and flexible units.
+- **Alignment and Spacing**: It provides powerful alignment and spacing options for grid items, making it easier to create visually appealing layouts.
