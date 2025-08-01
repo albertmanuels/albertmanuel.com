@@ -1,5 +1,5 @@
 export const TITLE = "Albert Manuel | Software Engineer";
 export const socials = {
-  GITHUB: "https://github.com/albertmanuels",
-  LINKEDIN: "https://www.linkedin.com/in/albertmanuels/"
-}
+	GITHUB: "https://github.com/albertmanuels",
+	LINKEDIN: "https://www.linkedin.com/in/albertmanuels/",
+};

@@ -2,256 +2,275 @@
 
 /* ===== Pastel Retro UI Theme Variables ===== */
 :root {
-  /* Backgrounds */
-  --background: #FAF5ED;
-  --background-hero: #FFF9F1;
-  --background-features: #D4EAE5;
-  --background-pricing: #FDEBDA;
-  --background-cta: #FBE6E6;
-  --background-footer: #F3F3F3;
+	/* Backgrounds */
+	--background: #faf5ed;
+	--background-hero: #fff9f1;
+	--background-features: #d4eae5;
+	--background-pricing: #fdebda;
+	--background-cta: #fbe6e6;
+	--background-footer: #f3f3f3;
 
-  /* Typography */
-  --heading: #2F2F2F;
-  --body: #5A5A5A;
-  --muted: #888888;
+	/* Typography */
+	--heading: #2f2f2f;
+	--body: #5a5a5a;
+	--muted: #888888;
 
-  /* UI Elements */
-  --primary: #F4B400;
-  --secondary: #FFF6DE;
-  --info: #AEE9E5;
-  --badge: #FAD8C0;
+	/* UI Elements */
+	--primary: #f4b400;
+	--secondary: #fff6de;
+	--info: #aee9e5;
+	--badge: #fad8c0;
 
-  /* Shadows & Borders */
-  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --border: #E0E0E0;
-  --button-outline: #CCC9C0;
+	/* Shadows & Borders */
+	--card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	--border: #e0e0e0;
+	--button-outline: #ccc9c0;
 
-  /* Accents */
-  --accent-teal: #88B8B5;
-  --accent-peach: #F4C7AB;
-  --accent-yellow: #FDE2A7;
+	/* Accents */
+	--accent-teal: #88b8b5;
+	--accent-peach: #f4c7ab;
+	--accent-yellow: #fde2a7;
 
-  /* Inline code bg */
-  --color-inline-code-bg: #FFF6DE;
+	/* Inline code bg */
+	--color-inline-code-bg: #fff6de;
 
-  --pre-background: #292421;
+	--pre-background: #292421;
 
-  --blue-accent: #A7C8EB;
-  --blue-bg-surface: #D8EAFD;
-  --blue-badge: #C2DFF5;
-  --blue-button: #B3D4F0;
-  --blue-border: #A2BCD8;
+	--blue-accent: #a7c8eb;
+	--blue-bg-surface: #d8eafd;
+	--blue-badge: #c2dff5;
+	--blue-button: #b3d4f0;
+	--blue-border: #a2bcd8;
 
-  /* Font families */
-  --font-sans: 'Inter', 'Work Sans', 'Nunito', 'Cabin', Arial, Helvetica, sans-serif;
-  --font-heading: 'Recoleta', 'Clash Display', 'Playfair Display', 'DM Serif Display', serif;
-  --font-mono: 'Geist Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
-  
+	/* Font families */
+	--font-sans:
+		"Inter", "Work Sans", "Nunito", "Cabin", Arial, Helvetica, sans-serif;
+	--font-heading:
+		"Recoleta", "Clash Display", "Playfair Display", "DM Serif Display", serif;
+	--font-mono: "Geist Mono", "Menlo", "Monaco", "Consolas", monospace;
 }
-
 
 /* Enable dark mode via attribute selector */
 [data-color-theme="dark"] {
-  /* Backgrounds */
-  --background: #1E1A18;
-  --background-hero: #1E1A18;
-  --background-features: #292421;
-  --background-pricing: #34302D;
-  --background-cta: #423D39;
-  --background-footer: #1B1815;
+	/* Backgrounds */
+	--background: #1e1a18;
+	--background-hero: #1e1a18;
+	--background-features: #292421;
+	--background-pricing: #34302d;
+	--background-cta: #423d39;
+	--background-footer: #1b1815;
 
-  /* Typography */
-  --heading: #FAF5ED;
-  --body: #E0DAD2;
-  --muted: #B3ADA7;
+	/* Typography */
+	--heading: #faf5ed;
+	--body: #e0dad2;
+	--muted: #b3ada7;
 
-  /* UI Elements */
-  --primary: #F4B400;
-  --secondary: #3E3A37;
-  --info: #AEE9E5;
-  --badge: #564F4A;
+	/* UI Elements */
+	--primary: #f4b400;
+	--secondary: #3e3a37;
+	--info: #aee9e5;
+	--badge: #564f4a;
 
-  /* Shadows & Borders */
-  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --border: #3A3531;
-  --button-outline: #403C38;
+	/* Shadows & Borders */
+	--card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	--border: #3a3531;
+	--button-outline: #403c38;
 
-  /* Accents */
-  --accent-teal: #AEE9E5;
-  --accent-peach: #F4C7AB;
-  --accent-yellow: #FDE2A7;
+	/* Accents */
+	--accent-teal: #aee9e5;
+	--accent-peach: #f4c7ab;
+	--accent-yellow: #fde2a7;
 
-  /* Inline code bg */
-  --color-inline-code-bg: #3E3A37;
-  --pre-background: #292421;
+	/* Inline code bg */
+	--color-inline-code-bg: #3e3a37;
+	--pre-background: #292421;
 
-  --blue-accent: #7AA7D9;
-  --blue-bg-surface: #2C3A4D;
-  --blue-badge: #3C4C61;
-  --blue-button: #375474;
-  --blue-border: #4D637A;
+	--blue-accent: #7aa7d9;
+	--blue-bg-surface: #2c3a4d;
+	--blue-badge: #3c4c61;
+	--blue-button: #375474;
+	--blue-border: #4d637a;
 }
 
 /* Optionally, keep auto dark mode for users who prefer it */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-color-theme]) {
-    /* Backgrounds */
-    --background: #1E1A18;
-    --background-hero: #1E1A18;
-    --background-features: #292421;
-    --background-pricing: #34302D;
-    --background-cta: #423D39;
-    --background-footer: #1B1815;
+	:root:not([data-color-theme]) {
+		/* Backgrounds */
+		--background: #1e1a18;
+		--background-hero: #1e1a18;
+		--background-features: #292421;
+		--background-pricing: #34302d;
+		--background-cta: #423d39;
+		--background-footer: #1b1815;
 
-    /* Typography */
-    --heading: #FAF5ED;
-    --body: #E0DAD2;
-    --muted: #B3ADA7;
+		/* Typography */
+		--heading: #faf5ed;
+		--body: #e0dad2;
+		--muted: #b3ada7;
 
-    /* UI Elements */
-    --primary: #F4B400;
-    --secondary: #3E3A37;
-    --info: #AEE9E5;
-    --badge: #564F4A;
+		/* UI Elements */
+		--primary: #f4b400;
+		--secondary: #3e3a37;
+		--info: #aee9e5;
+		--badge: #564f4a;
 
-    /* Shadows & Borders */
-    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --border: #3A3531;
-    --button-outline: #403C38;
+		/* Shadows & Borders */
+		--card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+		--border: #3a3531;
+		--button-outline: #403c38;
 
-    /* Accents */
-    --accent-teal: #AEE9E5;
-    --accent-peach: #F4C7AB;
-    --accent-yellow: #FDE2A7;
+		/* Accents */
+		--accent-teal: #aee9e5;
+		--accent-peach: #f4c7ab;
+		--accent-yellow: #fde2a7;
 
-    /* Inline code bg */
-    --color-inline-code-bg: #3E3A37;
-    --pre-background: #292421;
+		/* Inline code bg */
+		--color-inline-code-bg: #3e3a37;
+		--pre-background: #292421;
 
-
-  --blue-accent: #7AA7D9;
-  --blue-bg-surface: #2C3A4D;
-  --blue-badge: #3C4C61;
-  --blue-button: #375474;
-  --blue-border: #4D637A;
-  }
+		--blue-accent: #7aa7d9;
+		--blue-bg-surface: #2c3a4d;
+		--blue-badge: #3c4c61;
+		--blue-button: #375474;
+		--blue-border: #4d637a;
+	}
 }
 
 /* ===== Base Styles ===== */
 body {
-  background: var(--background);
-  color: var(--body);
-  font-family: var(--font-sans);
-  font-size: 16px;
+	background: var(--background);
+	color: var(--body);
+	font-family: var(--font-sans);
+	font-size: 16px;
 }
 
-h1, h2, h3, h4 {
-  color: var(--heading);
-  font-family: var(--font-heading);
-  margin-bottom: 0.25em;
+h1,
+h2,
+h3,
+h4 {
+	color: var(--heading);
+	font-family: var(--font-heading);
+	margin-bottom: 0.25em;
 }
 
-h1 { font-size: 1.75rem; font-weight: 700; }
-h2 { font-size: 1.5rem; font-weight: 600; }
-h3 { font-size: 1.25rem; font-weight: 500; }
-h4 { font-size: 1rem; font-weight: 500; }
+h1 {
+	font-size: 1.75rem;
+	font-weight: 700;
+}
+h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+h3 {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+h4 {
+	font-size: 1rem;
+	font-weight: 500;
+}
 
 p {
-  color: var(--body);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 1em;
+	color: var(--body);
+	font-size: 1.05rem;
+	line-height: 1.6;
+	margin-bottom: 1em;
 }
 
-.muted, .text-muted {
-  color: var(--muted);
+.muted,
+.text-muted {
+	color: var(--muted);
 }
 
 p code {
-  display: inline-block;
-  font-size: 0.95em;
-  background: var(--color-inline-code-bg);
-  padding: 3px 6px;
-  margin: -0.25em -1px;
-  border-radius: 3px;
-  font-family: var(--font-mono);
+	display: inline-block;
+	font-size: 0.95em;
+	background: var(--color-inline-code-bg);
+	padding: 3px 6px;
+	margin: -0.25em -1px;
+	border-radius: 3px;
+	font-family: var(--font-mono);
 }
 
 a {
-  color: var(--primary);
-  text-decoration-color: var(--accent-peach);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.125em;
-  font-weight: 500;
-  transition: all 200ms;
+	color: var(--primary);
+	text-decoration-color: var(--accent-peach);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.125em;
+	font-weight: 500;
+	transition: all 200ms;
 }
 
-hr, .divider {
-  border-color: var(--border);
+hr,
+.divider {
+	border-color: var(--border);
 }
 
 .card {
-  background: var(--background-features);
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5em;
+	background: var(--background-features);
+	box-shadow: var(--card-shadow);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 1.5em;
 }
 
 .button-primary {
-  background: var(--primary);
-  color: #1E1A18;
-  border: 1.5px solid var(--button-outline);
-  border-radius: 6px;
-  font-weight: 600;
-  padding: 0.5em 1.25em;
-  box-shadow: var(--card-shadow);
-  transition: background 0.2s;
+	background: var(--primary);
+	color: #1e1a18;
+	border: 1.5px solid var(--button-outline);
+	border-radius: 6px;
+	font-weight: 600;
+	padding: 0.5em 1.25em;
+	box-shadow: var(--card-shadow);
+	transition: background 0.2s;
 }
 
 .button-primary:hover {
-  background: var(--accent-yellow);
+	background: var(--accent-yellow);
 }
 
 .button-secondary {
-  background: var(--secondary);
-  color: var(--primary);
-  border: 1.5px solid var(--button-outline);
-  border-radius: 6px;
-  font-weight: 500;
-  padding: 0.5em 1.25em;
+	background: var(--secondary);
+	color: var(--primary);
+	border: 1.5px solid var(--button-outline);
+	border-radius: 6px;
+	font-weight: 500;
+	padding: 0.5em 1.25em;
 }
 
 .badge {
-  background: var(--badge);
-  color: var(--heading);
-  border-radius: 999px;
-  padding: 0.25em 0.75em;
-  font-size: 0.95em;
-  font-weight: 500;
+	background: var(--badge);
+	color: var(--heading);
+	border-radius: 999px;
+	padding: 0.25em 0.75em;
+	font-size: 0.95em;
+	font-weight: 500;
 }
 
 pre {
-  background: var(--pre-background);
-  padding: 1em;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-family: var(--font-mono);
-  font-size: 0.95em;
+	background: var(--pre-background);
+	padding: 1em;
+	border-radius: 8px;
+	overflow-x: auto;
+	font-family: var(--font-mono);
+	font-size: 0.95em;
 }
 
 .prose {
-  h1, h2, h3, h4 {
-    margin-top: 0px;
-    margin-bottom: 1em;
-  }
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin-top: 0px;
+		margin-bottom: 1em;
+	}
 
-  p {
-    margin-bottom: 1.25em;
-    line-height: 1.6;
-    text-align: justify;
-    word-spacing: normal;
-    text-justify: inter-word;
-    hyphens: auto;
-  }
+	p {
+		margin-bottom: 1.25em;
+		line-height: 1.6;
+		text-align: justify;
+		word-spacing: normal;
+		text-justify: inter-word;
+		hyphens: auto;
+	}
 }

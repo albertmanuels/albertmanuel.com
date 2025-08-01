@@ -1,8 +1,8 @@
 const navigationLinks = [
-  {
-    title: "Blogs",
-    url: "/blogs",
-  },
+	{
+		title: "Blogs",
+		url: "/blogs",
+	},
 ];
 
 export default navigationLinks;
