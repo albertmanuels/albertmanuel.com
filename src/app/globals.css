@@ -262,11 +262,26 @@ pre {
 	h3,
 	h4 {
 		margin-top: 0px;
-		margin-bottom: 1em;
+		margin-bottom: 1.25em;
 	}
 
 	p {
 		margin-bottom: 1.25em;
+		line-height: 1.6;
+		text-align: justify;
+		word-spacing: normal;
+		text-justify: inter-word;
+		hyphens: auto;
+	}
+
+	ul {
+		list-style-type: disc;
+		margin-left: 1.5em;
+		margin-bottom: 1.25em;
+	}
+
+	li {
+		margin-bottom: 0.75em;
 		line-height: 1.6;
 		text-align: justify;
 		word-spacing: normal;

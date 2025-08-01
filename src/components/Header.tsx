@@ -47,7 +47,7 @@ const Header = ({ initialTheme }: Props) => {
   return (
     <header
       className={cn(
-        "fixed top-0 right-0 left-0 z-10 isolate transition-colors duration-300 w-full px-4"
+        "fixed top-0 right-0 left-0 z-10 isolate transition-colors duration-300 w-full"
       )}
     >
       <div
@@ -62,7 +62,7 @@ const Header = ({ initialTheme }: Props) => {
           <Link href="/" className="text-xl font-bold">
             albertmanuel
           </Link>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-4">
             <ul className="flex space-x-4">
               {navigationLinks.map((nav) => (
                 <li key={nav.url}>
