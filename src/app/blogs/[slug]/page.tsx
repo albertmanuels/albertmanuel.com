@@ -5,13 +5,23 @@ import CodeSnippet from "@/components/CodeSnippet/CodeSnippet";
 import { TITLE } from "@/constants/global";
 import { loadBlogPost } from "@/helpers/file-helpers";
 import HeadingWithAnchor from "@/components/HeadingWithAnchor";
+import Link from "next/link";
 
 export const generateMetadata = async (props: {
   params: Promise<{ slug: string }>;
 }) => {
   try {
     const params = await props.params;
-    const { frontmatter } = await loadBlogPost(params.slug);
+    const result = await loadBlogPost(params.slug);
+
+    if (!result) {
+      return {
+        title: `Blog Post ᐧ ${TITLE}`,
+        description: "Blog post not found",
+      };
+    }
+
+    const { frontmatter } = result;
 
     return {
       title: `${frontmatter.title} ᐧ ${TITLE}`,
@@ -30,7 +40,29 @@ async function BlogDetail(props: { params: Promise<{ slug: string }> }) {
   try {
     const params = await props.params;
 
-    const { frontmatter, content } = await loadBlogPost(params.slug);
+    const result = await loadBlogPost(params.slug);
+
+    if (!result) {
+      return (
+        <div className="min-h-[40vh] flex flex-col items-center justify-center text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            Blog post not found or unpublished
+          </h2>
+          <p className="mb-6 text-muted">
+            The blog post you are looking for does not exist or is not published
+            yet.
+          </p>
+          <Link
+            href="/"
+            className="inline-block text-white font-semibold transition"
+          >
+            Back to Home
+          </Link>
+        </div>
+      );
+    }
+
+    const { frontmatter, content } = result;
 
     return (
       <div className="pt-12 pb-20">

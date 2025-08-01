@@ -49,6 +49,11 @@ export const loadBlogPost = cache(async function loadBlogPost(slug: string) {
 		const { data: frontmatter, content } = matter(rawContent);
 		const inferedFrontmatter = frontmatter as PostMeta;
 
+		// Prevent access if not published
+		if (!inferedFrontmatter.published) {
+			return null
+		}
+
 		return { frontmatter: inferedFrontmatter, content };
 	} catch (error) {
 		console.error(`Failed to load blog post: ${slug}`, error);
