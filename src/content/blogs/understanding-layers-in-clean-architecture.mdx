@@ -19,11 +19,11 @@ Example:
 ```jsx
 import UserModel from "../models/user.model"
 
-export class UserDataSource (
+export class UserDataSource {
 	async findById(id) {
 		return await UserModel.findById(id)
 	}
-)
+}
 ```
 
 ## Repository Layer
@@ -35,13 +35,13 @@ Example:
 ```jsx
 import UserDataSource from "../user/user.datasource"
 
-export class UserRepository (
+export class UserRepository {
 	constructor(private dataSource: UserDataSource) {}
 	
 	async getUserId(id){
-		this.dataSource.findById(id)
+		return this.dataSource.findById(id)
 	}
-)
+}
 ```
 
 ## Usecase Layer
