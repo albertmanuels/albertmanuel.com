@@ -1,0 +1,115 @@
+---
+title: "Understanding layers in Clean Architecture: Data Source, Repository, and Usecase layer"
+description: Learn about the Data Source, Repository, and Usecase layers in Clean Architecture
+publishedOn: 2025-08-02
+tags:
+- Clean Architecture
+- Software Design
+- Backend Development
+featured: false
+published: true
+---
+
+## Data Source Layer
+
+Data source is a low-level layer that directly define how our app interact with Database. This layer handles how does our app can get or mutate data on DB.
+
+Example:
+
+```jsx
+import UserModel from "../models/user.model"
+
+export class UserDataSource (
+	async findById(id) {
+		return await UserModel.findById(id)
+	}
+)
+```
+
+## Repository Layer
+
+Repository Layer is a layer to abstract the data access. This logic layer doesn’t need to know about DB and it’s implementation. By that, our logic doesnt care whether we use mongodb/mongoose, they only care about the returning result.
+
+Example:
+
+```jsx
+import UserDataSource from "../user/user.datasource"
+
+export class UserRepository (
+	constructor(private dataSource: UserDataSource) {}
+	
+	async getUserId(id){
+		this.dataSource.findById(id)
+	}
+)
+```
+
+## Usecase Layer
+
+Usecase layer is a layer to implement the business logics or workflows. In terms of clean architecture, we shouldn’t place all business logic in a controller. Instead, we wrapped up all related logic into a usecase layer by it’s context (e.g GetUserUsecase)
+
+The implementation of this layer is to keep controllers clean and neat. The controllers should be focus to handle request and response.
+
+❌ Example of controller without usecase layer
+
+```jsx
+import UserModel from "../models/user.model"
+
+export const getUser = async () => {
+	const user = await UserModel.findOne({ email: req.body.email });
+
+	if (!user) return res.status(404).json({ message: "Not found" });
+	
+	const isMatch = comparePasswords(req.body.password, user.password);
+	
+	if (!isMatch) return res.status(401).json({ message: "Wrong password" });
+	
+	const token = generateJwt(user.id);
+	
+	res.json({ token });
+}
+```
+
+✅ Example of controller with usecase layer
+
+```jsx
+import UserRepository from "./user.repository.js"
+
+export class LoginUserUseCase {
+  constructor(private userRepo: UserRepository) {}
+
+  async execute(email: string, password: string) {
+    const user = await this.userRepo.getByEmail(email);
+    if (!user) throw new Error("User not found");
+
+    const match = comparePasswords(password, user.password);
+    if (!match) throw new Error("Invalid credentials");
+
+    const token = generateJwt(user.id);
+
+    return { token };
+  }
+}
+```
+
+```jsx
+import LoginUserUseCase from "./login-user.usecase.js";
+
+const useCase = new LoginUserUseCase(userRepo);
+
+export const getUser = async () => {
+	try {
+	  const { token } = await useCase.execute(req.body.email, req.body.password);
+	  res.json({ token });
+	} catch (err) {
+	  res.status(401).json({ message: err.message });
+	}
+}
+```
+
+<aside>
+💡
+
+Rule of thumb: If controllers is doing more than one or two things, move the logic into a Use Case.
+
+</aside>
