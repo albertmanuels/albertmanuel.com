@@ -1,18 +1,21 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import React from "react";
 import BlogHero from "@/components/BlogHero";
 import CodeSnippet from "@/components/CodeSnippet/CodeSnippet";
 import { TITLE } from "@/constants/global";
-import { loadBlogPost } from "@/helpers/file-helpers";
+import { getContentDetail } from "@/helpers/file-helpers";
 import HeadingWithAnchor from "@/components/HeadingWithAnchor";
 import Link from "next/link";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 export const generateMetadata = async (props: {
   params: Promise<{ slug: string }>;
 }) => {
   try {
     const params = await props.params;
-    const result = await loadBlogPost(params.slug);
+    const result = await getContentDetail({
+      contentDir: "./src/content/blogs",
+      slug: params.slug,
+    });
 
     if (!result) {
       return {
@@ -40,7 +43,10 @@ async function BlogDetail(props: { params: Promise<{ slug: string }> }) {
   try {
     const params = await props.params;
 
-    const result = await loadBlogPost(params.slug);
+    const result = await getContentDetail({
+      contentDir: "./src/content/blogs",
+      slug: params.slug,
+    });
 
     if (!result) {
       return (
